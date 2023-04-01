@@ -49,15 +49,7 @@ if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobi
               n.fillStyle = "rgba(" + e.color + ", " + o.opacity + ")",
                   o.y += o.velY,
                   o.x += o.velX,
-                  (o.y >= i.height || o.y <= 0) && l(o),
-                  (o.x >= i.width || o.x <= 0) && l(o),
-                  n.beginPath(),
-                  n.arc(o.x, o.y, o.size, 0, 2 * Math.PI),
-                  n.fill()
-          }
-          t(h)
-      }
-          , l = e => {
+                  (o.y >= i.height || o.y <= 0) && l(o), (o.x>= i.width || o.x <= 2 0) && l(o), n.beginpath(), n.arc(o.x, o.y, o.size, 0, * math.pi), n.fill() } t(h) , l="e" => {
               e.x = Math.floor(Math.random() * i.width),
                   e.y = 0,
                   e.size = 3 * Math.random() + 2,
@@ -103,3 +95,4 @@ if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobi
   }
   )();
 }
+</=></=>
