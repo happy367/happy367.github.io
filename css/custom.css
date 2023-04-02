@@ -21,89 +21,12 @@
 [data-theme="dark"] #page-header::before {
   background: transparent !important;
 }
+
+
 /* 翻页按钮居中 */
 #pagination {
   width: 100%;
   margin: auto;
-}
-
-
-body::-webkit-scrollbar {
-  width: 0;
-}
-
-.neko {
-  width: 64px;
-  height: 64px;
-  background-image: url("https://bu.dusays.com/2022/07/20/62d812db74be9.png");
-  position: absolute;
-  right: 32px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transform: translateX(50%);
-  cursor: pointer;
-  font-family: tzy;
-  font-weight: 600;
-  font-size: 16px;
-  color: #6f42c1;
-  display: none;
-}
-
-.neko::after {
-  display: none;
-  width: 100px;
-  height: 100px;
-  background-image: url("https://bu.dusays.com/2022/07/20/62d812d95e6f5.png");
-  background-size: contain;
-  z-index: 9999;
-  position: absolute;
-  right: 50%;
-  text-align: center;
-  line-height: 100px;
-  top: -115%;
-
-}
-
-.neko.showMsg::after {
-  content: attr(data-msg);
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.neko:hover::after {
-  content: attr(data-msg);
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.neko.fontColor::after {
-  color: #333;
-}
-
-/**
-* @description: 滚动条样式  跟猫二选一
-*/
-@media screen and (max-width:992px) {
-  ::-webkit-scrollbar {
-      width: 8px !important;
-      height: 8px !important
-  }
-
-  ::-webkit-scrollbar-track {
-      border-radius: 2em;
-  }
-
-  ::-webkit-scrollbar-thumb {
-      background-color: rgb(255 255 255 / .3);
-      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
-      border-radius: 2em
-  }
-
-  ::-webkit-scrollbar-corner {
-      background-color: transparent
-  }
 }
 
 
@@ -196,22 +119,6 @@ h6::before {
   animation: ccc 6s linear infinite;
 }
 
-/* 雪花特效 */
-[data-theme="light"] #snow{
-  display: block;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -2;
-}
-
-/* 雪花黑夜模式不显示 */
-[data-theme="dark"] #snow{
-  display: none;
-}
 
 /* 页面样式调节 */
 :root {
@@ -220,23 +127,6 @@ h6::before {
   --border-style: 1px solid rgb(169, 169, 169);
   --backdrop-filter: blur(5px) saturate(150%);
 }
-
-/* 首页文章卡片 */
-#recent-posts > .recent-post-item {
-  background: var(--trans-light);
-  backdrop-filter: var(--backdrop-filter);
-  border-radius: 25px;
-  border: var(--border-style);
-}
-
-/* 首页侧栏卡片 */
-#aside-content .card-widget {
-  background: var(--trans-light);
-  backdrop-filter: var(--backdrop-filter);
-  border-radius: 18px;
-  border: var(--border-style);
-}
-
 /* 文章页、归档页、普通页面 */
 div#post,
 div#page,
@@ -273,14 +163,6 @@ div#archive {
 }
 [data-theme="dark"] #page-header::before {
   background: transparent !important;
-}
-
-/* 阅读模式 */
-.read-mode #aside-content .card-widget {
-  background: rgba(158, 204, 171, 0.5) !important;
-}
-.read-mode div#post {
-  background: rgba(158, 204, 171, 0.5) !important;
 }
 
 /* 夜间模式下的阅读模式 */
