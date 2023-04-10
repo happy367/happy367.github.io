@@ -137,7 +137,7 @@
       <link href="/2023/03/31/git/"/>
       <url>/2023/03/31/git/</url>
       
-        <content type="html"><![CDATA[<h2 id="git分支操作"><a href="#git分支操作" class="headerlink" title="git分支操作"></a>git分支操作</h2><p>1、初始化项目，初始化git仓库，做一次提交操作。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init # 当前项目初始化为git仓库</span><br><span class="line">git add . # 当前目录所有文件上传到暂存区域</span><br><span class="line">git commit -m ‘init project’ # 将暂存区域文件上传到本地仓库</span><br></pre></td></tr></table></figure><p>2、创建分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名字 # 创建制定名称的分支</span><br><span class="line">git branch dev</span><br></pre></td></tr></table></figure><p>3、查看分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch # 查看所有分支，* 表示当前工作分支</span><br><span class="line">git branch -v # 查看分支详情，包括了分支指向commitId以及提交信息</span><br></pre></td></tr></table></figure><p>4、切换分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名字 # 切换到指定分支</span><br><span class="line">git checkout -b 分支名字 # 创建并且切换分支</span><br></pre></td></tr></table></figure><p>5、删除分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d 分支名字 # 删除一个干净的分支(即相对当前分支而言该分支没有新的提交记录)</span><br><span class="line">git branch -D 分支名字 # 强制删除一个分支，该分支有没有合并到当前分支的提交记录</span><br></pre></td></tr></table></figure><p>6、重命名分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -m 分支名 新的分支名</span><br><span class="line">例子说明：</span><br><span class="line">git branch -m dev Dev1</span><br><span class="line">git branch -v # 查看所有分支详情</span><br></pre></td></tr></table></figure><h2 id="版本回退指令"><a href="#版本回退指令" class="headerlink" title="版本回退指令"></a>版本回退指令</h2><ul><li>回退版本：<br>git reset –hard HEAD^ //回退到上一个版本，HEAD指当前版本 ‘^’上一个<br>git reset –hard commit_id //回退到指定commit id版本，可通过git log查看提交日志<br>git revert commit_id //前进一个版本此版本的内容为指定的commit_id版本的内容</li><li>配合使用：<br>git log –pretty=online //查看提交日志，从而查到commit_id<br>git reflog //查看命令历史</li><li>git revert与git reset的区别</li></ul><p>如果已经有A -&gt; B -&gt; C，想回到B：<br><strong>方法一</strong>：reset到B，丢失C：<br>相当于变成A -&gt; B</p><p><strong>方法二：</strong>再提交一个revert反向修改，变成B：<br>相当于变成A -&gt; B -&gt; C -&gt; B<br>C还在，但是两个B是重复的</p><p>看你的需求，也许C就是瞎提交错了（比如把密码提交上去了），必须reset<br>如果C就是修改，现在又要改回来，将来可能再改成C，那你就revert</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="git分支操作"><a href="#git分支操作" class="headerlink" title="git分支操作"></a>git分支操作</h2><p>1、初始化项目，初始化git仓库，做一次提交操作。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init # 当前项目初始化为git仓库</span><br><span class="line">git add . # 当前目录所有文件上传到暂存区域</span><br><span class="line">git commit -m ‘init project’ # 将暂存区域文件上传到本地仓库</span><br></pre></td></tr></table></figure><p>2、创建分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名字 # 创建制定名称的分支</span><br><span class="line">git branch dev</span><br></pre></td></tr></table></figure><p>3、查看分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch # 查看所有分支，* 表示当前工作分支</span><br><span class="line">git branch -v # 查看分支详情，包括了分支指向commitId以及提交信息</span><br></pre></td></tr></table></figure><p>4、切换分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名字 # 切换到指定分支</span><br><span class="line">git checkout -b 分支名字 # 创建并且切换分支</span><br></pre></td></tr></table></figure><p>5、删除分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d 分支名字 # 删除一个干净的分支(即相对当前分支而言该分支没有新的提交记录)</span><br><span class="line">git branch -D 分支名字 # 强制删除一个分支，该分支有没有合并到当前分支的提交记录</span><br></pre></td></tr></table></figure><p>6、重命名分支</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -m 分支名 新的分支名</span><br><span class="line">例子说明：</span><br><span class="line">git branch -m dev Dev1</span><br><span class="line">git branch -v # 查看所有分支详情</span><br></pre></td></tr></table></figure><h2 id="git版本回退指令"><a href="#git版本回退指令" class="headerlink" title="git版本回退指令"></a>git版本回退指令</h2><ul><li>回退版本：<br>git reset –hard HEAD^ //回退到上一个版本，HEAD指当前版本 ‘^’上一个<br>git reset –hard commit_id //回退到指定commit id版本，可通过git log查看提交日志<br>git revert commit_id //前进一个版本此版本的内容为指定的commit_id版本的内容</li><li>配合使用：<br>git log –pretty=online //查看提交日志，从而查到commit_id<br>git reflog //查看命令历史</li><li>git revert与git reset的区别</li></ul><p>如果已经有A -&gt; B -&gt; C，想回到B：<br><strong>方法一</strong>：reset到B，丢失C：<br>相当于变成A -&gt; B</p><p><strong>方法二：</strong>再提交一个revert反向修改，变成B：<br>相当于变成A -&gt; B -&gt; C -&gt; B<br>C还在，但是两个B是重复的</p><p>看你的需求，也许C就是瞎提交错了（比如把密码提交上去了），必须reset<br>如果C就是修改，现在又要改回来，将来可能再改成C，那你就revert</p><h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><table><thead><tr><th></th><th>命令</th></tr></thead><tbody><tr><td>新建文章</td><td>hexo new “ title”</td></tr><tr><td>清理缓存文件</td><td>hexo clean</td></tr><tr><td>生成静态文件</td><td>hexo generate</td></tr><tr><td>启动本地服务器</td><td>hexo server</td></tr><tr><td>部署网站</td><td>hexo deploy</td></tr></tbody></table>]]></content>
       
       
       <categories>
@@ -315,9 +315,9 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -337,9 +337,9 @@
     
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -348,9 +348,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
