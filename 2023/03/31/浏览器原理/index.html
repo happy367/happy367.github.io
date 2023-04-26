@@ -1,0 +1,1448 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>浏览器 | 豆豆想吃骨头</title><meta name="author" content="happy"><meta name="copyright" content="happy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="vue实现seovue默认是单页面（spa），npm run build打包后，只会生成一个index.html文件。默认是先有dom结构（dom里面是没有数据内容的），再加载数据；所以搜索引擎抓取dom结构，而里面没有数据内容，就无法抓取内容、关键词等就会直接返回，所以seo不友好 预渲染prerender-spa-plugin指的是在页面dom加载前，先调用接口渲染页面 优点：设置预渲染更简单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器">
+<meta property="og:url" content="http://example.com/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="豆豆想吃骨头">
+<meta property="og:description" content="vue实现seovue默认是单页面（spa），npm run build打包后，只会生成一个index.html文件。默认是先有dom结构（dom里面是没有数据内容的），再加载数据；所以搜索引擎抓取dom结构，而里面没有数据内容，就无法抓取内容、关键词等就会直接返回，所以seo不友好 预渲染prerender-spa-plugin指的是在页面dom加载前，先调用接口渲染页面 优点：设置预渲染更简单">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/dm1.webp">
+<meta property="article:published_time" content="2023-03-31T06:43:29.000Z">
+<meta property="article:modified_time" content="2023-04-26T08:15:57.818Z">
+<meta property="article:author" content="happy">
+<meta property="article:tag" content="浏览器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/dm1.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '浏览器',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-26 16:15:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/dm1.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="豆豆想吃骨头"><span class="site-name">豆豆想吃骨头</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">浏览器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-31T06:43:29.000Z" title="发表于 2023-03-31 14:43:29">2023-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-26T08:15:57.818Z" title="更新于 2023-04-26 16:15:57">2023-04-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%AB%E8%82%A1%E6%96%87/">八股文</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="vue实现seo"><a href="#vue实现seo" class="headerlink" title="vue实现seo"></a>vue实现seo</h2><p>vue默认是单页面（spa），npm run build打包后，只会生成一个index.html文件。默认是先有dom结构（dom里面是没有数据内容的），再加载数据；所以搜索引擎抓取dom结构，而里面没有数据内容，就无法抓取内容、关键词等就会直接返回，所以seo不友好</p>
+<h3 id="预渲染prerender-spa-plugin"><a href="#预渲染prerender-spa-plugin" class="headerlink" title="预渲染prerender-spa-plugin"></a>预渲染prerender-spa-plugin</h3><p>指的是在页面dom加载前，先调用接口渲染页面</p>
+<p>优点：设置预渲染更简单，改动小，并可以将你的前端作为一个完全静态的站点。<br>缺点：没有动态路由，比如商品详情、文章详情页，一般是动态设置后面的id。但是预渲染不能使用动态路由，只适用少量页面的项目</p>
+<h3 id="服务端渲染ssr"><a href="#服务端渲染ssr" class="headerlink" title="服务端渲染ssr"></a>服务端渲染ssr</h3><p>将Vue在客户端把标签渲染成HTML的工作放在服务端完成，然后再把html直接返回给客户端。<br>服务端渲染：nuxt.js<br>优势：可以完美解决seo各种问题（解决了预渲染不支持动态路由，title闪烁），同时seo可直接查看完全渲染的页面，同时客户端体验更好<br>缺点：服务器压力大</p>
+<p>如何实现：</p>
+<ul>
+<li>一套代码两套执行环境，服务端没有window、document对象，需要就加判断</li>
+<li>使用npm包，带有dom才做的，不能用import的方式，改用require方式</li>
+<li>nuxt asyncData方式，并发加载多个接口来获取数据。在初始化页面前先得到数据，但仅限于页面组件调用</li>
+<li>服务器端渲染只支持beforeCreate和created两个钩子，</li>
+<li>部分v-if要改成v-show</li>
+</ul>
+<h3 id="nuxt静态应用部署"><a href="#nuxt静态应用部署" class="headerlink" title="nuxt静态应用部署"></a>nuxt静态应用部署</h3><p>Nuxt.js 可依据路由配置将应用静态化，使得我们可以将应用部署至任何一个静态站点主机服务商。</p>
+<p>优势：纯静态文件，访问速度超快； 对比SSR，不涉及到服务器负载方面问题； 静态网页不宜遭到黑客攻击，安全性更高。</p>
+<p>不足：<br>如果动态路由参数多的话不适用。如果你的动态路由的参数很多，例如商品详情，可能高达几千几万个。需要一个接口返回所有id，然后打包时遍历id，打包到本地，如果某个商品修改了或者下架了，又要重新打包，数量多的情况下打包也是非常慢的，非常不现实。</p>
+<h2 id="前后端实时通信方法"><a href="#前后端实时通信方法" class="headerlink" title="前后端实时通信方法"></a>前后端实时通信方法</h2><h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><p>优点：WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的协议，可从HTTP升级而来，浏览器和服务器只需要一次握手，就可以进行持续的，双向的数据传输，因此能显著节约资源和带宽</p>
+<p>缺点：</p>
+<ol>
+<li>兼容性问题:不支持较低版本的IE浏览器（IE9及以下）</li>
+<li>不支持断线重连，需要手写心跳连接的逻辑</li>
+<li>通信机制相对复杂</li>
+</ol>
+<h3 id="server-sent-events-SSE"><a href="#server-sent-events-SSE" class="headerlink" title="server-sent -events SSE"></a>server-sent -events SSE</h3><p>服务器向客户端声明，接下来要发送的是流信息，也就是说，发送的不是一次性的数据包，而是一个数据流，会连续不断地发送过来。这时，客户端不会关闭连接，会一直等着服务器发过来的新的数据流，视频播放就是这样的例子。本质上，这种通信就是以流信息的方式，完成一次用时很长的下载</p>
+<p>优点：（1）只需一次请求，便可以stream的方式多次传送数据，节约资源和带宽 （2）相对WebSocket来说简单易用 （3）内置断线重连功能(retry)</p>
+<p>缺点： （1）是单向的，只支持服务端-&gt;客户端的数据传送，客户端到服务端的通信仍然依靠AJAX，（2）兼容性令人担忧，IE浏览器完全不支持</p>
+<h3 id="ajax轮询"><a href="#ajax轮询" class="headerlink" title="ajax轮询"></a>ajax轮询</h3><p>优点：兼容性良好，对标低版本IE<br>缺点：请求中有大半是无用的请求，浪费资源</p>
+<h3 id="永久帧"><a href="#永久帧" class="headerlink" title="永久帧"></a>永久帧</h3><p>缺点： iframe会产生进度条一直存在的问题，用户体验差<br>优点：兼容低版本IE浏览器</p>
+<h3 id="flash-socket"><a href="#flash-socket" class="headerlink" title="flash socket"></a>flash socket</h3><p>缺点：（1）浏览器开启时flash需要用户确认，（2）加载时间长，用户体验较差 （3）大多数移动端浏览器不支持flash，为重灾区优点： 兼容低版本浏览器</p>
+<h2 id="前端反爬虫"><a href="#前端反爬虫" class="headerlink" title="前端反爬虫"></a>前端反爬虫</h2><p>一些网站的敏感数据为了防止被爬虫抓取，同时也为了不影响seo，会采用反爬虫的策略。</p>
+<h3 id="常见的反爬虫策略"><a href="#常见的反爬虫策略" class="headerlink" title="常见的反爬虫策略"></a>常见的反爬虫策略</h3><ul>
+<li>后端<ul>
+<li>验证码</li>
+<li>cookie验证</li>
+<li>user-agent验证</li>
+</ul>
+</li>
+<li>前端<ul>
+<li>伪元素隐藏：把关键词写在伪元素里面，当爬取数据时，需要解析css</li>
+<li>元素定位覆盖式：按照一定的规则重新定位、排序元素</li>
+<li>font-face：改变源代码所使用的的字符集，通过unicode去映射来展示到页面上</li>
+<li>图片剪切：页面显示图片的一部分，通过background-position来定位显示</li>
+<li>字符串分割</li>
+</ul>
+</li>
+</ul>
+<h2 id="前端安全问题"><a href="#前端安全问题" class="headerlink" title="前端安全问题"></a>前端安全问题</h2><p>前端常见安全问题有8个方面</p>
+<p><img src="https://zyhxwing.gitee.io/images/browser/1345_1.png" alt="前端常见安全问题"></p>
+<p><strong>前端常见安全问题</strong></p>
+<h3 id="XSS跨站脚本攻击"><a href="#XSS跨站脚本攻击" class="headerlink" title="XSS跨站脚本攻击"></a>XSS跨站脚本攻击</h3><p>XSS 攻击指的是跨站脚本攻击，是一种代码注入攻击。攻击者通过在网站注入恶意脚本，使之在用户的浏览器上运行，从而盗取用户的信息如 cookie 等。</p>
+<p>XSS 的本质是因为网站没有对恶意代码进行过滤，与正常的代码混合在一起了，浏览器没有办法分辨哪些脚本是可信的，从而导致了恶意代码的执行。</p>
+<p>攻击者可以通过这种攻击方式可以进行以下操作：</p>
+<ul>
+<li>获取页面的数据，如DOM、cookie、localStorage；</li>
+<li>DOS攻击，发送合理请求，占用服务器资源，从而使用户无法访问服务器；</li>
+<li>破坏页面结构；</li>
+<li>流量劫持（将链接指向某网站）；</li>
+</ul>
+<h4 id="攻击类型"><a href="#攻击类型" class="headerlink" title="攻击类型"></a>攻击类型</h4><p>XSS 可以分为存储型、反射型和 DOM 型：</p>
+<ul>
+<li>存储型指的是恶意脚本会存储在目标服务器上，当浏览器请求数据时，脚本从服务器传回并执行。</li>
+<li>反射型指的是攻击者诱导用户访问一个带有恶意代码的 URL 后，服务器端接收数据后处理，然后把带有恶意代码的数据发送到浏览器端，浏览器端解析这段带有 XSS 代码的数据后当做脚本执行，最终完成 XSS 攻击。 </li>
+<li>DOM 型指的通过修改页面的 DOM 节点形成的 XSS。</li>
+</ul>
+<p><strong>存储型</strong></p>
+<p>又叫持久型 XSS，顾名思义，黑客将恶意 JavaScript 脚本长期保存在服务端数据库中，用户一旦访问相关页面数据，恶意脚本就会被执行。常见于搜索、微博、社区贴吧评论等。</p>
+<p>存储型 XSS 的攻击步骤：</p>
+<ul>
+<li>攻击者将恶意代码提交到目标网站的数据库中。</li>
+<li>用户打开目标网站时，网站服务端将恶意代码从数据库取出，拼接在 HTML 中返回给浏览器。</li>
+<li>用户浏览器接收到响应后解析执行，混在其中的恶意代码也被执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作</li>
+</ul>
+<p><strong>反射型</strong></p>
+<p>顾名思义，恶意 JavaScript 脚本属于用户发送给网站请求中的一部分，随后网站又将这部分返回给用户，恶意脚本在页面中被执行。一般发生在前后端一体的应用中，服务端逻辑会改变最终的网页代码。</p>
+<p>反射型 XSS 的攻击步骤：</p>
+<ul>
+<li>攻击者构造出特殊的 URL，其中包含恶意代码。</li>
+<li>用户打开带有恶意代码的 URL 时，网站服务端将恶意代码从 URL 中取出，拼接在 HTML 中返回给浏览器。</li>
+<li>用户浏览器接收到响应后解析执行，混在其中的恶意代码也被执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ul>
+<p><strong>DOM型</strong></p>
+<p>目前更流行前后端分离的项目，反射型 XSS 无用武之地。 但这种攻击不需要经过服务器，我们知道，网页本身的 JavaScript 也是可以改变 HTML 的，黑客正是利用这一点来实现插入恶意脚本。</p>
+<p>基于DOM 的 XSS 攻击步骤：</p>
+<ul>
+<li>攻击者构造出特殊的 URL，其中包含恶意代码。</li>
+<li>用户打开带有恶意代码的 URL。</li>
+<li>用户浏览器接收到响应后解析执行，前端 JavaScript 取出 URL 中的恶意代码并执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ul>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
+<li>反射型的 XSS 的恶意脚本存在 URL 里，存储型 XSS 的恶意代码存在数据库里。反射型 XSS 攻击常见于通过 URL 传递参数的功能，如网站搜索、跳转等。</li>
+<li>存储型XSS攻击常见于带有用户保存数据的网站功能，如论坛发帖、商品评论、用户私信等。</li>
+<li>基于DOM的XSS 攻击中，取出和执行恶意代码由浏览器端完成，属于前端 JavaScript 自身的安全漏洞，其他两种 XSS 都属于服务端的安全漏洞。</li>
+</ul>
+<h4 id="防范措施"><a href="#防范措施" class="headerlink" title="防范措施"></a>防范措施</h4><ul>
+<li>前端输入过滤</li>
+<li>对html做充分转移</li>
+<li>纯前端渲染，把代码和数据分割开</li>
+<li>在使用innerhtml时不能把不可信的数据作为html插入到网页上，避免把用户输入的数据拼接到字符串中，再将该字符串传递给能运行字符串代码的api</li>
+<li>CSP内容安全策略，定义域名白名单</li>
+<li>设置cookie的httponly，禁止js读取cookie</li>
+<li>使用验证码来防止脚本冒充用户</li>
+</ul>
+<h3 id="CSRF跨站请求伪造"><a href="#CSRF跨站请求伪造" class="headerlink" title="CSRF跨站请求伪造"></a>CSRF跨站请求伪造</h3><p>CSRF（Cross-site request forgery）跨站请求伪造：攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站执行某项操作的目的。</p>
+<p>CSRF 攻击的<strong>本质是利用 cookie 会在同源请求中携带发送给服务器的特点，以此来实现用户的冒充。</strong></p>
+<h4 id="CSRF攻击流程"><a href="#CSRF攻击流程" class="headerlink" title="CSRF攻击流程"></a>CSRF攻击流程</h4><ul>
+<li>受害者登录A网站，并且保留了登录凭证（Cookie）</li>
+<li>攻击者引诱受害者访问B网站</li>
+<li>B网站向A网站发送了一个请求（这个就是下面将介绍的几种伪造请求的方式），浏览器请求头中会默认携带 A 网站的 CookieA 网站</li>
+<li>服务器收到请求后，经过验证发现用户是登录了的，所以会处理请求</li>
+</ul>
+<h4 id="CSRF攻击类型"><a href="#CSRF攻击类型" class="headerlink" title="CSRF攻击类型"></a>CSRF攻击类型</h4><ul>
+<li>GET 类型的 CSRF 攻击，比如在网站中的一个 img 标签里构建一个请求，当用户打开这个网站的时候就会自动发起提交。</li>
+<li>POST 类型的 CSRF 攻击，比如构建一个表单，然后隐藏它，当用户进入页面时，自动提交这个表单。</li>
+<li>链接类型的 CSRF 攻击，比如在 a 标签的 href 属性里构建一个请求，然后诱导用户去点击。</li>
+</ul>
+<h4 id="CSRF特点"><a href="#CSRF特点" class="headerlink" title="CSRF特点"></a>CSRF特点</h4><ul>
+<li>攻击一般发起在第三方网站，而不是被攻击的网站。被攻击的网站无法防止攻击发生。</li>
+<li>攻击利用受害者在被攻击网站的登录凭证，冒充受害者提交操作；而不是直接窃取数据。</li>
+<li>整个过程攻击者并不能获取到受害者的登录凭证，仅仅是“冒用”。</li>
+<li>跨站请求可以用各种方式：图片URL、超链接、CORS、Form提交等等。部分请求方式可以直接嵌入在第三方论坛、文章中，难以进行追踪。</li>
+</ul>
+<h4 id="CSRF防范措施"><a href="#CSRF防范措施" class="headerlink" title="CSRF防范措施"></a>CSRF防范措施</h4><ul>
+<li>浏览器同源检测</li>
+<li>CSRF Token，服务器生一个随机字符串提供给浏览器，当浏览器再次请求时，需要携带该字符串，如果两次不一致则拒绝</li>
+<li>Cookie设置合适的SameSite，禁止第三方请求头携带cookie（strict），默认是lax模式，打开了新的页面且是get请求可以携带cookie，none代表可以携带</li>
+</ul>
+<h3 id="CDN劫持"><a href="#CDN劫持" class="headerlink" title="CDN劫持"></a>CDN劫持</h3><p>它的名字就叫做CDN——Content Delivery Network，内容分发网络。具体来说，CDN就是采用更多的缓存服务器（CDN边缘节点），布放在用户访问相对集中的地区或网络中。当用户访问网站时，利用全局负载技术，将用户的访问指向距离最近的缓存服务器上，由缓存服务器响应用户请求。（有点像电商的本地仓吧？）CDN应用广泛，支持多种行业、多种场景内容加速，例如：图片小文件、大文件下载、视音频点播、直播流媒体、全站加速、安全加速。</p>
+<p>网络上有很多黑客为了让用户能够登录自己开发的钓鱼网站，都会通过对CDN进行劫持的方法，让用户自动转入自己开发的网站。而很多用户却往往无法察觉到自己已经被劫持。其实验证被劫持的方法，就是输入任何网址看看所打开的网页是否和自己输入的网址一致，</p>
+<h4 id="解决措施"><a href="#解决措施" class="headerlink" title="解决措施"></a>解决措施</h4><ul>
+<li>使用SRI 子资源完整性来判断是否被篡改，通过给 link 标签或者 script 标签增加 integrity 属性即可开启 SRI 功能</li>
+</ul>
+<p>当浏览器在 script 或者 link 标签中遇到 integrity 属性之后，会在执行脚本或者应用样式表之前对比所加载文件的哈希值和期望的哈希值。当脚本或者样式表的哈希值和期望的不一致时，浏览器必须拒绝执行脚本或者应用样式表，并且必须返回一个网络错误说明获得脚本或样式表失败。</p>
+<h3 id="CSP内容安全策略"><a href="#CSP内容安全策略" class="headerlink" title="CSP内容安全策略"></a>CSP内容安全策略</h3><p>内容安全策略（Content Security Policy）简称 CSP，通过它可以明确的告诉客户端浏览器当前页面的哪些外部资源可以被加载执行，而哪些又是不可以的。</p>
+<h4 id="CSP的意义"><a href="#CSP的意义" class="headerlink" title="CSP的意义"></a>CSP的意义</h4><p>防XSS等攻击的利器。CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。<br>CSP的分类</p>
+<p>Content-Security-Policy 配置好并启用后，不符合 CSP 的外部资源就会被阻止加载。<br>Content-Security-Policy-Report-Only 表示不执行限制选项，只是记录违反限制的行为。它必须与report-uri选项配合使用。</p>
+<h4 id="CSP的使用"><a href="#CSP的使用" class="headerlink" title="CSP的使用"></a>CSP的使用</h4><ul>
+<li>通过 HTTP 头配置 Content-Security-Policy，以下配置说明该页面只允许当前源和 <a target="_blank" rel="noopener" href="https://apis.google.com/">https://apis.google.com</a> 这 2 个源的脚本加载和执行：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Content</span>-<span class="title class_">Security</span>-<span class="title class_">Policy</span>: script-src <span class="string">&#x27;self&#x27;</span> <span class="attr">https</span>:<span class="comment">//apis.google.com</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过页面meta标签配置</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">&quot;Content-Security-Policy&quot;</span> content=<span class="string">&quot;script-src &#x27;self&#x27; https://apis.google.com&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Iframe"><a href="#Iframe" class="headerlink" title="Iframe"></a>Iframe</h3><p>iframe在给我们的页面带来更多丰富的内容和能力的同时，也带来了不少的安全隐患。因为iframe中的内容是由第三方来提供的，默认情况下他们不受我们的控制，他们可以在iframe中运行JavaScirpt脚本、Flash插件、弹出对话框等等，这可能会破坏前端用户体验。</p>
+<h4 id="如何让自己的网站不被其他网站的iframe引用？"><a href="#如何让自己的网站不被其他网站的iframe引用？" class="headerlink" title="如何让自己的网站不被其他网站的iframe引用？"></a>如何让自己的网站不被其他网站的iframe引用？</h4><p>js的防御方案：</p>
+<ul>
+<li>将下面这段代码放到网站页面的body标签前，这样别人在通过iframe框架引用你的网站网页时，浏览器会自动跳转到你的网站所引用的页面上。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">if</span> (self == top) &#123;</span><br><span class="line">    <span class="keyword">var</span> theBody = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;body&#x27;</span>)[<span class="number">0</span>];</span><br><span class="line">    theBody.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&quot;block&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    top.<span class="property">location</span> = self.<span class="property">location</span>;</span><br><span class="line">    <span class="comment">//判断当前窗体的url和父窗体的url是不是相同，如果不相同，则把窗体的url设成和本窗体一样。</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用<strong>X-Frame-Options</strong>防止网页被iframe：X-FRAME-OPTIONS是微软提出的一个http头，专门用来防御利用iframe嵌套的点击劫持攻击。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DENY               // 拒绝任何域加载</span><br><span class="line">SAMEORIGIN         // 允许同源域下加载</span><br><span class="line">ALLOW-FROM         // 可以定义允许frame加载的页面地址</span><br></pre></td></tr></table></figure>
+
+<h4 id="如何禁止被使用的-iframe-对当前网站某些操作？"><a href="#如何禁止被使用的-iframe-对当前网站某些操作？" class="headerlink" title="如何禁止被使用的 iframe 对当前网站某些操作？"></a>如何禁止被使用的 iframe 对当前网站某些操作？</h4><p>sandbox是html5的新属性，主要是提高iframe安全系数。iframe因安全问题而臭名昭著，这主要是因为iframe常被用于嵌入到第三方中，然后执行某些恶意操作。现在有一场景：我的网站需要 iframe 引用某网站，但是不想被该网站操作DOM、不想加载某些js（广告、弹框等）、当前窗口被强行跳转链接等，我们可以设置 sandbox 属性:</p>
+<ul>
+<li>allow-same-origin：允许被视为同源，即可操作父级DOM或cookie等</li>
+<li>allow-top-navigation：允许当前iframe的引用网页通过url跳转链接或加载</li>
+<li>allow-forms：允许表单提交</li>
+<li>allow-scripts：允许执行脚本文件</li>
+<li>allow-popups：允许浏览器打开新窗口进行跳转</li>
+<li>“”：设置为空时上面所有允许全部禁止</li>
+</ul>
+<h2 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h2><h3 id="编码阶段"><a href="#编码阶段" class="headerlink" title="编码阶段"></a>编码阶段</h3><ol>
+<li>尽量减少data中的数据，data中的数据都会增加getter和setter，会收集对应的watcher</li>
+<li>v-if和v-for不能连用如果需要使用v-for给每项元素绑定事件时使用事件代理</li>
+<li>SPA 页面采用keep-alive缓存组件</li>
+<li>在更多的情况下，使用v-if替代v-show</li>
+<li>key保证唯一使用</li>
+<li>路由懒加载、</li>
+<li>异步组件防抖、节流</li>
+<li>第三方模块按需导入</li>
+<li>长列表滚动到可视区域动态加载</li>
+<li><strong>图片懒加载</strong></li>
+<li>用css去代替图片</li>
+<li><strong>减少http请求</strong>(图片采用css sprite的方式来减少请求，用background-image和background-position属性来定位)</li>
+<li>使用http2</li>
+<li>将 CSS 放在文件头部，javascript 文件放在底部</li>
+<li>选择link而舍弃@import引入</li>
+<li><strong>将多个JS、CSS文件合并到一个文件里面去</strong></li>
+<li><strong>建立独立图片服务器</strong>，把前端静态文件中的js、css、图片等资源都放到另一个服务器上</li>
+<li>使用梯子图标代替图片图标</li>
+<li>减少重绘和回流</li>
+<li>合理使用事件委托，即事件冒泡，通过给父组件增加方法以避免给子组件增加方法</li>
+<li>当判断条件数量越来越多时，越倾向于使用 switch 而不是 if-else</li>
+<li>计算的时候尽量使用位操作</li>
+<li>使用 flexbox 而不是较早的布局模型</li>
+<li>使用 transform 和 opacity 属性更改来实现动画 </li>
+<li>使用 requestAnimationFrame 来实现视觉变化</li>
+<li>使用<strong>防抖节流</strong>来控制流量</li>
+</ol>
+<h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><ol>
+<li>预渲染</li>
+<li>服务端渲染SSR</li>
+</ol>
+<h3 id="打包优化"><a href="#打包优化" class="headerlink" title="打包优化"></a>打包优化</h3><ol>
+<li>压缩代码</li>
+<li>Tree Shaking/Scope Hoisting</li>
+<li><strong>使用cdn加载第三方模块</strong></li>
+<li>多线程打包happypack</li>
+<li>splitChunks抽离公共文件</li>
+<li>sourceMap优化</li>
+<li>webpack降低图片质量</li>
+</ol>
+<h3 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h3><ol>
+<li>骨架屏（使用vue-content-loader可自定义的SVG组件，用于创建占位符加载，在需要使用骨架屏的页面引入组件，使用标签Suspense包裹骨架屏占位组件，当真实dom渲染完毕的时候，隐藏占位组件 ）</li>
+<li>PWA（渐进式网络应用基本上算是web应用程序，但在外观和感觉上与原生app类似。支持PWA的网站可以提供脱机工作、推送通知和设备硬件访问等功能。)</li>
+<li><strong>使用缓存(客户端缓存、服务端缓存)</strong></li>
+<li><strong>服务端开启gzip压缩</strong>，客户端请求头加上Accept-Encoding: gzip, deflate，同时服务器将响应头设置上 Content-encoding: gzip，表示当前资源会使用 gzip 压缩，提示客户端解压使用（只对文本进行压缩，图片因为体积大，本身就压缩过，效果差时间长），或者nginx上来开启gzip。</li>
+<li><strong>部分请求延迟执行</strong>，比如获取淘宝天猫的评论，是在用户访问该商品5s之后才执行的；</li>
+</ol>
+<h2 id="前端模块化CommonJS及ES6模块化"><a href="#前端模块化CommonJS及ES6模块化" class="headerlink" title="前端模块化CommonJS及ES6模块化"></a>前端模块化CommonJS及ES6模块化</h2><p><strong>什么是模块化？</strong><br>模块化开发是一种管理方式，是一种生产方式，一种解决问题的方案，一个模块就是实现特定功能的文件，有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块，但是模块开发需要遵循一定的规范，否则就都乱套了，因此，才有了后来大家熟悉的AMD规范，CMD规范，以及ES6自带的模块化规范</p>
+<p><strong>模块化带来的好处</strong><br>解决命名冲突、代码复用、代码可读性、依赖管理等</p>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>(1)简介<br>Node 应用由模块组成，采用 CommonJS 模块规范。每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。它有四个重要的环境变量为模块化的实现提供支持：module、exports、require、global。在服务器端，模块的加载<strong>是运行时同步加载</strong>的，模块文件都存在本地磁盘，读取非常快，所以这样做不会有问题；在浏览器端，基于网络原因，模块需要提前编译打包处理。</p>
+<p>(2)特点<br>所有代码都运行在模块作用域，不会污染全局作用域。<br>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。模块加载的顺序，按照其在代码中出现的顺序。</p>
+<p>(3)基本语法<br>暴露模块：module.exports = value或exports.xxx = value<br>引入模块：require(xxx),如果是第三方模块，xxx为模块名；如果是自定义模块，xxx为模块文件路径</p>
+<p>require命令用于加载模块文件。require命令的基本功能是，读入并执行一个javascript文件，然后返回该模块的exports对象。如果没有发现<br>指定模块，会报错。</p>
+<p>(4)模块的加载机制<br>CommonJS模块的加载机制是，输入的是被输出的值的拷贝。也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。这点与ES6模块化有重大差异（ES6输入的是值的引用）</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD规范采用<strong>异步</strong>方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。这里介绍用require.js实现AMD规范的模块化：用require.config()指定引用路径等，用define()定义模块，用require()加载模块。</p>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>CMD是另一种js模块化方案，它与AMD很类似，不同点在于：AMD 推崇依赖前置、提前执行，CMD推崇依赖就近、延迟执行。此规范其实是在sea.js推广过程中产生的。</p>
+<h3 id="ES6-Module"><a href="#ES6-Module" class="headerlink" title="ES6 Module"></a>ES6 Module</h3><p>ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，旨在成为浏览器和服务器通用的模块解决方案。其模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。</p>
+<h3 id="ES6-与-CommonJS-模块的差异"><a href="#ES6-与-CommonJS-模块的差异" class="headerlink" title="ES6 与 CommonJS 模块的差异"></a>ES6 与 CommonJS 模块的差异</h3><ol>
+<li>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。<ul>
+<li>CommonJS 模块输出的是值的拷贝，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。</li>
+<li>ES6 模块的运行机制与 CommonJS 不一样。JS 引擎对脚本静态分析的时候，遇到模块加载命令import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。换句话说，ES6 的import有点像 Unix 系统的“符号连接”，原始值变了，import加载的值也会跟着变。因此，ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。</li>
+</ul>
+</li>
+<li>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。<ul>
+<li>运行时加载: CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。</li>
+<li>编译时加载: ES6 模块不是对象，而是通过 export 命令显式指定输出的代码，import时采用静态命令的形式。即在import时可以指定加载某个输出值，而不是加载整个模块，这种加载称为“编译时加载”。</li>
+</ul>
+</li>
+<li>CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</li>
+</ol>
+<h2 id="前端单元测试"><a href="#前端单元测试" class="headerlink" title="前端单元测试"></a>前端单元测试</h2><ol>
+<li>UI测试<br>验证所有页面字体的风格是否一致<br>背景颜色应该与字体颜色和前景颜色相搭配<br>图片的大小和质量是否正常</li>
+<li>功能测试（也称为e2e测试）<br>基本的功能是否符合预期<br>模拟用户操作，交互流程是否正确</li>
+<li>兼容性测试<br>平台兼容性，使用用不同的 操作系统平台对网站进行测试。最常见的有 Windows、macOS、 Linux 等。<br>浏览器兼容性， 查看不同浏览器中的兼容性问题。<br>分辨率测试，在不同分辨率下的显示效果，避免分辨率低时界面文字显示太大，而分辨率高时又有些文字显示时太小。</li>
+<li>性能测试<br>页面首次打开的耗时<br>页面加载时间<br>频繁操作是否奔溃</li>
+<li>稳定性测试<br>页面是否白屏<br>掉电重启,断网重连后是否正常<br>长时间运行是否会奔溃</li>
+<li>易用性测试<br>常用快捷键 （刷新，关闭等）<br>常用习惯性操作（回车搜索）<br>便捷性功能（记住密码等）</li>
+</ol>
+<h2 id="前端工程化、模块化、组件化"><a href="#前端工程化、模块化、组件化" class="headerlink" title="前端工程化、模块化、组件化"></a>前端工程化、模块化、组件化</h2><h3 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h3><ol>
+<li>为什么要以工程化的思想来看待前端项目？<br>目前，web业务日益复杂化和多元化，单页面应用和webApp风靡。而且前端的生态圈繁荣，各种框架，组件出现，使得前端发展迅速，快速开发已经成为了前端的一个标准。靠传统的前端三剑客 javascript、HTML、 CSS 以及传统的项目结构已经不能满足日益壮大的大型应用的需求，会带来开发效率、维护成本、代码可读性差等问题。这就要求我们以工程化的思想去看待一个前端项目而不再是直接撸起袖子开写页面，将前端项目当成一项系统工程去进行分析、组织和构建从而达到项目结构清晰、分工明确、团队配合默契、开发效率和开发质量提高以及降低项目生产风险的目的。</li>
+<li>那我们又该怎样去做到前端的工程化呢？<br>页面组件化<br>代码模块化<br>代码质量管理 (QA)： ESLint<br>代码编译: babel、less、sass、scss等<br>代码构建：webpack<br>项目国际化<br>代码版本管理：Git、SVN</li>
+</ol>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><p>当应用的JS都以模块来编写时, 这个应用就是一个模块化的应用</p>
+<ol>
+<li>模块<br>向外提供特定功能的文件， 可以做到按需引入</li>
+<li>为什么要模块化？<br>随着业务逻辑增加，代码越来越多且复杂</li>
+<li>作用<br>复用代码, 简化代码的编写, 提高代码运行效率</li>
+</ol>
+<h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>当应用是以多组件的方式实现, 这个应用就是一个组件化的应用</p>
+<ol>
+<li>组件<br>从UI上拆分下来的每个包含模板(HTML)+样式(CSS)+逻辑(JS)功能完备的结构单元，是一个用来实现局部功能效果的代码和资源的集合</li>
+<li>为什么要组件化？<br>一个界面的功能更复杂</li>
+<li>作用<br>复用编码, 简化项目编码, 提高运行效率</li>
+</ol>
+<h2 id="前端常用设计模式"><a href="#前端常用设计模式" class="headerlink" title="前端常用设计模式"></a>前端常用设计模式</h2><ol>
+<li>命令模式 该模式旨在将函数的调用、请求和操作封装成一个单一的对象，然后对这个对象进行一系列的处理。此外，可以通过调用实现具体函数的对象来解耦命令对象与接收对象。</li>
+<li>单例模式 一个构造函数有且只有一个实例对象，并且提供方法给全局使用（惰性单例：使用时才创建）例如：登录框；vuex 和 redux中的store</li>
+<li>发布订阅模式 订阅一个动作，当发布者将这个动作触发，则订阅者也随之做出动作  例如：vue2响应式原理，发布订阅+数据劫持；事件总线</li>
+<li>策略模式 模块化取代if else 每个逻辑分开写</li>
+<li>代理模式 代理模式更侧重于对类的控制 相当于限制器、阀口，vue3proxy</li>
+<li>装饰器模式 装饰器模式更侧重于提升类的能力，拓展器</li>
+<li>工厂模式 定义一个用于创建对象的接口，这个接口由子类决定实例化哪一个类。该模式使一个类的实例化延迟到了子类。</li>
+<li>迭代器模式 访问一个聚合对象的内容而无需暴露它的内部表示。为遍历不同的集合结构提供一个统一的接口，从而支持同样的算法在不同的集合结构上进行操作</li>
+<li>状态模式 通过定义不同的状态类，根据状态的改变而改变对象的行为，也不必把大量的逻辑都写在被操作对象的类中，而且容易增加新的状态</li>
+</ol>
+<h2 id="SPA单页面"><a href="#SPA单页面" class="headerlink" title="SPA单页面"></a>SPA单页面</h2><p><strong>概念：</strong><br>SPA（ single page application ）仅在 Web 页面初始化时加载相应的 HTML、javascript 和 CSS。<br>一旦页面加载完成，SPA 不会因为用户的操作而进行页面的重新加载或跳转<br>而页面的变化是利用路由机制实现 HTML 内容的变换，避免页面的重新加载。</p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>加载速度快，内容的改变不需要重新加载整个页面</li>
+<li>用户体验好，减少了重复渲染与不必要的跳转</li>
+<li>前后端逻辑能够更加清晰</li>
+</ol>
+<p><strong>缺点:</strong></p>
+<ol>
+<li>初次加载速度慢</li>
+<li>不能利用搜索引擎搜索到</li>
+<li>在一个页面实现的功能 没有地址的跳转，不能前进后退</li>
+</ol>
+<p><strong>如何优化：</strong></p>
+<ol>
+<li>静态资源本地缓存，强缓存</li>
+<li>UI框架按需加载</li>
+<li>图片资源压缩，webpack配置帮助压缩</li>
+<li>开启Gzip压缩前端工程</li>
+<li>使用SSR服务器渲染</li>
+</ol>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>从本质上说，进程和线程都是 CPU 工作时间片的一个描述：</p>
+<ul>
+<li>进程描述了 CPU 在运行指令及加载和保存上下文所需的时间，放在应用上来说就代表了一个程序。</li>
+<li>线程是进程中的更小单位，描述了执行一段指令所需的时间。</li>
+</ul>
+<p><strong>进程是资源分配的最小单位，线程是CPU调度的最小单位。</strong></p>
+<p>一个进程就是一个程序的运行实例。详细解释就是，启动一个程序的时候，操作系统会为该程序创建一块内存，用来存放代码、运行中的数据和一个执行任务的主线程，我们把这样的一个运行环境叫<strong>进程</strong>。<strong>进程是运行在虚拟内存上的，虚拟内存是用来解决用户对硬件资源的无限需求和有限的硬件资源之间的矛盾的。从操作系统角度来看，虚拟内存即交换文件；从处理器角度看，虚拟内存即虚拟地址空间。</strong></p>
+<p>如果程序很多时，内存可能会不够，操作系统为每个进程提供一套独立的虚拟地址空间，从而使得同一块物理内存在不同的进程中可以对应到不同或相同的虚拟地址，变相的增加了程序可以使用的内存。</p>
+<p>进程和线程之间的关系有以下四个特点：</p>
+<p><strong>（1）进程中的任意一线程执行出错，都会导致整个进程的崩溃。</strong></p>
+<p><strong>（2）线程之间共享进程中的数据。</strong></p>
+<p><strong>（3）当一个进程关闭之后，操作系统会回收进程所占用的内存，</strong> 当一个进程退出时，操作系统会回收该进程所申请的所有资源；即使其中任意线程因为操作不当导致内存泄漏，当进程退出时，这些内存也会被正确回收。</p>
+<p><strong>（4）进程之间的内容相互隔离。</strong> 进程隔离就是为了使操作系统中的进程互不干扰，每一个进程只能访问自己占有的数据，也就避免出现进程 A 写入数据到进程 B 的情况。正是因为进程之间的数据是严格隔离的，所以一个进程如果崩溃了，或者挂起了，是不会影响到其他进程的。如果进程之间需要进行数据的通信，这时候，就需要使用用于进程间通信的机制了。</p>
+<h3 id="浏览器渲染进程的进程"><a href="#浏览器渲染进程的进程" class="headerlink" title="浏览器渲染进程的进程"></a>浏览器渲染进程的进程</h3><p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426103039382.png" alt="image-20230426103039382"></p>
+<ul>
+<li><strong>浏览器进程</strong>：主要负责界面显示、用户交互、子进程管理，同时提供存储等功能。</li>
+<li><strong>渲染进程</strong>：核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎 Blink 和 JavaScript 引擎 V8 都是运行在该进程中，默认情况下，Chrome 会为每个 Tab 标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下。</li>
+<li><strong>GPU 进程</strong>：其实， GPU 的使用初衷是为了实现 3D CSS 的效果，只是随后网页、Chrome 的 UI 界面都选择采用 GPU 来绘制，这使得 GPU 成为浏览器普遍的需求。最后，Chrome 在其多进程架构上也引入了 GPU 进程。</li>
+<li><strong>网络进程</strong>：主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近才独立出来，成为一个单独的进程。</li>
+<li><strong>插件进程</strong>：主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。</li>
+</ul>
+<p>所以，<strong>打开一个网页，最少需要四个进程</strong>：1 个网络进程、1 个浏览器进程、1 个 GPU 进程以及 1 个渲染进程。如果打开的页面有运行插件的话，还需要再加上 1 个插件进程。</p>
+<p>虽然多进程模型提升了浏览器的稳定性、流畅性和安全性，但同样不可避免地带来了一些问题：</p>
+<ul>
+<li><strong>更高的资源占用</strong>：因为每个进程都会包含公共基础结构的副本（如 JavaScript 运行环境），这就意味着浏览器会消耗更多的内存资源。</li>
+<li><strong>更复杂的体系架构</strong>：浏览器各模块之间耦合性高、扩展性差等问题，会导致现在的架构已经很难适应新的需求了。</li>
+</ul>
+<h3 id="浏览器渲染进程的线程"><a href="#浏览器渲染进程的线程" class="headerlink" title="浏览器渲染进程的线程"></a>浏览器渲染进程的线程</h3><p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426103330407.png" alt="image-20230426103330407"></p>
+<p><strong>（1）GUI渲染线程</strong> 负责渲染浏览器页面，解析HTML、CSS，构建DOM树、构建CSSOM树、构建渲染树和绘制页面；当界面需要<strong>重绘</strong>或由于某种操作引发<strong>回流</strong>时，该线程就会执行。</p>
+<p>注意：GUI渲染线程和JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起，GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。</p>
+<p><strong>（2）JS引擎线程</strong> JS引擎线程也称为JS内核，负责处理Javascript脚本程序，解析Javascript脚本，运行代码；JS引擎线程一直等待着任务队列中任务的到来，然后加以处理，一个Tab页中无论什么时候都只有一个JS引擎线程在运行JS程序；</p>
+<p>注意：GUI渲染线程与JS引擎线程的互斥关系，所以如果JS执行的时间过长，会造成页面的渲染不连贯，导致页面渲染加载阻塞。</p>
+<p><strong>（3）时间触发线程</strong> <strong>时间触发线程</strong>属于浏览器而不是JS引擎，用来控制事件循环；当JS引擎执行代码块如setTimeOut时（也可是来自浏览器内核的其他线程,如鼠标点击、AJAX异步请求等），会将对应任务添加到事件触发线程中；当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理；</p>
+<p>注意：由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）；</p>
+<p><strong>（4）定时器触发进程</strong> <strong>定时器触发进程</strong>即setInterval与setTimeout所在线程；浏览器定时计数器并不是由JS引擎计数的，因为JS引擎是单线程的，如果处于阻塞线程状态就会影响记计时的准确性；因此使用单独线程来计时并触发定时器，计时完毕后，添加到事件队列中，等待JS引擎空闲后执行，所以定时器中的任务在设定的时间点不一定能够准时执行，定时器只是在指定时间点将任务添加到事件队列中；</p>
+<p>注意：W3C在HTML标准中规定，定时器的定时时间不能小于4ms，如果是小于4ms，则默认为4ms。</p>
+<p><strong>（5）异步http请求线程</strong></p>
+<ul>
+<li>XMLHttpRequest连接后通过浏览器新开一个线程请求；</li>
+<li>检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将回调函数放入事件队列中，等待JS引擎空闲后执行；</li>
+</ul>
+<h3 id="浏览器-有哪些进程、线程"><a href="#浏览器-有哪些进程、线程" class="headerlink" title="浏览器 有哪些进程、线程"></a>浏览器 有哪些进程、线程</h3><ul>
+<li>GPU 进程。Chrome 刚开始发布的时候是没有 GPU 进程的。而 GPU 的使用初衷是为了实现 3D CSS 的效果，只是随后网页、Chrome 的 UI 界面都选择采用 GPU 来绘制，这使得 GPU 成为浏览器普遍的需求。最后，Chrome 在其多进程架构上也引入了GPU 进程。</li>
+<li>V8代理解析工具（v8代码解释器）Google的开源高性能javascript和WebAssembly引擎，用C编写，它实现ECMAScript和WebAssembly，可独立运行或嵌入到任何C应用程序中，如Chrome和Node.js。</li>
+<li>NetWork进程。主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近才独立出来，成为一个单独的进程。</li>
+<li>浏览器进程。主要负责界面显示、用户交互、子进程管理，同时提供存储等功能。</li>
+<li>插件进程。主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。</li>
+<li>渲染进程。核心任务是将 HTML、CSS 和 javascript 转换为用户可以与之交互的网页，排版引擎 Blink 和 javascript 引擎 V8 都是运行在该进程中，默认情况下，Chrome 会为每个 Tab 标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下。</li>
+</ul>
+<p>渲染进程下有多个线程：</p>
+<ul>
+<li>GUI渲染线程：负责渲染页面，布局和绘制、页面需要重绘和回流时，该线程就会执行、与js引擎线程互斥，防止渲染结果不可预期</li>
+<li>JS引擎线程：负责处理解析和执行javascript脚本程序、只有一个JS引擎线程（单线程）、与GUI渲染线程互斥，防止渲染结果不可预期</li>
+<li>事件触发线程：用来控制事件循环（鼠标点击、setTimeout、ajax等）当处理一些不能立即执行的代码时，会将对应的任务在其可以触发的时机，添加到事件队列的末端事件循环机制会在JS引擎线程空闲时，循环访问事件队列的头部，如果有函数，则会将该函数推到执行栈中并立即执行</li>
+<li>定时触发器线程：setInterval与setTimeout所在的线程、定时任务并不是由JS引擎计时的，是由定时触发线程来计时的、计时完毕后，将回调事件放入到事件队列中</li>
+<li>异步http请求线程：浏览器有一个单独的线程用于处理AJAX请求、当请求完成时，若有回调函数，将回调事件放入到事件队列中。</li>
+</ul>
+<h3 id="操作系统下进程与线程的区别"><a href="#操作系统下进程与线程的区别" class="headerlink" title="操作系统下进程与线程的区别"></a>操作系统下进程与线程的区别</h3><ul>
+<li>进程可以看做独立应用，线程不能</li>
+<li>资源：进程是cpu资源分配的最小单位（是能拥有资源和独立运行的最小单位）；线程是cpu调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程中可以有多个线程）。</li>
+<li>通信方面：线程间可以通过直接共享同一进程中的资源，而进程通信需要借助 进程间通信。</li>
+<li>调度：进程切换比线程切换的开销要大。线程是CPU调度的基本单位，线程的切换不会引起进程切换，但某个进程中的线程切换到另一个进程中的线程时，会引起进程切换。</li>
+<li>系统开销：由于创建或撤销进程时，系统都要为之分配或回收资源，如内存、I/O 等，其开销远大于创建或撤销线程时的开销。同理，在进行进程切换时，涉及当前执行进程 CPU 环境还有各种各样状态的保存及新调度进程状态的设置，而线程切换时只需保存和设置少量寄存器内容，开销较小。</li>
+</ul>
+<p>做个简单的比喻：进程=火车，线程=车厢</p>
+<ul>
+<li>线程在进程下行进（单纯的车厢无法运行）</li>
+<li>一个进程可以包含多个线程（一辆火车可以有多个车厢）</li>
+<li>不同进程间数据很难共享（一辆火车上的乘客很难换到另外一辆火车，比如站点换乘）</li>
+<li>同一进程下不同线程间数据很易共享（A车厢换到B车厢很容易）</li>
+<li>进程要比线程消耗更多的计算机资源（采用多列火车相比多个车厢更耗资源）</li>
+<li>进程间不会相互影响，一个线程挂掉将导致整个进程挂掉（一列火车不会影响到另外一列火车，但是如果一列火车上中间的一节车厢着火了，将影响到所有车厢）</li>
+<li>进程可以拓展到多机，进程最多适合多核（不同火车可以开在多个轨道上，同一火车的车厢不能在行进的不同的轨道上）</li>
+<li>进程使用的内存地址可以上锁，即一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存。（比如火车上的洗手间）－”互斥锁”</li>
+<li>进程使用的内存地址可以限定使用量（比如火车上的餐厅，最多只允许多少人进入，如果满了需要在门口等，等有人出来了才能进去）－“信号量”</li>
+</ul>
+<h3 id="进程之间的通信方式"><a href="#进程之间的通信方式" class="headerlink" title="进程之间的通信方式"></a>进程之间的通信方式</h3><p><strong>（1）管道通信</strong></p>
+<p>管道是一种最基本的进程间通信机制。<strong>管道就是操作系统在内核中开辟的一段缓冲区，进程1可以将需要交互的数据拷贝到这段缓冲区，进程2就可以读取了。</strong></p>
+<p>管道的特点：</p>
+<ul>
+<li>只能单向通信</li>
+<li>只能血缘关系的进程进行通信</li>
+<li>依赖于文件系统</li>
+<li>生命周期随进程</li>
+<li>面向字节流的服务</li>
+<li>管道内部提供了同步机制</li>
+</ul>
+<p><strong>（2）消息队列通信</strong></p>
+<p>消息队列就是一个消息的列表。用户可以在消息队列中添加消息、读取消息等。消息队列提供了一种从一个进程向另一个进程发送一个数据块的方法。 每个数据块都被认为含有一个类型，接收进程可以独立地接收含有不同类型的数据结构。可以通过发送消息来避免命名管道的同步和阻塞问题。但是消息队列与命名管道一样，每个数据块都有一个最大长度的限制。</p>
+<p>使用消息队列进行进程间通信，可能会收到数据块最大长度的限制约束等，这也是这种通信方式的缺点。如果频繁的发生进程间的通信行为，那么进程需要频繁地读取队列中的数据到内存，相当于间接地从一个进程拷贝到另一个进程，这需要花费时间。</p>
+<p><strong>（3）信号量通信</strong></p>
+<p>共享内存最大的问题就是多进程竞争内存的问题，就像类似于线程安全问题。我们可以使用信号量来解决这个问题。信号量的本质就是一个计数器，用来实现进程之间的互斥与同步。例如信号量的初始值是 1，然后 a 进程来访问内存1的时候，我们就把信号量的值设为 0，然后进程b 也要来访问内存1的时候，看到信号量的值为 0 就知道已经有进程在访问内存1了，这个时候进程 b 就会访问不了内存1。所以说，信号量也是进程之间的一种通信方式。</p>
+<p><strong>（4）信号通信</strong></p>
+<p>信号（Signals ）是Unix系统中使用的最古老的进程间通信的方法之一。操作系统通过信号来通知进程系统中发生了某种预先规定好的事件（一组事件中的一个），它也是用户进程之间通信和同步的一种原始机制。</p>
+<p><strong>（5）共享内存通信</strong></p>
+<p>共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问（使多个进程可以访问同一块内存空间）。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号量，配合使用，来实现进程间的同步和通信。</p>
+<p><strong>（6）套接字通信</strong></p>
+<p>上面说的共享内存、管道、信号量、消息队列，他们都是多个进程在一台主机之间的通信，那两个相隔几千里的进程能够进行通信吗？答是必须的，这个时候 Socket 这家伙就派上用场了，例如我们平时通过浏览器发起一个 http 请求，然后服务器给你返回对应的数据，这种就是采用 Socket 的通信方式了。</p>
+<h3 id="僵尸进程和孤儿进程是什么？"><a href="#僵尸进程和孤儿进程是什么？" class="headerlink" title="僵尸进程和孤儿进程是什么？"></a>僵尸进程和孤儿进程是什么？</h3><ul>
+<li><strong>孤儿进程</strong>：父进程退出了，而它的一个或多个进程还在运行，那这些子进程都会成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。</li>
+<li><strong>僵尸进程</strong>：子进程比父进程先结束，而父进程又没有释放子进程占用的资源，那么子进程的进程描述符仍然保存在系统中，这种进程称之为僵死进程。</li>
+</ul>
+<h3 id="死锁产生的原因？-如果解决死锁的问题？"><a href="#死锁产生的原因？-如果解决死锁的问题？" class="headerlink" title="死锁产生的原因？ 如果解决死锁的问题？"></a>死锁产生的原因？ 如果解决死锁的问题？</h3><p>所谓死锁，是指多个进程在运行过程中因争夺资源而造成的一种僵局，当进程处于这种僵持状态时，若无外力作用，它们都将无法再向前推进。</p>
+<p>系统中的资源可以分为两类：</p>
+<ul>
+<li>可剥夺资源，是指某进程在获得这类资源后，该资源可以再被其他进程或系统剥夺，CPU和主存均属于可剥夺性资源；</li>
+<li>不可剥夺资源，当系统把这类资源分配给某进程后，再不能强行收回，只能在进程用完后自行释放，如磁带机、打印机等。</li>
+</ul>
+<p><strong>产生死锁的原因：</strong></p>
+<p><strong>（1）竞争资源</strong></p>
+<ul>
+<li>产生死锁中的竞争资源之一指的是<strong>竞争不可剥夺资源</strong>（例如：系统中只有一台打印机，可供进程P1使用，假定P1已占用了打印机，若P2继续要求打印机打印将阻塞）</li>
+<li>产生死锁中的竞争资源另外一种资源指的是<strong>竞争临时资源</strong>（临时资源包括硬件中断、信号、消息、缓冲区内的消息等），通常消息通信顺序进行不当，则会产生死锁</li>
+</ul>
+<p><strong>（2）进程间推进顺序非法</strong></p>
+<p>若P1保持了资源R1，P2保持了资源R2，系统处于不安全状态，因为这两个进程再向前推进，便可能发生死锁。例如，当P1运行到P1：Request（R2）时，将因R2已被P2占用而阻塞；当P2运行到P2：Request（R1）时，也将因R1已被P1占用而阻塞，于是发生进程死锁</p>
+<p><strong>产生死锁的必要条件：</strong></p>
+<ul>
+<li>互斥条件：进程要求对所分配的资源进行排它性控制，即在一段时间内某资源仅为一进程所占用。</li>
+<li>请求和保持条件：当进程因请求资源而阻塞时，对已获得的资源保持不放。</li>
+<li>不剥夺条件：进程已获得的资源在未使用完之前，不能剥夺，只能在使用完时由自己释放。</li>
+<li>环路等待条件：在发生死锁时，必然存在一个进程——资源的环形链。</li>
+</ul>
+<p><strong>预防死锁的方法：</strong></p>
+<ul>
+<li>资源一次性分配：一次性分配所有资源，这样就不会再有请求了（破坏请求条件）</li>
+<li>只要有一个资源得不到分配，也不给这个进程分配其他的资源（破坏请保持条件）</li>
+<li>可剥夺资源：即当某进程获得了部分资源，但得不到其它资源，则释放已占有的资源（破坏不可剥夺条件）</li>
+<li>资源有序分配法：系统给每类资源赋予一个编号，每一个进程按编号递增的顺序请求资源，释放则相反（破坏环路等待条件）</li>
+</ul>
+<h2 id="浏览器页面通信方法"><a href="#浏览器页面通信方法" class="headerlink" title="浏览器页面通信方法"></a>浏览器页面通信方法</h2><p>实现多个标签页之间的通信，本质上都是通过<strong>中介者模式</strong>来实现的。因为标签页之间没有办法直接通信，因此我们可以找一个中介者，让标签页和中介者进行通信，然后让这个中介者来进行消息的转发。通信方法如下：</p>
+<ul>
+<li>使用 websocket 协议，因为 websocket 协议可以实现服务器推送，所以服务器就可以用来当做这个中介者。标签页通过向服务器发送数据，然后由服务器向其他标签页推送转发。</li>
+<li>使用 ShareWorker 的方式，shareWorker 会在页面存在的生命周期内创建一个唯一的线程，并且开启多个页面也只会使用同一个线程。这个时候共享线程就可以充当中介者的角色。标签页间通过共享一个线程，然后通过这个共享的线程来实现数据的交换。</li>
+<li>使用 localStorage 的方式，我们可以在一个标签页对 localStorage 的变化事件进行监听，然后当另一个标签页修改数据的时候，我们就可以通过这个监听事件来获取到数据。这个时候 localStorage 对象就是充当的中介者的角色。</li>
+<li>使用 postMessage 方法，如果我们能够获得对应标签页的引用，就可以使用postMessage 方法，进行通信。</li>
+</ul>
+<h2 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h2><h3 id="对浏览器的缓存机制的理解"><a href="#对浏览器的缓存机制的理解" class="headerlink" title="对浏览器的缓存机制的理解"></a>对浏览器的缓存机制的理解</h3><p><strong>浏览器缓存的全过程：</strong></p>
+<ul>
+<li>浏览器第一次加载资源，服务器返回 200，浏览器从服务器下载资源文件，并缓存资源文件与 response header，以供下次加载时对比使用；</li>
+<li>下一次加载资源时，由于强制缓存优先级较高，先比较当前时间与上一次返回 200 时的时间差，如果没有超过 cache-control 设置的 max-age，则没有过期，并命中强缓存，直接从本地读取资源。如果浏览器不支持HTTP1.1，则使用 expires 头判断是否过期；</li>
+<li>如果资源已过期，则表明强制缓存没有被命中，则开始协商缓存，向服务器发送带有 If-None-Match 和 If-Modified-Since 的请求；</li>
+<li>服务器收到请求后，优先根据 Etag 的值判断被请求的文件有没有做修改，Etag 值一致则没有修改，命中协商缓存，返回 304；如果不一致则有改动，直接返回新的资源文件带上新的 Etag 值并返回 200；</li>
+<li>如果服务器收到的请求没有 Etag 值，则将 If-Modified-Since 和被请求文件的最后修改时间做比对，一致则命中协商缓存，返回 304；不一致则返回新的 last-modified 和文件并返回 200；</li>
+</ul>
+<p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426105232130.png" alt="image-20230426105232130"></p>
+<p> 很多网站的资源后面都加了版本号，这样做的目的是：每次升级了 JS 或 CSS 文件后，为了防止浏览器进行缓存，强制改变版本号，客户端浏览器就会重新下载新的 JS 或 CSS 文件 ，以保证用户能够及时获得网站的最新更新。</p>
+<h3 id="协商缓存和强缓存的区别"><a href="#协商缓存和强缓存的区别" class="headerlink" title="协商缓存和强缓存的区别"></a>协商缓存和强缓存的区别</h3><h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>使用强缓存策略时，如果缓存资源有效，则直接使用缓存资源，不必再向服务器发起请求。</p>
+<p>强缓存策略可以通过两种方式来设置，分别是 http 头信息中的 Expires 属性和 Cache-Control 属性。</p>
+<p>（1）服务器通过在响应头中添加 Expires 属性，来指定资源的过期时间。在过期时间以内，该资源可以被缓存使用，不必再向服务器发送请求。这个时间是一个绝对时间，它是服务器的时间，因此可能存在这样的问题，就是客户端的时间和服务器端的时间不一致，或者用户可以对客户端时间进行修改的情况，这样就可能会影响缓存命中的结果。</p>
+<p>（2）Expires 是 http1.0 中的方式，因为它的一些缺点，在 HTTP 1.1 中提出了一个新的头部属性就是 Cache-Control 属性，它提供了对资源的缓存的更精确的控制。它有很多不同的值，</p>
+<p><code>Cache-Control</code>可设置的字段：</p>
+<ul>
+<li><code>public</code>：设置了该字段值的资源表示可以被任何对象（包括：发送请求的客户端、代理服务器等等）缓存。这个字段值不常用，一般还是使用max-age=来精确控制；</li>
+<li><code>private</code>：设置了该字段值的资源只能被用户浏览器缓存，不允许任何代理服务器缓存。在实际开发当中，对于一些含有用户信息的HTML，通常都要设置这个字段值，避免代理服务器(CDN)缓存；</li>
+<li><code>no-cache</code>：设置了该字段需要先和服务端确认返回的资源是否发生了变化，如果资源未发生变化，则直接使用缓存好的资源；</li>
+<li><code>no-store</code>：设置了该字段表示禁止任何缓存，每次都会向服务端发起新的请求，拉取最新的资源；</li>
+<li><code>max-age=</code>：设置缓存的最大有效期，单位为秒；</li>
+<li><code>s-maxage=</code>：优先级高于max-age=，仅适用于共享缓存(CDN)，优先级高于max-age或者Expires头；</li>
+<li><code>max-stale[=]</code>：设置了该字段表明客户端愿意接收已经过期的资源，但是不能超过给定的时间限制。</li>
+</ul>
+<p>一般来说只需要设置其中一种方式就可以实现强缓存策略，当两种方式一起使用时，Cache-Control 的优先级要高于 Expires。</p>
+<p><strong>no-cache和no-store很容易混淆：</strong></p>
+<ul>
+<li>no-cache 是指先要和服务器确认是否有资源更新，在进行判断。也就是说没有强缓存，但是会有协商缓存；</li>
+<li>no-store 是指不使用任何缓存，每次请求都直接从服务器获取资源。</li>
+</ul>
+<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>如果命中强制缓存，我们无需发起新的请求，直接使用缓存内容，如果没有命中强制缓存，如果设置了协商缓存，这个时候协商缓存就会发挥作用了。</p>
+<p>上面已经说到了，命中协商缓存的条件有两个：</p>
+<ul>
+<li><code>max-age=xxx</code> 过期了</li>
+<li>值为<code>no-store</code></li>
+</ul>
+<p>使用协商缓存策略时，会先向服务器发送一个请求，如果资源没有发生修改，则返回一个 304 状态，让浏览器使用本地的缓存副本。如果资源发生了修改，则返回修改后的资源。</p>
+<p>协商缓存也可以通过两种方式来设置，分别是 http 头信息中的<strong>Etag</strong> 和<strong>Last-Modified</strong>属性。</p>
+<p>（1）服务器通过在响应头中添加 Last-Modified 属性来指出资源最后一次修改的时间，当浏览器下一次发起请求时，会在请求头中添加一个 If-Modified-Since 的属性，属性值为上一次资源返回时的 Last-Modified 的值。当请求发送到服务器后服务器会通过这个属性来和资源的最后一次的修改时间来进行比较，以此来判断资源是否做了修改。如果资源没有修改，那么返回 304 状态，让客户端使用本地的缓存。如果资源已经被修改了，则返回修改后的资源。使用这种方法有一个缺点，就是 Last-Modified 标注的最后修改时间只能精确到秒级，如果某些文件在1秒钟以内，被修改多次的话，那么文件已将改变了但是 Last-Modified 却没有改变，这样会造成缓存命中的不准确。</p>
+<p>（2）因为 Last-Modified 的这种可能发生的不准确性，http 中提供了另外一种方式，那就是 Etag 属性。服务器在返回资源的时候，在头信息中添加了 Etag 属性，这个属性是资源生成的唯一标识符，当资源发生改变的时候，这个值也会发生改变。在下一次资源请求时，浏览器会在请求头中添加一个 If-None-Match 属性，这个属性的值就是上次返回的资源的 Etag 的值。服务接收到请求后会根据这个值来和资源当前的 Etag 的值来进行比较，以此来判断资源是否发生改变，是否需要返回资源。通过这种方式，比 Last-Modified 的方式更加精确。</p>
+<p>当 Last-Modified 和 Etag 属性同时出现的时候，Etag 的优先级更高。使用协商缓存的时候，服务器需要考虑负载平衡的问题，因此多个服务器上资源的 Last-Modified 应该保持一致，因为每个服务器上 Etag 的值都不一样，因此在考虑负载平衡时，最好不要设置 Etag 属性。</p>
+<p><strong>总结：</strong></p>
+<p>强缓存策略和协商缓存策略在缓存命中时都会直接使用本地的缓存副本，区别只在于协商缓存会向服务器发送一次请求。它们缓存不命中时，都会向服务器发送请求来获取资源。在实际的缓存机制中，强缓存策略和协商缓存策略是一起合作使用的。浏览器首先会根据请求的信息判断，强缓存是否命中，如果命中则直接使用资源。如果不命中则根据头信息向服务器发起请求，使用协商缓存，如果协商缓存命中的话，则服务器不返回资源，浏览器直接使用本地资源的副本，如果协商缓存不命中，则浏览器返回最新的资源给浏览器。</p>
+<h3 id="为什么需要浏览器缓存？"><a href="#为什么需要浏览器缓存？" class="headerlink" title="为什么需要浏览器缓存？"></a>为什么需要浏览器缓存？</h3><p>对于浏览器的缓存，主要针对的是前端的静态资源，最好的效果就是，在发起请求之后，拉取相应的静态资源，并保存在本地。如果服务器的静态资源没有更新，那么在下次请求的时候，就直接从本地读取即可，如果服务器的静态资源已经更新，那么我们再次请求的时候，就到服务器拉取新的资源，并保存在本地。这样就大大的减少了请求的次数，提高了网站的性能。这就要用到浏览器的缓存策略了。</p>
+<p>所谓的<strong>浏览器缓存</strong>指的是浏览器将用户请求过的静态资源，存储到电脑本地磁盘中，当浏览器再次访问时，就可以直接从本地加载，不需要再去服务端请求了。</p>
+<p>使用浏览器缓存，有以下优点：</p>
+<ul>
+<li>减少了服务器的负担，提高了网站的性能</li>
+<li>加快了客户端网页的加载速度</li>
+<li>减少了多余网络数据传输</li>
+</ul>
+<h3 id="点击刷新按钮或者按-F5、按-Ctrl-F5-（强制刷新）、地址栏回车有什么区别？"><a href="#点击刷新按钮或者按-F5、按-Ctrl-F5-（强制刷新）、地址栏回车有什么区别？" class="headerlink" title="点击刷新按钮或者按 F5、按 Ctrl+F5 （强制刷新）、地址栏回车有什么区别？"></a>点击刷新按钮或者按 F5、按 Ctrl+F5 （强制刷新）、地址栏回车有什么区别？</h3><ul>
+<li><strong>点击刷新按钮或者按 F5：</strong> 浏览器直接对本地的缓存文件过期，但是会带上If-Modifed-Since，If-None-Match，这就意味着服务器会对文件检查新鲜度，返回结果可能是 304，也有可能是 200。</li>
+<li><strong>用户按 Ctrl+F5（强制刷新）：</strong> 浏览器不仅会对本地文件过期，而且不会带上 If-Modifed-Since，If-None-Match，相当于之前从来没有请求过，返回结果是 200。</li>
+<li>地址栏回车： 浏览器发起请求，按照正常流程，本地检查是否过期，然后服务器检查新鲜度，最后返回内容。</li>
+</ul>
+<h2 id="浏览器组成"><a href="#浏览器组成" class="headerlink" title="浏览器组成"></a>浏览器组成</h2><h3 id="对浏览器的理解"><a href="#对浏览器的理解" class="headerlink" title="对浏览器的理解"></a>对浏览器的理解</h3><p>浏览器的主要功能是将用户选择的 web 资源呈现出来，它需要从服务器请求资源，并将其显示在浏览器窗口中，资源的格式通常是 HTML，也包括 PDF、image 及其他格式。用户用 URI（Uniform Resource Identifier 统一资源标识符）来指定所请求资源的位置。</p>
+<p>HTML 和 CSS 规范中规定了浏览器解释 html 文档的方式，由 W3C 组织对这些规范进行维护，W3C 是负责制定 web 标准的组织。但是浏览器厂商纷纷开发自己的扩展，对规范的遵循并不完善，这为 web 开发者带来了严重的兼容性问题。</p>
+<p>浏览器可以分为两部分，shell 和 内核。其中 shell 的种类相对比较多，内核则比较少。也有一些浏览器并不区分外壳和内核。从 Mozilla 将 Gecko 独立出来后，才有了外壳和内核的明确划分。</p>
+<ul>
+<li>shell 是指浏览器的外壳：例如菜单，工具栏等。主要是提供给用户界面操作，参数设置等等。它是调用内核来实现各种功能的。</li>
+<li>内核是浏览器的核心。内核是基于标记语言显示内容的程序或模块。</li>
+</ul>
+<h3 id="对浏览器内核的理解"><a href="#对浏览器内核的理解" class="headerlink" title="对浏览器内核的理解"></a>对浏览器内核的理解</h3><p>浏览器内核主要分成两部分：</p>
+<ul>
+<li>渲染引擎的职责就是渲染，即在浏览器窗口中显示所请求的内容。默认情况下，渲染引擎可以显示 html、xml 文档及图片，它也可以借助插件显示其他类型数据，例如使用 PDF 阅读器插件，可以显示 PDF 格式。</li>
+<li>JS 引擎：解析和执行 javascript 来实现网页的动态效果。</li>
+</ul>
+<p>最开始渲染引擎和 JS 引擎并没有区分的很明确，后来 JS 引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<h3 id="常见的浏览器内核比较"><a href="#常见的浏览器内核比较" class="headerlink" title="常见的浏览器内核比较"></a>常见的浏览器内核比较</h3><ul>
+<li><strong>Trident：</strong> 这种浏览器内核是 IE 浏览器用的内核，因为在早期 IE 占有大量的市场份额，所以这种内核比较流行，以前有很多网页也是根据这个内核的标准来编写的，但是实际上这个内核对真正的网页标准支持不是很好。但是由于 IE 的高市场占有率，微软也很长时间没有更新 Trident 内核，就导致了 Trident 内核和 W3C 标准脱节。还有就是 Trident 内核的大量 Bug 等安全问题没有得到解决，加上一些专家学者公开自己认为 IE 浏览器不安全的观点，使很多用户开始转向其他浏览器。</li>
+<li><strong>Gecko：</strong> 这是 Firefox 和 Flock 所采用的内核，这个内核的优点就是功能强大、丰富，可以支持很多复杂网页效果和浏览器扩展接口，但是代价是也显而易见就是要消耗很多的资源，比如内存。</li>
+<li><strong>Presto：</strong> Opera 曾经采用的就是 Presto 内核，Presto 内核被称为公认的浏览网页速度最快的内核，这得益于它在开发时的天生优势，在处理 JS 脚本等脚本语言时，会比其他的内核快3倍左右，缺点就是为了达到很快的速度而丢掉了一部分网页兼容性。</li>
+<li><strong>Webkit：</strong> Webkit 是 Safari 采用的内核，它的优点就是网页浏览速度较快，虽然不及 Presto 但是也胜于 Gecko 和 Trident，缺点是对于网页代码的容错性不高，也就是说对网页代码的兼容性较低，会使一些编写不标准的网页无法正确显示。WebKit 前身是 KDE 小组的 KHTML 引擎，可以说 WebKit 是 KHTML 的一个开源的分支。</li>
+<li><strong>Blink：</strong> 谷歌在 Chromium Blog 上发表博客，称将与苹果的开源浏览器核心 Webkit 分道扬镳，在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。其实 Blink 引擎就是 Webkit 的一个分支，就像 webkit 是KHTML 的分支一样。Blink 引擎现在是谷歌公司与 Opera Software 共同研发，上面提到过的，Opera 弃用了自己的 Presto 内核，加入 Google 阵营，跟随谷歌一起研发 Blink。</li>
+</ul>
+<h3 id="常见浏览器所用内核"><a href="#常见浏览器所用内核" class="headerlink" title="常见浏览器所用内核"></a>常见浏览器所用内核</h3><p>（1） IE 浏览器内核：Trident 内核，也是俗称的 IE 内核；</p>
+<p>（2） Chrome 浏览器内核：统称为 Chromium 内核或 Chrome 内核，以前是 Webkit 内核，现在是 Blink内核；</p>
+<p>（3） Firefox 浏览器内核：Gecko 内核，俗称 Firefox 内核；</p>
+<p>（4） Safari 浏览器内核：Webkit 内核；</p>
+<p>（5） Opera 浏览器内核：最初是自己的 Presto 内核，后来加入谷歌大军，从 Webkit 又到了 Blink 内核；</p>
+<p>（6） 360浏览器、猎豹浏览器内核：IE + Chrome 双内核；</p>
+<p>（7） 搜狗、遨游、QQ 浏览器内核：Trident（兼容模式）+ Webkit（高速模式）；</p>
+<p>（8） 百度浏览器、世界之窗内核：IE 内核；</p>
+<p>（9） 2345浏览器内核：好像以前是 IE 内核，现在也是 IE + Chrome 双内核了；</p>
+<p>（10）UC 浏览器内核：这个众口不一，UC 说是他们自己研发的 U3 内核，但好像还是基于 Webkit 和 Trident ，还有说是基于火狐内核。</p>
+<h3 id="浏览器的主要组成部分"><a href="#浏览器的主要组成部分" class="headerlink" title="浏览器的主要组成部分"></a>浏览器的主要组成部分</h3><ul>
+<li><strong>⽤户界⾯</strong> 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗⼝显示的您请求的⻚⾯外，其他显示的各个部分都属于⽤户界⾯。</li>
+<li><strong>浏览器引擎</strong> 在⽤户界⾯和呈现引擎之间传送指令。</li>
+<li><strong>呈现引擎</strong> 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。</li>
+<li><strong>⽹络</strong> ⽤于⽹络调⽤，⽐如 HTTP 请求。其接⼝与平台⽆关，并为所有平台提供底层实现。</li>
+<li><strong>⽤户界⾯后端</strong> ⽤于绘制基本的窗⼝⼩部件，⽐如组合框和窗⼝。其公开了与平台⽆关的通⽤接⼝，⽽在底层使⽤操作系统的⽤户界⾯⽅法。</li>
+<li><strong>JavaScript 解释器</strong>。⽤于解析和执⾏ JavaScript 代码。</li>
+<li><strong>数据存储</strong> 这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“⽹络数据库”，这是⼀个完整（但是轻便）的浏览器内数据库。</li>
+</ul>
+<p>值得注意的是，和⼤多数浏览器不同，Chrome 浏览器的每个标签⻚都分别对应⼀个呈现引擎实例。每个标签⻚都是⼀个独⽴的进程。</p>
+<h2 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h2><h3 id="浏览器的渲染过程"><a href="#浏览器的渲染过程" class="headerlink" title="浏览器的渲染过程"></a>浏览器的渲染过程</h3><p>浏览器渲染主要有以下步骤：</p>
+<ul>
+<li>首先解析收到的文档，根据文档定义构建一棵 DOM 树，DOM 树是由 DOM 元素及属性节点组成的。</li>
+<li>然后对 CSS 进行解析，生成 CSSOM 规则树。</li>
+<li>根据 DOM 树和 CSSOM 规则树构建渲染树。渲染树的节点被称为渲染对象，渲染对象是一个包含有颜色和大小等属性的矩形，渲染对象和 DOM 元素相对应，但这种对应关系不是一对一的，不可见的 DOM 元素不会被插入渲染树。还有一些 DOM元素对应几个可见对象，它们一般是一些具有复杂结构的元素，无法用一个矩形来描述。</li>
+<li>当渲染对象被创建并添加到树中，它们并没有位置和大小，所以当浏览器生成渲染树以后，就会根据渲染树来进行布局（也可以叫做回流）。这一阶段浏览器要做的事情是要弄清楚各个节点在页面中的确切位置和大小。通常这一行为也被称为“自动重排”。</li>
+<li>布局阶段结束后是绘制阶段，遍历渲染树并调用渲染对象的 paint 方法将它们的内容显示在屏幕上，绘制使用 UI 基础组件。</li>
+</ul>
+<p>大致过程如图所示：</p>
+<p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426143154531.png" alt="image-20230426143154531"></p>
+<p><strong>注意：</strong> 这个过程是逐步完成的，为了更好的用户体验，渲染引擎将会尽可能早的将内容呈现到屏幕上，并不会等到所有的html 都解析完成之后再去构建和布局 render 树。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。</p>
+<h3 id="浏览器渲染优化"><a href="#浏览器渲染优化" class="headerlink" title="浏览器渲染优化"></a>浏览器渲染优化</h3><p><strong>（1）针对JavaScript：</strong> JavaScript既会阻塞HTML的解析，也会阻塞CSS的解析。因此我们可以对JavaScript的加载方式进行改变，来进行优化：</p>
+<ol>
+<li>尽量将JavaScript文件放在body的最后</li>
+<li>body中间尽量不要写<code>&lt;script&gt;</code>标签</li>
+<li><code>&lt;script&gt;</code>标签的引入资源方式有三种，有一种就是我们常用的直接引入，还有两种就是使用 async 属性和 defer 属性来异步引入，两者都是去异步加载外部的JS文件，不会阻塞DOM的解析（尽量使用异步加载）。三者的区别如下：</li>
+</ol>
+<ul>
+<li><strong>script</strong> 立即停止页面渲染去加载资源文件，当资源加载完毕后立即执行js代码，js代码执行完毕后继续渲染页面；</li>
+<li><strong>async</strong> 是在下载完成之后，立即异步加载，加载好后立即执行，多个带async属性的标签，不能保证加载的顺序；</li>
+<li><strong>defer</strong> 是在下载完成之后，立即异步加载。加载好后，如果 DOM 树还没构建好，则先等 DOM 树解析好再执行；如果DOM树已经准备好，则立即执行。多个带defer属性的标签，按照顺序执行。</li>
+</ul>
+<p>**（2）针对CSS：**使用CSS有三种方式：使用**link、@import、内联样式**，其中link和@import都是导入外部样式。它们之间的区别：</p>
+<ul>
+<li><strong>link</strong>：浏览器会派发一个新等线程(HTTP线程)去加载资源文件，与此同时GUI渲染线程会继续向下渲染代码</li>
+<li><strong>@import</strong>：GUI渲染线程会暂时停止渲染，去服务器加载资源文件，资源文件没有返回之前不会继续渲染(阻碍浏览器渲染)</li>
+<li><strong>style</strong>：GUI直接渲染</li>
+</ul>
+<p>外部样式如果长时间没有加载完毕，浏览器为了用户体验，会使用浏览器会默认样式，确保首次渲染的速度。所以CSS一般写在headr中，让浏览器尽快发送请求去获取css样式。</p>
+<p>所以，在开发过程中，导入外部样式使用link，而不用@import。如果css少，尽可能采用内嵌样式，直接写在style标签中。</p>
+<p><strong>（3）针对DOM树、CSSOM树：</strong> 可以通过以下几种方式来减少渲染的时间：</p>
+<ul>
+<li>HTML文件的代码层级尽量不要太深</li>
+<li>使用语义化的标签，来避免不标准语义化的特殊处理</li>
+<li>减少CSSD代码的层级，因为选择器是从左向右进行解析的</li>
+</ul>
+<p><strong>（4）减少回流与重绘：</strong></p>
+<ul>
+<li>操作DOM时，尽量在低层级的DOM节点进行操作</li>
+<li>不要使用<code>table</code>布局， 一个小的改动可能会使整个<code>table</code>进行重新布局</li>
+<li>使用CSS的表达式</li>
+<li>不要频繁操作元素的样式，对于静态页面，可以修改类名，而不是样式。</li>
+<li>使用absolute或者fixed，使元素脱离文档流，这样他们发生变化就不会影响其他元素</li>
+<li>避免频繁操作DOM，可以创建一个文档片段<code>documentFragment</code>，在它上面应用所有DOM操作，最后再把它添加到文档中</li>
+<li>将元素先设置<code>display: none</code>，操作结束后再把它显示出来。因为在display属性为none的元素上进行的DOM操作不会引发回流和重绘。</li>
+<li>将DOM的多个读操作（或者写操作）放在一起，而不是读写操作穿插着写。这得益于<strong>浏览器的渲染队列机制</strong>。</li>
+</ul>
+<p>浏览器针对页面的回流与重绘，进行了自身的优化——<strong>渲染队列</strong></p>
+<p><strong>浏览器会将所有的回流、重绘的操作放在一个队列中，当队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会对队列进行批处理。这样就会让多次的回流、重绘变成一次回流重绘。</strong></p>
+<p>将多个读操作（或者写操作）放在一起，就会等所有的读操作进入队列之后执行，这样，原本应该是触发多次回流，变成了只触发一次回流。</p>
+<h3 id="渲染过程中遇到-JS-文件如何处理？"><a href="#渲染过程中遇到-JS-文件如何处理？" class="headerlink" title="渲染过程中遇到 JS 文件如何处理？"></a>渲染过程中遇到 JS 文件如何处理？</h3><p>JavaScript 的加载、解析与执行会阻塞文档的解析，也就是说，在构建 DOM 时，HTML 解析器若遇到了 JavaScript，那么它会暂停文档的解析，将控制权移交给 JavaScript 引擎，等 JavaScript 引擎运行完毕，浏览器再从中断的地方恢复继续解析文档。也就是说，如果想要首屏渲染的越快，就越不应该在首屏就加载 JS 文件，这也是都建议将 script 标签放在 body 标签底部的原因。当然在当下，并不是说 script 标签必须放在底部，因为你可以给 script 标签添加 defer 或者 async 属性。</p>
+<h3 id="什么是文档的预解析？"><a href="#什么是文档的预解析？" class="headerlink" title="什么是文档的预解析？"></a>什么是文档的预解析？</h3><p>Webkit 和 Firefox 都做了这个优化，当执行 JavaScript 脚本时，另一个线程解析剩下的文档，并加载后面需要通过网络加载的资源。这种方式可以使资源并行加载从而使整体速度更快。需要注意的是，预解析并不改变 DOM 树，它将这个工作留给主解析过程，自己只解析外部资源的引用，比如外部脚本、样式表及图片。</p>
+<h3 id="CSS-如何阻塞文档解析？"><a href="#CSS-如何阻塞文档解析？" class="headerlink" title="CSS 如何阻塞文档解析？"></a>CSS 如何阻塞文档解析？</h3><p>理论上，既然样式表不改变 DOM 树，也就没有必要停下文档的解析等待它们。然而，存在一个问题，JavaScript 脚本执行时可能在文档的解析过程中请求样式信息，如果样式还没有加载和解析，脚本将得到错误的值，显然这将会导致很多问题。所以如果浏览器尚未完成 CSSOM 的下载和构建，而我们却想在此时运行脚本，那么浏览器将延迟 JavaScript 脚本执行和文档的解析，直至其完成 CSSOM 的下载和构建。也就是说，在这种情况下，浏览器会先下载和构建 CSSOM，然后再执行 JavaScript，最后再继续文档的解析。</p>
+<h3 id="如何优化关键渲染路径？"><a href="#如何优化关键渲染路径？" class="headerlink" title="如何优化关键渲染路径？"></a>如何优化关键渲染路径？</h3><p>为尽快完成首次渲染，我们需要最大限度减小以下三种可变因素：</p>
+<p>（1）关键资源的数量。</p>
+<p>（2）关键路径长度。</p>
+<p>（3）关键字节的数量。</p>
+<p>关键资源是可能阻止网页首次渲染的资源。这些资源越少，浏览器的工作量就越小，对 CPU 以及其他资源的占用也就越少。同样，关键路径长度受所有关键资源与其字节大小之间依赖关系图的影响：某些资源只能在上一资源处理完毕之后才能开始下载，并且资源越大，下载所需的往返次数就越多。最后，浏览器需要下载的关键字节越少，处理内容并让其出现在屏幕上的速度就越快。要减少字节数，我们可以减少资源数（将它们删除或设为非关键资源），此外还要压缩和优化各项资源，确保最大限度减小传送大小。</p>
+<p>优化关键渲染路径的常规步骤如下：</p>
+<p>（1）对关键路径进行分析和特性描述：资源数、字节数、长度。</p>
+<p>（2）最大限度减少关键资源的数量：删除它们，延迟它们的下载，将它们标记为异步等。</p>
+<p>（3）优化关键字节数以缩短下载时间（往返次数）。</p>
+<p>（4）优化其余关键资源的加载顺序：您需要尽早下载所有关键资产，以缩短关键路径长度</p>
+<h3 id="什么情况会阻塞渲染？"><a href="#什么情况会阻塞渲染？" class="headerlink" title="什么情况会阻塞渲染？"></a>什么情况会阻塞渲染？</h3><p>首先渲染的前提是生成渲染树，所以 HTML 和 CSS 肯定会阻塞渲染。如果你想渲染的越快，你越应该降低一开始需要渲染的文件大小，并且扁平层级，优化选择器。然后当浏览器在解析到 script 标签时，会暂停构建 DOM，完成后才会从暂停的地方重新开始。也就是说，如果你想首屏渲染的越快，就越不应该在首屏就加载 JS 文件，这也是都建议将 script 标签放在 body 标签底部的原因。</p>
+<p>当然在当下，并不是说 script 标签必须放在底部，因为你可以给 script 标签添加 defer 或者 async 属性。当 script 标签加上 defer 属性以后，表示该 JS 文件会并行下载，但是会放到 HTML 解析完成后顺序执行，所以对于这种情况你可以把 script 标签放在任意位置。对于没有任何依赖的 JS 文件可以加上 async 属性，表示 JS 文件下载和解析不会阻塞渲染。</p>
+<h2 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h2><h3 id="Cookie、session、token、LocalStorage、SessionStorage"><a href="#Cookie、session、token、LocalStorage、SessionStorage" class="headerlink" title="Cookie、session、token、LocalStorage、SessionStorage"></a>Cookie、session、token、LocalStorage、SessionStorage</h3><table>
+<thead>
+<tr>
+<th>鉴权认证方式</th>
+<th>特点</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cookie</td>
+<td>存储在客户端。<br>请求自动携带 cookie。<br>存储大小 4KB。</td>
+<td>兼容性好，因为是比较老的技术。<br>很容易实现，因为 cookie 会自动携带和存储。</td>
+<td>需要单独解决跨域携带问题，比如多台服务器如何共享 cookie。<br>会遭受 CSRF 攻击。<br>存储在客户端，不够安全。</td>
+</tr>
+<tr>
+<td>session</td>
+<td>存储在服务端。<br>存储大小无限制。</td>
+<td>查询速度快，因为是个会话，相当于是在内存中操作。<br>结合 cookie 后很容易实现鉴权。<br>安全，因为存储在服务端。</td>
+<td>耗费服务器资源，因为每个客户端都会创建 session。<br>占据存储空间，session 相当于存储了一个完整的用户信息。</td>
+</tr>
+<tr>
+<td>token</td>
+<td>体积很小。<br>自由操作存储在哪里。</td>
+<td>安全，因为 token 一般只有用户 id，就算被截取了也没什么用。<br>无需消耗服务器内存资源，它相当于只存了用户 id，session 相当于存储了用户的所有信息。<br>跨域处理较为方便，比如多台服务器之间可以共用一个 token。</td>
+<td>查询速度慢，因为 token 只存了用户 id，每次需要去查询数据库。</td>
+</tr>
+</tbody></table>
+<p><strong>Cookie、LocalStorage、SessionStorage区别</strong></p>
+<p><strong>共同点</strong>：都是保存在浏览器端、且同源的</p>
+<p>区别：</p>
+<ol>
+<li>存储空间：cookie存储空间最小、只有4kb、但是http请求中可以携带cookie，loacalstorage、sessionstorage存储空间5m或更大</li>
+<li>有效期：cookie不设置时间、关闭游览器销毁，sessionstorage关闭游览器（窗口或者标签页）销毁，loacalstorage不手动清除一直保留</li>
+<li>作用域：sessionStorage不在不同游览器窗口（标签页）共享、即使同源，cookie、localstorage在所有同源窗口之间共享</li>
+</ol>
+<h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h4><p>cookie 是保存在客户端或者说浏览器中的一小块数据，大小限制大致在 4KB 左右，在以前很多开发人员通常用 cookie 来存储各种数据，后来随着更多浏览器存储方案的出现，cookie 存储数据这种方式逐渐被取代，主要原因有如下：</p>
+<ul>
+<li>cookie 有存储大小限制，4KB 左右。</li>
+<li>浏览器每次请求会携带 cookie 在请求头中。</li>
+<li>字符编码为 Unicode，不支持直接存储中文。</li>
+<li>数据可以被轻易查看。</li>
+</ul>
+<p><strong>cookie 主要有以下特点</strong>：</p>
+<ul>
+<li>cookie 存储在客户端</li>
+<li>cookie 不可跨域，但是在如果设置了 domain，那么它们是可以在一级域名和二级域名之间共享的。</li>
+</ul>
+<p><strong>Cookie的使用场景：</strong></p>
+<ul>
+<li>最常见的使用场景就是Cookie和session结合使用，我们将sessionId存储到Cookie中，每次发请求都会携带这个sessionId，这样服务端就知道是谁发起的请求，从而响应相应的信息。</li>
+<li>可以用来统计页面的点击次数</li>
+</ul>
+<p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426152710791.png" alt="image-20230426152710791"></p>
+<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><p>session 主要由服务端创建，主要作用就是保存 sessionId，用户与服务端之间的权限确认主要就是通过这个 sessionId。</p>
+<p>session是服务端存储的一个对象，主要用来存储所有访问过该服务端的客户端的用户信息（也可以存储其他信息），从而实现保持用户会话状态。但是服务器重启时，内存会被销毁，存储的用户信息也就消失了。</p>
+<p>session 由服务端创建，当一个请求发送到服务端时，服务器会检索该请求里面有没有包含 sessionId 标识，如果包含了 sessionId，则代表服务端已经和客户端创建过 session，然后就通过这个 sessionId 去查找真正的 session，如果没找到，则为客户端创建一个新的 session，并生成一个新的 sessionId 与 session 对应，然后在响应的时候将 sessionId 给客户端，通常是存储在 cookie 中。如果在请求中找到了真正的 session，验证通过，正常处理该请求</p>
+<p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426153026474.png" alt="image-20230426153026474"></p>
+<p><strong>cookie/session的区别与联系</strong></p>
+<p>cookie 和 session，它们两者之间主要是通过 sessionId 关联起来的，所以我们总结出：sessionId 是 cookie 和 session 之间的桥梁。</p>
+<p><strong>区别：</strong></p>
+<ul>
+<li>session 比 cookie 更加安全，因为它是存在服务端的，cookie 是存在客户端的。</li>
+<li>cookie 只支持存储字符串数据，session 可以存储任意数据。</li>
+<li>cookie 的有效期可以设置较长时间，session 有效期都比较短。</li>
+<li>session 存储空间很大，cookie 有限制。</li>
+</ul>
+<p>session虽说存放在服务器端，但是仔细看刚才的执行流程你会明白，session是依赖于cookie的</p>
+<p><strong>cookie/session使用注意事项</strong></p>
+<ul>
+<li><p>cookie大小有限制 4k</p>
+</li>
+<li><p>cookie不能跨浏览器</p>
+</li>
+<li><p>cookie不支持中文</p>
+</li>
+<li><p>如果是安全性较高的数据应存放在session中，因为cookie存放在客户端总会轻易被不法分子获取</p>
+</li>
+<li><p>如果是访问量特别大的网站，尽量不要在session中存储用户数据，因为每个用户存一个session会给服务器造成很大的压力</p>
+</li>
+</ul>
+<h4 id="token"><a href="#token" class="headerlink" title="token"></a>token</h4><p>cookie+session 是实现认证的一种非常好的方式，但是凡事都有两面性，它们实现的认证主要有以下缺点：</p>
+<ul>
+<li>增加请求体积，浪费性能，因为每次请求都会携带 cookie。</li>
+<li>增加服务端资源消耗，因为每个客户端连接进来都需要生成 session，会占用服务端资源的。</li>
+<li>容易遭受 CSRF 攻击，即跨站域请求伪造。</li>
+</ul>
+<p>token的出现是为了解决Session的弊端</p>
+<p><strong>token 是如何生成的：</strong></p>
+<p>cookie 是服务端设置了 set-cookie 响应头之后，浏览器会自动保存 cookie，然后下一次发送请求的时候会自动把 cookie 携带上。token 主要是由服务器生成，然后返回给客户端，客户端手动把 token 存下来，比如利用 localstorage 或者直接存到 cookie 当中也行。</p>
+<p><strong>token 认证流程</strong>：</p>
+<ol>
+<li>客户端发起登录请求，比如用户输入用户名和密码后登录。</li>
+<li>服务端校验用户名和密码后，将用户 id 和一些其它信息进行加密，生成 token。</li>
+<li>服务端将 token 响应给客户端。</li>
+<li>客户端收到响应后将 token 存储下来。</li>
+<li>下一次发送请求后需要将 token 携带上，比如放在请求头中或者其它地方。</li>
+<li>服务端 token 后校验，校验通过则正常返回数据。</li>
+</ol>
+<p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426153617822.png" alt="image-20230426153617822"></p>
+<h4 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h4><p>LocalStorage是HTML5新引入的特性，由于有的时候我们存储的信息较大，Cookie就不能满足我们的需求，这时候LocalStorage就派上用场了。</p>
+<p><strong>LocalStorage的优点：</strong></p>
+<ul>
+<li>在大小方面，LocalStorage的大小一般为5MB，可以储存更多的信息</li>
+<li>LocalStorage是持久储存，并不会随着页面的关闭而消失，除非主动清理，不然会永久存在</li>
+<li>仅储存在本地，不像Cookie那样每次HTTP请求都会被携带</li>
+</ul>
+<p><strong>LocalStorage的缺点：</strong></p>
+<ul>
+<li>存在浏览器兼容问题，IE8以下版本的浏览器不支持</li>
+<li>如果浏览器设置为隐私模式，那我们将无法读取到LocalStorage</li>
+<li>LocalStorage受到同源策略的限制，即端口、协议、主机地址有任何一个不相同，都不会访问</li>
+</ul>
+<p><strong>LocalStorage的常用API：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到 localStorage</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br><span class="line"><span class="comment">// 从 localStorage 获取数据</span></span><br><span class="line"><span class="keyword">let</span> data = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="comment">// 从 localStorage 删除保存的数据</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="comment">// 从 localStorage 删除所有保存的数据</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">clear</span>();</span><br><span class="line"><span class="comment">// 获取某个索引的Key</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">key</span>(index)</span><br></pre></td></tr></table></figure>
+
+<p><strong>LocalStorage的使用场景：</strong></p>
+<ul>
+<li>有些网站有换肤的功能，这时候就可以将换肤的信息存储在本地的LocalStorage中，当需要换肤的时候，直接操作LocalStorage即可</li>
+<li>在网站中的用户浏览信息也会存储在LocalStorage中，还有网站的一些不常变动的个人信息等也可以存储在本地的LocalStorage中</li>
+</ul>
+<h4 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h4><p>SessionStorage和LocalStorage都是在HTML5才提出来的存储方案，SessionStorage 主要用于临时保存同一窗口(或标签页)的数据，刷新页面时不会删除，关闭窗口或标签页之后将会删除这些数据。</p>
+<p><strong>SessionStorage与LocalStorage对比：</strong></p>
+<ul>
+<li>SessionStorage和LocalStorage都在<strong>本地进行数据存储</strong>；</li>
+<li>SessionStorage也有同源策略的限制，但是SessionStorage有一条更加严格的限制，SessionStorage<strong>只有在同一浏览器的同一窗口下才能够共享</strong>；</li>
+<li>LocalStorage和SessionStorage<strong>都不能被爬虫爬取</strong>；</li>
+</ul>
+<p><strong>SessionStorage的常用API：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到 sessionStorage</span></span><br><span class="line">sessionStorage.<span class="title function_">setItem</span>(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br><span class="line"><span class="comment">// 从 sessionStorage 获取数据</span></span><br><span class="line"><span class="keyword">let</span> data = sessionStorage.<span class="title function_">getItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="comment">// 从 sessionStorage 删除保存的数据</span></span><br><span class="line">sessionStorage.<span class="title function_">removeItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="comment">// 从 sessionStorage 删除所有保存的数据</span></span><br><span class="line">sessionStorage.<span class="title function_">clear</span>();</span><br><span class="line"><span class="comment">// 获取某个索引的Key</span></span><br><span class="line">sessionStorage.<span class="title function_">key</span>(index)</span><br></pre></td></tr></table></figure>
+
+<p><strong>SessionStorage的使用场景</strong></p>
+<ul>
+<li>由于SessionStorage具有时效性，所以可以用来存储一些网站的游客登录的信息，还有临时的浏览记录的信息。当关闭网站之后，这些信息也就随之消除了。</li>
+</ul>
+<h3 id="Cookie有哪些字段，作用分别是什么"><a href="#Cookie有哪些字段，作用分别是什么" class="headerlink" title="Cookie有哪些字段，作用分别是什么"></a>Cookie有哪些字段，作用分别是什么</h3><p><strong>Cookie由以下字段组成：</strong></p>
+<ul>
+<li><strong>Name</strong>：cookie的名称</li>
+<li><strong>Value</strong>：cookie的值，对于认证cookie，value值包括web服务器所提供的访问令牌；</li>
+<li><strong>Size</strong>： cookie的大小</li>
+<li><strong>Path</strong>：可以访问此cookie的页面路径。 比如domain是abc.com，path是<code>/test</code>，那么只有<code>/test</code>路径下的页面可以读取此cookie。</li>
+<li><strong>Secure</strong>： 指定是否使用HTTPS安全协议发送Cookie。使用HTTPS安全协议，可以保护Cookie在浏览器和Web服务器间的传输过程中不被窃取和篡改。该方法也可用于Web站点的身份鉴别，即在HTTPS的连接建立阶段，浏览器会检查Web网站的SSL证书的有效性。但是基于兼容性的原因（比如有些网站使用自签署的证书）在检测到SSL证书无效时，浏览器并不会立即终止用户的连接请求，而是显示安全风险信息，用户仍可以选择继续访问该站点。</li>
+<li><strong>Domain</strong>：可以访问该cookie的域名，Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。当需要实现单点登录方案时，Cookie 的上述特性非常有用，然而也增加了 Cookie受攻击的危险，比如攻击者可以借此发动会话定置攻击。因而，浏览器禁止在 Domain 属性中设置.org、.com 等通用顶级域名、以及在国家及地区顶级域下注册的二级域名，以减小攻击发生的范围。</li>
+<li><strong>HTTP</strong>： 该字段包含<code>HTTPOnly</code> 属性 ，该属性用来设置cookie能否通过脚本来访问，默认为空，即可以通过脚本访问。在客户端是不能通过js代码去设置一个httpOnly类型的cookie的，这种类型的cookie只能通过服务端来设置。该属性用于防止客户端脚本通过<code>document.cookie</code>属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。但是，HTTPOnly的应用仍存在局限性，一些浏览器可以阻止客户端脚本对Cookie的读操作，但允许写操作；此外大多数浏览器仍允许通过XMLHTTP对象读取HTTP响应中的Set-Cookie头。</li>
+<li><strong>Expires/Max-size</strong> ： 此cookie的超时时间。若设置其值为一个时间，那么当到达此时间后，此cookie失效。不设置的话默认值是Session，意思是cookie会和session一起失效。当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。</li>
+</ul>
+<p><strong>总结：</strong> 服务器端可以使用 Set-Cookie 的响应头部来配置 cookie 信息。一条cookie 包括了5个属性值 expires、domain、path、secure、HttpOnly。其中 expires 指定了 cookie 失效的时间，domain 是域名、path是路径，domain 和 path 一起限制了 cookie 能够被哪些 url 访问。secure 规定了 cookie 只能在确保安全的情况下传输，HttpOnly 规定了这个 cookie 只能被服务器访问，不能使用 js 脚本访问。</p>
+<h3 id="前端储存的方式有哪些？"><a href="#前端储存的方式有哪些？" class="headerlink" title="前端储存的方式有哪些？"></a>前端储存的方式有哪些？</h3><ul>
+<li>cookies： 在HTML5标准前本地储存的主要⽅式，优点是兼容性好，请求头⾃带cookie⽅便，缺点是⼤⼩只有4k，⾃动请求头加⼊cookie浪费流量，每个domain限制20个cookie，使⽤起来麻烦，需要⾃⾏封装；</li>
+<li>localStorage：HTML5加⼊的以键值对(Key-Value)为标准的⽅式，优点是操作⽅便，永久性储存（除⾮⼿动删除），⼤⼩为5M，兼容IE8+ ；</li>
+<li>sessionStorage：与localStorage基本类似，区别是sessionStorage当⻚⾯关闭后会被清理，⽽且与cookie、localStorage不同，他不能在所有同源窗⼝中共享，是会话级别的储存⽅式；</li>
+<li>Web SQL：2010年被W3C废弃的本地数据库数据存储⽅案，但是主流浏览器（⽕狐除外）都已经有了相关的实现，web sql类似于SQLite，是真正意义上的关系型数据库，⽤sql进⾏操作，当我们⽤JavaScript时要进⾏转换，较为繁琐；</li>
+<li>IndexedDB： 是被正式纳⼊HTML5标准的数据库储存⽅案，它是NoSQL数据库，⽤键值对进⾏储存，可以进⾏快速读取操作，⾮常适合web场景，同时⽤JavaScript进⾏操作会⾮常便。</li>
+</ul>
+<h3 id="IndexedDB有哪些特点？"><a href="#IndexedDB有哪些特点？" class="headerlink" title="IndexedDB有哪些特点？"></a>IndexedDB有哪些特点？</h3><p>IndexedDB 具有以下特点：</p>
+<ul>
+<li><strong>键值对储存</strong>：IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以”键值对”的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。</li>
+<li><strong>异步</strong>：IndexedDB 操作时不会锁死浏览器，用户依然可以进行其他操作，这与 LocalStorage 形成对比，后者的操作是同步的。异步设计是为了防止大量数据的读写，拖慢网页的表现。</li>
+<li><strong>支持事务</strong>：IndexedDB 支持事务（transaction），这意味着一系列操作步骤之中，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态，不存在只改写一部分数据的情况。</li>
+<li><strong>同源限制：</strong> IndexedDB 受到同源限制，每一个数据库对应创建它的域名。网页只能访问自身域名下的数据库，而不能访问跨域的数据库。</li>
+<li><strong>储存空间大</strong>：IndexedDB 的储存空间比 LocalStorage 大得多，一般来说不少于 250MB，甚至没有上限。</li>
+<li><strong>支持二进制储存</strong>：IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。</li>
+</ul>
+<h2 id="浏览器同源策略"><a href="#浏览器同源策略" class="headerlink" title="浏览器同源策略"></a>浏览器同源策略</h2><p>跨域问题其实就是浏览器的同源策略造成的。</p>
+<p>同源策略限制了从同一个源加载的文档或脚本如何与另一个源的资源进行交互。这是浏览器的一个用于隔离潜在恶意文件的重要的安全机制。同源指的是：<strong>协议</strong>、<strong>端口号</strong>、<strong>域名</strong>必须一致。</p>
+<p><strong>同源策略：protocol（协议）、domain（域名）、port（端口）三者必须一致。</strong></p>
+<p><strong>同源政策主要限制了三个方面：</strong></p>
+<ul>
+<li>当前域下的 js 脚本不能够访问其他域下的 cookie、localStorage 和 indexDB。</li>
+<li>当前域下的 js 脚本不能够操作访问操作其他域下的 DOM。</li>
+<li>当前域下 ajax 无法发送跨域请求。</li>
+</ul>
+<p>同源政策的目的主要是为了保证用户的信息安全，它只是对 js 脚本的一种限制，并不是对浏览器的限制，对于一般的 img、或者script 脚本请求都不会有跨域的限制，这是因为这些操作都不会通过响应结果来进行可能出现安全问题的操作。</p>
+<p>同源策略是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSRF等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<p><img src="https://zyhxwing.gitee.io/images/browser/1343_1.png" alt="浏览器同源协议"></p>
+<p><strong>浏览器同源协议</strong></p>
+<p>同源策略限制内容有：</p>
+<ul>
+<li>Cookie、LocalStorage、IndexedDB 等存储性内容</li>
+<li>DOM 节点</li>
+<li>AJAX 请求发送后，结果被浏览器拦截了</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>说明</th>
+<th>是否允许通信</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://www.domain.com/a.js">http://www.domain.com/a.js</a><br><a target="_blank" rel="noopener" href="http://www.domain.com/b.js">http://www.domain.com/b.js</a><br><a target="_blank" rel="noopener" href="http://www.domain.com/lab/c.js">http://www.domain.com/lab/c.js</a></td>
+<td>同一域名，不同文件或路径</td>
+<td>允许</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.domain.com:8000/a.js">http://www.domain.com:8000/a.js</a><br><a target="_blank" rel="noopener" href="http://www.domain.com/b.js">http://www.domain.com/b.js</a></td>
+<td>同一域名，不同端口</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.domain.com/a.js">http://www.domain.com/a.js</a><br><a target="_blank" rel="noopener" href="https://www.domain.com/b.js">https://www.domain.com/b.js</a></td>
+<td>同一域名，不同协议</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.domain.com/a.js">http://www.domain.com/a.js</a><br><a target="_blank" rel="noopener" href="http://192.168.4.12/b.js">http://192.168.4.12/b.js</a></td>
+<td>域名和域名对应相同ip</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.domain.com/a.js">http://www.domain.com/a.js</a><br><a target="_blank" rel="noopener" href="http://x.domain.com/b.js">http://x.domain.com/b.js</a><br><a target="_blank" rel="noopener" href="http://domain.com/c.js">http://domain.com/c.js</a></td>
+<td>主域相同，子域不同</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.domain1.com/a.js">http://www.domain1.com/a.js</a><br><a target="_blank" rel="noopener" href="http://www.domain2.com/b.js">http://www.domain2.com/b.js</a></td>
+<td>不同域名</td>
+<td>不允许</td>
+</tr>
+</tbody></table>
+<h3 id="如何解决跨越问题"><a href="#如何解决跨越问题" class="headerlink" title="如何解决跨越问题"></a>如何解决跨越问题</h3><h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><ol>
+<li>JSONP原理<ol>
+<li>利用script标签没有跨域限制的漏洞，网页可以得到从其他来源动态产生的 JSON 数据。JSONP请求一定 需要对方的服务器做支持才可以。</li>
+</ol>
+</li>
+<li>JSONP优缺点<ol>
+<li>JSONP优点是简单兼容性好，可用于解决主流浏览器的跨域数据访问的问题。</li>
+<li>缺点是仅支持get方法具有局限性, 不安全可能会遭受XSS攻击。</li>
+</ol>
+</li>
+<li>JSONP的实现流程<ol>
+<li>声明一个回调函数，其函数名(如show)当做参数值，要传递给跨域请求数据的服务器，函数形参为要获取目 标数据(服务器返回的data)。</li>
+<li>创建一个标签，把那个跨域的API数据接口地址，赋值给script的src,还要在这个地址中向服务器传递该函数名（可以通过问号传参:?callback=show）。</li>
+<li>服务器接收到请求后，需要进行特殊的处理：把传递进来的函数名和它需要给你的数据拼接成一个字符串,例如：传递进去的函数名是show，它准备好的数据是show(‘我不爱你’)。</li>
+<li>最后服务器把准备的数据通过HTTP协议返回给客户端，客户端再调用执行之前声明的回调函数（show），对返回的数据进行操作。</li>
+</ol>
+</li>
+</ol>
+<p>Vue axios实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$http</span> = axios;</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$http</span>.<span class="title function_">jsonp</span>(<span class="string">&#x27;http://www.domain2.com:8080/login&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">params</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">jsonp</span>: <span class="string">&#x27;handleCallback&#x27;</span></span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res); </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h4><p>cors 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。</p>
+<p>首先浏览器会判断该请求是简单请求还是非简单请求</p>
+<ul>
+<li>简单请求则会自动在请求头上加上origin（值为请求地址，浏览器url），后端再收到请求后打开cors接口，设置accsee-control-allow-orgin，值为origin</li>
+<li>非简单请求则会先进性一次预检option请求，预检请求会询问服务器是否支持当前域名的请求，是否支持修改的头信息字段，收到肯定的回复之后，才会发送http请求</li>
+<li>对于需要携带cookie的cors请求<br>则需要后端设置access-control-allow-credential为true，前端设置xhr.withcredential为true。当携带cookie的时候，orgin不能设置为*</li>
+</ul>
+<h4 id="websocket"><a href="#websocket" class="headerlink" title="websocket"></a>websocket</h4><p>websocket是HTML5的一个持久化的协议，它实现了浏览器与服务器的全双工通信，同时也是跨域的一种解决方案。<br>WebSocket和HTTP都是应用层协议，都基于 TCP 协议。但是 WebSocket 是一种双向通信协议，在建立连接之后，WebSocket 的 server 与 client 都能主动向对方发送或接收数据。同时，WebSocket 在建立连接时需要借助 HTTP 协议，连接建立好了之后 client 与 server 之间的双向通信就与 HTTP 无关了。</p>
+<h4 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h4><p>需要你搭建一个中转nginx服务器，用于转发请求。使用nginx反向代理实现跨域，是最简单的跨域方式。只需要修改nginx的配置即可解决跨域问题，支持所有浏览器，支持session，不需要修改任何代码，并且不会影响服务器性能。<br>实现思路：通过nginx配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域登录。</p>
+<h4 id="postmessage"><a href="#postmessage" class="headerlink" title="postmessage"></a>postmessage</h4><p>postMessage是HTML5 XMLHttpRequest Level 2中的API，且是为数不多可以跨域操作的window属性之一，它可用于解决以下方面的问题：</p>
+<ul>
+<li>页面和其打开的新窗口的数据传递</li>
+<li>多窗口之间消息传递</li>
+<li>页面与嵌套的iframe消息传递</li>
+<li>上面三个场景的跨域数据传递</li>
+</ul>
+<p>用法：postMessage(data,origin)方法接受两个参数：</p>
+<ul>
+<li><strong>data</strong>： html5规范支持任意基本类型或可复制的对象，但部分浏览器只支持字符串，所以传参时最好用JSON.stringify()序列化。</li>
+<li><strong>origin</strong>： 协议+主机+端口号，也可以设置为”*”，表示可以传递给任意窗口，如果要指定和当前窗口同源的话设置为”/“。</li>
+</ul>
+<p>iframe 和 父窗口 跨域（一般是调用别人的HTML ）必须使用安全的 postMessage方式来进行通信</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向父窗口传值</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">parent</span>.<span class="title function_">postMessage</span>(&#123;<span class="attr">code</span>: <span class="number">1</span>, <span class="attr">msg</span>: <span class="string">&#x27;向父窗口传值&#x27;</span>&#125;，*);</span><br><span class="line"><span class="comment">// 向iframe传值</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;iframe&quot;</span>)[<span class="number">0</span>].<span class="property">contentWindow</span>.<span class="title function_">postMessage</span>(&#123;<span class="attr">code</span>: <span class="number">2</span>, <span class="attr">msg</span>: <span class="string">&#x27;向iframe传值&#x27;</span>&#125;，*);</span><br><span class="line"><span class="comment">// 接收传值</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventList</span>(<span class="string">&#x27;message&#x27;</span>,  <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (e.<span class="property">data</span> type e.<span class="property">data</span> ===<span class="string">&#x27;string&#x27;</span> ) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">data</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="nodejs-中间件代理跨域"><a href="#nodejs-中间件代理跨域" class="headerlink" title="nodejs 中间件代理跨域"></a>nodejs 中间件代理跨域</h4><p>node中间件实现跨域代理，原理大致与nginx相同，都是通过启一个代理服务器，实现数据的转发，也可以通过设置cookieDomainRewrite参数修改响应头中cookie中域名，实现当前域的cookie写入，方便接口登录认证。</p>
+<p><strong>1）非vue框架的跨域</strong> 使用node + express + http-proxy-middleware搭建一个proxy服务器。</p>
+<ul>
+<li>前端代码：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"><span class="comment">// 前端开关：浏览器是否读写cookie</span></span><br><span class="line">xhr.<span class="property">withCredentials</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 访问http-proxy-middleware代理服务器</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;http://www.domain1.com:3000/login?user=admin&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>中间件服务器代码：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="built_in">require</span>(<span class="string">&#x27;http-proxy-middleware&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> app = <span class="title function_">express</span>();</span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, <span class="title function_">proxy</span>(&#123;</span><br><span class="line">    <span class="comment">// 代理跨域目标接口</span></span><br><span class="line">    <span class="attr">target</span>: <span class="string">&#x27;http://www.domain2.com:8080&#x27;</span>,</span><br><span class="line">    <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 修改响应头信息，实现跨域并允许带cookie</span></span><br><span class="line">    <span class="attr">onProxyRes</span>: <span class="keyword">function</span>(<span class="params">proxyRes, req, res</span>) &#123;</span><br><span class="line">        res.<span class="title function_">header</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;http://www.domain1.com&#x27;</span>);</span><br><span class="line">        res.<span class="title function_">header</span>(<span class="string">&#x27;Access-Control-Allow-Credentials&#x27;</span>, <span class="string">&#x27;true&#x27;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 修改响应信息中的cookie域名</span></span><br><span class="line">    <span class="attr">cookieDomainRewrite</span>: <span class="string">&#x27;www.domain1.com&#x27;</span>  <span class="comment">// 可以为false，表示不修改</span></span><br><span class="line">&#125;));</span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Proxy server is listen at port 3000...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>2）vue框架的跨域</strong></p>
+<p>node + vue + webpack + webpack-dev-server搭建的项目，跨域请求接口，直接修改webpack.config.js配置。开发环境下，vue渲染服务和接口代理服务都是webpack-dev-server同一个，所以页面与代理接口之间不再跨域。</p>
+<p>webpack.config.js部分配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;&#125;,</span><br><span class="line">    ...</span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">proxy</span>: [&#123;</span><br><span class="line">            <span class="attr">context</span>: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">            <span class="attr">target</span>: <span class="string">&#x27;http://www.domain2.com:8080&#x27;</span>,  <span class="comment">// 代理跨域目标接口</span></span><br><span class="line">            <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">secure</span>: <span class="literal">false</span>,  <span class="comment">// 当代理某些https服务报错时用</span></span><br><span class="line">            <span class="attr">cookieDomainRewrite</span>: <span class="string">&#x27;www.domain1.com&#x27;</span>  <span class="comment">// 可以为false，表示不修改</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="attr">noInfo</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="document-domain-iframe跨域"><a href="#document-domain-iframe跨域" class="headerlink" title="document.domain + iframe跨域"></a>document.domain + iframe跨域</h4><p>此方案仅限主域相同，子域不同的跨域应用场景。实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。 1）父窗口：(domain.com/a.html)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe id=<span class="string">&quot;iframe&quot;</span> src=<span class="string">&quot;http://child.domain.com/b.html&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">document</span>.<span class="property">domain</span> = <span class="string">&#x27;domain.com&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> user = <span class="string">&#x27;admin&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>1）子窗口：(child.domain.com/a.html)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">domain</span> = <span class="string">&#x27;domain.com&#x27;</span>;</span><br><span class="line">    <span class="comment">// 获取父窗口中变量</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;get js data from parent ---&gt; &#x27;</span> + <span class="variable language_">window</span>.<span class="property">parent</span>.<span class="property">user</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="location-hash-iframe跨域"><a href="#location-hash-iframe跨域" class="headerlink" title="location.hash + iframe跨域"></a>location.hash + iframe跨域</h4><p>实现原理：a欲与b跨域相互通信，通过中间页c来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。</p>
+<p>具体实现：A域：a.html -&gt; B域：b.html -&gt; A域：c.html，a与b不同域只能通过hash值单向通信，b与c也不同域也只能单向通信，但c与a同域，所以c可通过parent.parent访问a页面所有对象。</p>
+<p>1）a.html：(domain1.com/a.html)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe id=<span class="string">&quot;iframe&quot;</span> src=<span class="string">&quot;http://www.domain2.com/b.html&quot;</span> style=<span class="string">&quot;display:none;&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;iframe&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 向b.html传hash值</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        iframe.<span class="property">src</span> = iframe.<span class="property">src</span> + <span class="string">&#x27;#user=admin&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;, <span class="number">1000</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 开放给同域c.html的回调方法</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">function</span> <span class="title function_">onCallback</span>(<span class="params">res</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="title function_">alert</span>(<span class="string">&#x27;data from c.html ---&gt; &#x27;</span> + res);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>2）b.html：(.domain2.com/b.html)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe id=<span class="string">&quot;iframe&quot;</span> src=<span class="string">&quot;http://www.domain1.com/c.html&quot;</span> style=<span class="string">&quot;display:none;&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;iframe&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 监听a.html传来的hash值，再传给c.html</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">window</span>.<span class="property">onhashchange</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        iframe.<span class="property">src</span> = iframe.<span class="property">src</span> + location.<span class="property">hash</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>3）c.html：(<a href="https://link.juejin.cn/?target=https://link.zhihu.com/?target=http://www.domain1.com/c.html">www.domain1.com/c.html</a>)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 监听b.html传来的hash值</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">onhashchange</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 再通过操作同域a.html的js回调，将结果传回</span></span><br><span class="line">        <span class="variable language_">window</span>.<span class="property">parent</span>.<span class="property">parent</span>.<span class="title function_">onCallback</span>(<span class="string">&#x27;hello: &#x27;</span> + location.<span class="property">hash</span>.<span class="title function_">replace</span>(<span class="string">&#x27;#user=&#x27;</span>, <span class="string">&#x27;&#x27;</span>));</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="window-name-iframe跨域"><a href="#window-name-iframe跨域" class="headerlink" title="window.name + iframe跨域"></a>window.name + iframe跨域</h4><p>window.name属性的独特之处：name值在不同的页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的 name 值（2MB）。</p>
+<p>1）a.html：(domain1.com/a.html)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">function</span>(<span class="params">url, callback</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> state = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;iframe&#x27;</span>);</span><br><span class="line">    <span class="comment">// 加载跨域页面</span></span><br><span class="line">    iframe.<span class="property">src</span> = url;</span><br><span class="line">    <span class="comment">// onload事件会触发2次，第1次加载跨域页，并留存数据于window.name</span></span><br><span class="line">    iframe.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (state === <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// 第2次onload(同域proxy页)成功后，读取同域window.name中数据</span></span><br><span class="line">            <span class="title function_">callback</span>(iframe.<span class="property">contentWindow</span>.<span class="property">name</span>);</span><br><span class="line">            <span class="title function_">destoryFrame</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 第1次onload(跨域页)成功后，切换到同域代理页面</span></span><br><span class="line">            iframe.<span class="property">contentWindow</span>.<span class="property">location</span> = <span class="string">&#x27;http://www.domain1.com/proxy.html&#x27;</span>;</span><br><span class="line">            state = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(iframe);</span><br><span class="line">    <span class="comment">// 获取数据以后销毁这个iframe，释放内存；这也保证了安全（不被其他域frame js访问）</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">destoryFrame</span>(<span class="params"></span>) &#123;</span><br><span class="line">        iframe.<span class="property">contentWindow</span>.<span class="property">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        iframe.<span class="property">contentWindow</span>.<span class="title function_">close</span>();</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(iframe);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 请求跨域b页面数据</span></span><br><span class="line"><span class="title function_">proxy</span>(<span class="string">&#x27;http://www.domain2.com/b.html&#x27;</span>, <span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">    <span class="title function_">alert</span>(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>2）proxy.html：(domain1.com/proxy.html)</p>
+<p>中间代理页，与a.html同域，内容为空即可。 3）b.html：(domain2.com/b.html)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;    </span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">name</span> = <span class="string">&#x27;This is domain2 data!&#x27;</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通过iframe的src属性由外域转向本地域，跨域数据即由iframe的window.name从外域传递到本地域。这个就巧妙地绕过了浏览器的跨域访问限制，但同时它又是安全操作。</p>
+<h4 id="WebSocket协议跨域"><a href="#WebSocket协议跨域" class="headerlink" title="WebSocket协议跨域"></a>WebSocket协议跨域</h4><p>WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很好的实现。</p>
+<p>原生WebSocket API使用起来不太方便，我们使用Socket.io，它很好地封装了webSocket接口，提供了更简单、灵活的接口，也对不支持webSocket的浏览器提供了向下兼容。</p>
+<p>1）前端代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;user input：&lt;input type=<span class="string">&quot;text&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcss.com/socket.io/2.2.0/socket.io.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">var</span> socket = <span class="title function_">io</span>(<span class="string">&#x27;http://www.domain2.com:8080&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="comment">// 连接成功处理</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">socket.<span class="title function_">on</span>(<span class="string">&#x27;connect&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 监听服务端消息</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    socket.<span class="title function_">on</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span>(<span class="params">msg</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data from server: ---&gt; &#x27;</span> + msg); </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 监听服务端关闭</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    socket.<span class="title function_">on</span>(<span class="string">&#x27;disconnect&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123; </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server socket has closed.&#x27;</span>); </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;input&#x27;</span>)[<span class="number">0</span>].<span class="property">onblur</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    socket.<span class="title function_">send</span>(<span class="variable language_">this</span>.<span class="property">value</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>2）Nodejs socket后台：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> socket = <span class="built_in">require</span>(<span class="string">&#x27;socket.io&#x27;</span>);</span><br><span class="line"><span class="comment">// 启http服务</span></span><br><span class="line"><span class="keyword">var</span> server = http.<span class="title function_">createServer</span>(<span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">    res.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123;</span><br><span class="line">        <span class="string">&#x27;Content-type&#x27;</span>: <span class="string">&#x27;text/html&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    res.<span class="title function_">end</span>();</span><br><span class="line">&#125;);</span><br><span class="line">server.<span class="title function_">listen</span>(<span class="string">&#x27;8080&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server is running at port 8080...&#x27;</span>);</span><br><span class="line"><span class="comment">// 监听socket连接</span></span><br><span class="line">socket.<span class="title function_">listen</span>(server).<span class="title function_">on</span>(<span class="string">&#x27;connection&#x27;</span>, <span class="keyword">function</span>(<span class="params">client</span>) &#123;</span><br><span class="line">    <span class="comment">// 接收信息</span></span><br><span class="line">    client.<span class="title function_">on</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">        client.<span class="title function_">send</span>(<span class="string">&#x27;hello：&#x27;</span> + msg);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data from client: ---&gt; &#x27;</span> + msg);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 断开处理</span></span><br><span class="line">    client.<span class="title function_">on</span>(<span class="string">&#x27;disconnect&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Client socket has closed.&#x27;</span>); </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="正向代理和反向代理的区别"><a href="#正向代理和反向代理的区别" class="headerlink" title="正向代理和反向代理的区别"></a>正向代理和反向代理的区别</h3><ul>
+<li><strong>正向代理：</strong></li>
+</ul>
+<p>客户端想获得一个服务器的数据，但是因为种种原因无法直接获取。于是客户端设置了一个代理服务器，并且指定目标服务器，之后代理服务器向目标服务器转交请求并将获得的内容发送给客户端。这样本质上起到了对真实服务器隐藏真实客户端的目的。实现正向代理需要修改客户端，比如修改浏览器配置。</p>
+<ul>
+<li><strong>反向代理：</strong></li>
+</ul>
+<p>服务器为了能够将工作负载分不到多个服务器来提高网站性能 (负载均衡)等目的，当其受到请求后，会首先根据转发规则来确定请求应该被转发到哪个服务器上，然后将请求转发到对应的真实服务器上。这样本质上起到了对客户端隐藏真实服务器的作用。 一般使用反向代理后，需要通过修改 DNS 让域名解析到代理服务器 IP，这时浏览器无法察觉到真正服务器的存在，当然也就不需要修改配置了。</p>
+<p>两者区别如图示： </p>
+<p><img src="/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/image-20230426134922793.png" alt="image-20230426134922793"> </p>
+<p>正向代理和反向代理的结构是一样的，都是 client-proxy-server 的结构，它们主要的区别就在于中间这个 proxy 是哪一方设置的。在正向代理中，proxy 是 client 设置的，用来隐藏 client；而在反向代理中，proxy 是 server 设置的，用来隐藏 server。</p>
+<h3 id="Nginx的概念及其工作原理"><a href="#Nginx的概念及其工作原理" class="headerlink" title="Nginx的概念及其工作原理"></a>Nginx的概念及其工作原理</h3><p>Nginx 是一款轻量级的 Web 服务器，也可以用于反向代理、负载平衡和 HTTP 缓存等。Nginx 使用异步事件驱动的方法来处理请求，是一款面向性能设计的 HTTP 服务器。</p>
+<p>传统的 Web 服务器如 Apache 是 process-based 模型的，而 Nginx 是基于event-driven模型的。正是这个主要的区别带给了 Nginx 在性能上的优势。</p>
+<p>Nginx 架构的最顶层是一个 master process，这个 master process 用于产生其他的 worker process，这一点和Apache 非常像，但是 Nginx 的 worker process 可以同时处理大量的HTTP请求，而每个 Apache process 只能处理一个。</p>
+<h2 id="浏览器事件机制"><a href="#浏览器事件机制" class="headerlink" title="浏览器事件机制"></a>浏览器事件机制</h2><h3 id="事件是什么？事件模型？"><a href="#事件是什么？事件模型？" class="headerlink" title="事件是什么？事件模型？"></a>事件是什么？事件模型？</h3><p>事件是用户操作网页时发生的交互动作，比如 click/move， 事件除了用户触发的动作外，还可以是文档加载，窗口滚动和大小调整。事件被封装成一个 event 对象，包含了该事件发生时的所有相关信息（ event 的属性）以及可以对事件进行的操作（ event 的方法）。</p>
+<p>事件是用户操作网页时发生的交互动作或者网页本身的一些操作，现代浏览器一共有三种事件模型：</p>
+<ul>
+<li><strong>DOM0 级事件模型</strong>，这种模型不会传播，所以没有事件流的概念，但是现在有的浏览器支持以冒泡的方式实现，它可以在网页中直接定义监听函数，也可以通过 js 属性来指定监听函数。所有浏览器都兼容这种方式。直接在dom对象上注册事件名称，就是DOM0写法。</li>
+<li><strong>IE 事件模型</strong>，在该事件模型中，一次事件共有两个过程，事件处理阶段和事件冒泡阶段。事件处理阶段会首先执行目标元素绑定的监听事件。然后是事件冒泡阶段，冒泡指的是事件从目标元素冒泡到 document，依次检查经过的节点是否绑定了事件监听函数，如果有则执行。这种模型通过attachEvent 来添加监听函数，可以添加多个监听函数，会按顺序依次执行。</li>
+<li><strong>DOM2 级事件模型</strong>，在该事件模型中，一次事件共有三个过程，第一个过程是事件捕获阶段。捕获指的是事件从 document 一直向下传播到目标元素，依次检查经过的节点是否绑定了事件监听函数，如果有则执行。后面两个阶段和 IE 事件模型的两个阶段相同。这种事件模型，事件绑定的函数是addEventListener，其中第三个参数可以指定事件是否在捕获阶段执行。</li>
+</ul>
+<h3 id="如何阻止事件冒泡"><a href="#如何阻止事件冒泡" class="headerlink" title="如何阻止事件冒泡"></a>如何阻止事件冒泡</h3><ul>
+<li>普通浏览器使用：event.stopPropagation()</li>
+<li>IE浏览器使用：event.cancelBubble = true;</li>
+</ul>
+<h3 id="对事件委托的理解"><a href="#对事件委托的理解" class="headerlink" title="对事件委托的理解"></a>对事件委托的理解</h3><h4 id="事件委托的概念"><a href="#事件委托的概念" class="headerlink" title="事件委托的概念"></a>事件委托的概念</h4><p>事件委托本质上是利用了<strong>浏览器事件冒泡</strong>的机制。因为事件在冒泡过程中会上传到父节点，父节点可以通过事件对象获取到目标节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件，这种方式称为事件委托（事件代理）。</p>
+<p>使用事件委托可以不必要为每一个子元素都绑定一个监听事件，这样减少了内存上的消耗。并且使用事件代理还可以实现事件的动态绑定，比如说新增了一个子节点，并不需要单独地为它添加一个监听事件，它绑定的事件会交给父元素中的监听函数来处理。</p>
+<h4 id="事件委托的特点"><a href="#事件委托的特点" class="headerlink" title="事件委托的特点"></a>事件委托的特点</h4><ul>
+<li><strong>减少内存消耗</strong></li>
+</ul>
+<p>如果有一个列表，列表之中有大量的列表项，需要在点击列表项的时候响应一个事件：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;list&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item n<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>如果给每个列表项一一都绑定一个函数，那对于内存消耗是非常大的，效率上需要消耗很多性能。因此，比较好的方法就是把这个点击事件绑定到他的父层，也就是 ul 上，然后在执行事件时再去匹配判断目标元素，所以事件委托可以减少大量的内存消耗，节约效率。</p>
+<ul>
+<li><strong>动态绑定事件</strong></li>
+</ul>
+<p>给上述的例子中每个列表项都绑定事件，在很多时候，需要通过 AJAX 或者用户操作动态的增加或者去除列表项元素，那么在每一次改变的时候都需要重新给新增的元素绑定事件，给即将删去的元素解绑事件；如果用了事件委托就没有这种麻烦了，因为事件是绑定在父层的，和目标元素的增减是没有关系的，执行到目标元素是在真正响应执行事件函数的过程中去匹配的，所以使用事件在动态绑定事件的情况下是可以减少很多重复工作的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 来实现把 #list 下的 li 元素的事件代理委托到它的父层元素也就是 #list 上：</span></span><br><span class="line"><span class="comment">// 给父层元素绑定事件</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;list&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">// 兼容性处理</span></span><br><span class="line">  <span class="keyword">var</span> event = e || <span class="variable language_">window</span>.<span class="property">event</span>;</span><br><span class="line">  <span class="keyword">var</span> target = event.<span class="property">target</span> || event.<span class="property">srcElement</span>;</span><br><span class="line">  <span class="comment">// 判断是否匹配目标元素</span></span><br><span class="line">  <span class="keyword">if</span> (target.<span class="property">nodeName</span>.<span class="property">toLocaleLowerCase</span> === <span class="string">&#x27;li&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;the content is: &#x27;</span>, target.<span class="property">innerHTML</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中， target 元素则是在 #list 元素之下具体被点击的元素，然后通过判断 target 的一些属性（比如：nodeName，id 等等）可以更精确地匹配到某一类 #list li 元素之上；</p>
+<h4 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h4><p>当然，事件委托也是有局限的。比如 focus、blur 之类的事件没有事件冒泡机制，所以无法实现事件委托；mousemove、mouseout 这样的事件，虽然有事件冒泡，但是只能不断通过位置去计算定位，对性能消耗高，因此也是不适合于事件委托的。</p>
+<p>当然事件委托不是只有优点，它也是有<strong>缺点</strong>的，事件委托会影响页面性能，主要影响因素有：</p>
+<ul>
+<li>元素中，绑定事件委托的次数；</li>
+<li>点击的最底层元素，到绑定事件元素之间的<code>DOM</code>层数；</li>
+</ul>
+<p>在必须使用事件委托的地方，可以进行如下的处理：</p>
+<ul>
+<li>只在必须的地方，使用事件委托，比如：<code>ajax</code>的局部刷新区域</li>
+<li>尽量的减少绑定的层级，不在<code>body</code>元素上，进行绑定</li>
+<li>减少绑定的次数，如果可以，那么把多个事件的绑定，合并到一次事件委托中去，由这个事件委托的回调，来进行分发。</li>
+</ul>
+<h3 id="事件委托的使用场景"><a href="#事件委托的使用场景" class="headerlink" title="事件委托的使用场景"></a>事件委托的使用场景</h3><p>场景：给页面的所有的a标签添加click事件，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (e.<span class="property">target</span>.<span class="property">nodeName</span> == <span class="string">&quot;A&quot;</span>)</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>但是这些a标签可能包含一些像span、img等元素，如果点击到了这些a标签中的元素，就不会触发click事件，因为事件绑定上在a标签元素上，而触发这些内部的元素时，e.target指向的是触发click事件的元素（span、img等其他元素）。</p>
+<p>这种情况下就可以使用事件委托来处理，将事件绑定在a标签的内部元素上，当点击它的时候，就会逐级向上查找，知道找到a标签为止，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> node = e.<span class="property">target</span>;</span><br><span class="line">	<span class="keyword">while</span> (node.<span class="property">parentNode</span>.<span class="property">nodeName</span> != <span class="string">&quot;BODY&quot;</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (node.<span class="property">nodeName</span> == <span class="string">&quot;A&quot;</span>) &#123;</span><br><span class="line">			<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		node = node.<span class="property">parentNode</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="同步和异步的区别"><a href="#同步和异步的区别" class="headerlink" title="同步和异步的区别"></a>同步和异步的区别</h3><ul>
+<li><strong>同步</strong>指的是当一个进程在执行某个请求时，如果这个请求需要等待一段时间才能返回，那么这个进程会一直等待下去，直到消息返回为止再继续向下执行。</li>
+<li><strong>异步</strong>指的是当一个进程在执行某个请求时，如果这个请求需要等待一段时间才能返回，这个时候进程会继续往下执行，不会阻塞等待消息的返回，当消息返回时系统再通知进程进行处理。</li>
+</ul>
+<h3 id="对事件循环的理解"><a href="#对事件循环的理解" class="headerlink" title="对事件循环的理解"></a>对事件循环的理解</h3><p>因为 js 是单线程运行的，在代码执行时，通过将不同函数的执行上下文压入执行栈中来保证代码的有序执行。在执行同步代码时，如果遇到异步事件，js 引擎并不会一直等待其返回结果，而是会将这个事件挂起，继续执行执行栈中的其他任务。当异步事件执行完毕后，再将异步事件对应的回调加入到一个任务队列中等待执行。任务队列可以分为宏任务队列和微任务队列，当当前执行栈中的事件执行完毕后，js 引擎首先会判断微任务队列中是否有任务可以执行，如果有就将微任务队首的事件压入栈中执行。当微任务队列中的任务都执行完成后再去执行宏任务队列中的任务。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/426a3bf11f404821abb636690119621b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<p>Event Loop 执行顺序如下所示：</p>
+<ul>
+<li>首先执行同步代码，这属于宏任务</li>
+<li>当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行</li>
+<li>执行所有微任务</li>
+<li>当执行完所有微任务后，如有必要会渲染页面</li>
+<li>然后开始下一轮 Event Loop，执行宏任务中的异步代码</li>
+</ul>
+<h3 id="宏任务和微任务分别有哪些"><a href="#宏任务和微任务分别有哪些" class="headerlink" title="宏任务和微任务分别有哪些"></a>宏任务和微任务分别有哪些</h3><ul>
+<li>微任务包括： promise 的回调、node 中的 process.nextTick 、对 Dom 变化监听的 MutationObserver。</li>
+<li>宏任务包括： script 脚本的执行、setTimeout ，setInterval ，setImmediate 一类的定时事件，还有如 I/O 操作、UI 渲染等。</li>
+</ul>
+<h3 id="什么是执行栈"><a href="#什么是执行栈" class="headerlink" title="什么是执行栈"></a>什么是执行栈</h3><p>可以把执行栈认为是一个存储函数调用的<strong>栈结构</strong>，遵循先进后出的原则。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/391e7d7e880f42d59809dbc16af5d7bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"> 当开始执行 JS 代码时，根据先进后出的原则，后执行的函数会先弹出栈，可以看到，<code>foo</code> 函数后执行，当执行完毕后就从栈中弹出了。</p>
+<p>平时在开发中，可以在报错中找到执行栈的痕迹：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>()</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab3646b742d946659e4bce34d5af6751~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"> 可以看到报错在 <code>foo</code> 函数，<code>foo</code> 函数又是在 <code>bar</code> 函数中调用的。当使用递归时，因为栈可存放的函数是有<strong>限制</strong>的，一旦存放了过多的函数且没有得到释放的话，就会出现爆栈的问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;  <span class="title function_">bar</span>()&#125;<span class="title function_">bar</span>()</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cac7e59102dc4c3a9efa53aecd64bf9d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<h3 id="ode-中的-Event-Loop-和浏览器中的有什么区别？process-nextTick-执行顺序？"><a href="#ode-中的-Event-Loop-和浏览器中的有什么区别？process-nextTick-执行顺序？" class="headerlink" title="ode 中的 Event Loop 和浏览器中的有什么区别？process.nextTick 执行顺序？"></a>ode 中的 Event Loop 和浏览器中的有什么区别？process.nextTick 执行顺序？</h3><p>Node 中的 Event Loop 和浏览器中的是完全不相同的东西。</p>
+<p>Node 的 Event Loop 分为 6 个阶段，它们会按照<strong>顺序</strong>反复运行。每当进入某一个阶段的时候，都会从对应的回调队列中取出函数去执行。当队列为空或者执行的回调函数数量到达系统设定的阈值，就会进入下一阶段。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed6d249f54e242fe9dc267f03fa156d3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<p>（1）<strong>Timers（计时器阶段）</strong>：初次进入事件循环，会从计时器阶段开始。此阶段会判断是否存在过期的计时器回调（包含 setTimeout 和 setInterval），如果存在则会执行所有过期的计时器回调，执行完毕后，如果回调中触发了相应的微任务，会接着执行所有微任务，执行完微任务后再进入 Pending callbacks 阶段。</p>
+<p>（2）<strong>Pending callbacks</strong>：执行推迟到下一个循环迭代的I / O回调（系统调用相关的回调）。</p>
+<p>（3）<strong>Idle/Prepare</strong>：仅供内部使用。</p>
+<p>（4）<strong>Poll（轮询阶段）</strong>：</p>
+<ul>
+<li>当回调队列不为空时：会执行回调，若回调中触发了相应的微任务，这里的微任务执行时机和其他地方有所不同，不会等到所有回调执行完毕后才执行，而是针对每一个回调执行完毕后，就执行相应微任务。执行完所有的回调后，变为下面的情况。</li>
+<li>当回调队列为空时（没有回调或所有回调执行完毕）：但如果存在有计时器（setTimeout、setInterval和setImmediate）没有执行，会结束轮询阶段，进入 Check 阶段。否则会阻塞并等待任何正在执行的I/O操作完成，并马上执行相应的回调，直到所有回调执行完毕。</li>
+</ul>
+<p>（5）<strong>Check（查询阶段）</strong>：会检查是否存在 setImmediate 相关的回调，如果存在则执行所有回调，执行完毕后，如果回调中触发了相应的微任务，会接着执行所有微任务，执行完微任务后再进入 Close callbacks 阶段。</p>
+<p>（6）<strong>Close callbacks</strong>：执行一些关闭回调，比如socket.on(‘close’, …)等。</p>
+<p>下面来看一个例子，首先在有些情况下，定时器的执行顺序其实是<strong>随机</strong>的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>)&#125;, <span class="number">0</span>)<span class="title function_">setImmediate</span>(<span class="function">() =&gt;</span> &#123;    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setImmediate&#x27;</span>)&#125;)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>对于以上代码来说，<code>setTimeout</code> 可能执行在前，也可能执行在后</p>
+<ul>
+<li>首先 <code>setTimeout(fn, 0) === setTimeout(fn, 1)</code>，这是由源码决定的</li>
+<li>进入事件循环也是需要成本的，如果在准备时候花费了大于 1ms 的时间，那么在 timer 阶段就会直接执行 <code>setTimeout</code> 回调</li>
+<li>那么如果准备时间花费小于 1ms，那么就是 <code>setImmediate</code> 回调先执行了</li>
+</ul>
+<p>当然在某些情况下，他们的执行顺序一定是固定的，比如以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">fs.<span class="title function_">readFile</span>(__filename, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;timeout&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">    <span class="title function_">setImmediate</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;immediate&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中，<code>setImmediate</code> 永远<strong>先执行</strong>。因为两个代码写在 IO 回调中，IO 回调是在 poll 阶段执行，当回调执行完毕后队列为空，发现存在 <code>setImmediate</code> 回调，所以就直接跳转到 check 阶段去执行回调了。</p>
+<p>上面都是 macrotask 的执行情况，对于 microtask 来说，它会在以上每个阶段完成前<strong>清空</strong> microtask 队列，下图中的 Tick 就代表了 microtask <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ea27044a0124facaab3e4a8da89d709~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;timer21&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>对于以上代码来说，其实和浏览器中的输出是一样的，microtask 永远执行在 macrotask 前面。</p>
+<p>最后来看 Node 中的 <code>process.nextTick</code>，这个函数其实是独立于 Event Loop 之外的，它有一个自己的队列，当每个阶段完成后，如果存在 nextTick 队列，就会<strong>清空队列中的所有回调函数</strong>，并且优先于其他 microtask 执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;timer1&#x27;</span>)</span><br><span class="line"> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>)</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">process.<span class="title function_">nextTick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;nextTick&#x27;</span>)</span><br><span class="line"> process.<span class="title function_">nextTick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;nextTick&#x27;</span>)</span><br><span class="line">   process.<span class="title function_">nextTick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;nextTick&#x27;</span>)</span><br><span class="line">     process.<span class="title function_">nextTick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;nextTick&#x27;</span>)</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>对于以上代码，永远都是先把 nextTick 全部打印出来。</p>
+<h3 id="事件触发的过程是怎样的"><a href="#事件触发的过程是怎样的" class="headerlink" title="事件触发的过程是怎样的"></a>事件触发的过程是怎样的</h3><p>事件触发有三个阶段：</p>
+<ul>
+<li><code>window</code> 往事件触发处传播，遇到注册的捕获事件会触发</li>
+<li>传播到事件触发处时触发注册的事件</li>
+<li>从事件触发处往 <code>window</code> 传播，遇到注册的冒泡事件会触发</li>
+</ul>
+<p>事件触发一般来说会按照上面的顺序进行，但是也有特例，<strong>如果给一个 *<em><code>body</code>*</em> 中的子节点同时注册冒泡和捕获事件，事件触发会按照注册的顺序执行。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下会先打印冒泡然后是捕获</span></span><br><span class="line">node.<span class="title function_">addEventListener</span>(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line">node.<span class="title function_">addEventListener</span>(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;捕获 &#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>通常使用 <code>addEventListener</code> 注册事件，该函数的第三个参数可以是布尔值，也可以是对象。对于布尔值 <code>useCapture</code> 参数来说，该参数默认值为 <code>false</code> ，<code>useCapture</code> 决定了注册的事件是捕获事件还是冒泡事件。对于对象参数来说，可以使用以下几个属性：</p>
+<ul>
+<li><code>capture</code>：布尔值，和 <code>useCapture</code> 作用一样</li>
+<li><code>once</code>：布尔值，值为 <code>true</code> 表示该回调只会调用一次，调用后会移除监听</li>
+<li><code>passive</code>：布尔值，表示永远不会调用 <code>preventDefault</code></li>
+</ul>
+<p>一般来说，如果只希望事件只触发在目标上，这时候可以使用 <code>stopPropagation</code> 来阻止事件的进一步传播。通常认为 <code>stopPropagation</code> 是用来阻止事件冒泡的，其实该函数也可以阻止捕获事件。</p>
+<p><code>stopImmediatePropagation</code> 同样也能实现阻止事件，但是还能阻止该事件目标执行别的注册事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">node.<span class="title function_">addEventListener</span>(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    event.<span class="title function_">stopImmediatePropagation</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">// 点击 node 只会执行上面的函数，该函数不会执行</span></span><br><span class="line">node.<span class="title function_">addEventListener</span>(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;捕获 &#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h2 id="浏览器垃圾回收机制"><a href="#浏览器垃圾回收机制" class="headerlink" title="浏览器垃圾回收机制"></a>浏览器垃圾回收机制</h2><h3 id="V8的垃圾回收机制是怎样的"><a href="#V8的垃圾回收机制是怎样的" class="headerlink" title="V8的垃圾回收机制是怎样的"></a>V8的垃圾回收机制是怎样的</h3><p>V8 实现了准确式 GC，GC 算法采用了分代式垃圾回收机制。因此，V8 将内存（堆）分为新生代和老生代两部分。</p>
+<p><strong>（1）新生代算法</strong></p>
+<p>新生代中的对象一般存活时间较短，使用 Scavenge GC 算法。</p>
+<p>在新生代空间中，内存空间分为两部分，分别为 From 空间和 To 空间。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了。</p>
+<p><strong>（2）老生代算法</strong></p>
+<p>老生代中的对象一般存活时间较长且数量也多，使用了两个算法，分别是标记清除算法和标记压缩算法。</p>
+<p>先来说下什么情况下对象会出现在老生代空间中：</p>
+<ul>
+<li>新生代中的对象是否已经经历过一次 Scavenge 算法，如果经历过的话，会将对象从新生代空间移到老生代空间中。</li>
+<li>To 空间的对象占比大小超过 25 %。在这种情况下，为了不影响到内存分配，会将对象从新生代空间移到老生代空间中。</li>
+</ul>
+<p>老生代中的空间很复杂，有如下几个空间</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">enum <span class="title class_">AllocationSpace</span> &#123;</span><br><span class="line">  <span class="comment">// TODO(v8:7464): Actually map this space&#x27;s memory as read-only.</span></span><br><span class="line">  <span class="variable constant_">RO_SPACE</span>,    <span class="comment">// 不变的对象空间</span></span><br><span class="line">  <span class="variable constant_">NEW_SPACE</span>,   <span class="comment">// 新生代用于 GC 复制算法的空间</span></span><br><span class="line">  <span class="variable constant_">OLD_SPACE</span>,   <span class="comment">// 老生代常驻对象空间</span></span><br><span class="line">  <span class="variable constant_">CODE_SPACE</span>,  <span class="comment">// 老生代代码对象空间</span></span><br><span class="line">  <span class="variable constant_">MAP_SPACE</span>,   <span class="comment">// 老生代 map 对象</span></span><br><span class="line">  <span class="variable constant_">LO_SPACE</span>,    <span class="comment">// 老生代大空间对象</span></span><br><span class="line">  <span class="variable constant_">NEW_LO_SPACE</span>,  <span class="comment">// 新生代大空间对象</span></span><br><span class="line">  <span class="variable constant_">FIRST_SPACE</span> = <span class="variable constant_">RO_SPACE</span>,</span><br><span class="line">  <span class="variable constant_">LAST_SPACE</span> = <span class="variable constant_">NEW_LO_SPACE</span>,</span><br><span class="line">  <span class="variable constant_">FIRST_GROWABLE_PAGED_SPACE</span> = <span class="variable constant_">OLD_SPACE</span>,</span><br><span class="line">  <span class="variable constant_">LAST_GROWABLE_PAGED_SPACE</span> = <span class="variable constant_">MAP_SPACE</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在老生代中，以下情况会先启动标记清除算法：</p>
+<ul>
+<li>某一个空间没有分块的时候</li>
+<li>空间中被对象超过一定限制</li>
+<li>空间不能保证新生代中的对象移动到老生代中</li>
+</ul>
+<p>在这个阶段中，会遍历堆中所有的对象，然后标记活的对象，在标记完成后，销毁所有没有被标记的对象。在标记大型对内存时，可能需要几百毫秒才能完成一次标记。这就会导致一些性能上的问题。为了解决这个问题，2011 年，V8 从 stop-the-world 标记切换到增量标志。在增量标记期间，GC 将标记工作分解为更小的模块，可以让 JS 应用逻辑在模块间隙执行一会，从而不至于让应用出现停顿情况。但在 2018 年，GC 技术又有了一个重大突破，这项技术名为并发标记。该技术可以让 GC 扫描和标记对象时，同时允许 JS 运行。</p>
+<p>清除对象后会造成堆内存出现碎片的情况，当碎片超过一定限制后会启动压缩算法。在压缩过程中，将活的对象向一端移动，直到所有对象都移动完成然后清理掉不需要的内存。</p>
+<h3 id="哪些操作会造成内存泄漏？"><a href="#哪些操作会造成内存泄漏？" class="headerlink" title="哪些操作会造成内存泄漏？"></a>哪些操作会造成内存泄漏？</h3><ul>
+<li>第一种情况是由于使用未声明的变量，而意外的创建了一个全局变量，而使这个变量一直留在内存中无法被回收。</li>
+<li>第二种情况是设置了 setInterval 定时器，而忘记取消它，如果循环函数有对外部变量的引用的话，那么这个变量会被一直留在内存中，而无法被回收。</li>
+<li>第三种情况是获取一个 DOM 元素的引用，而后面这个元素被删除，由于我们一直保留了对这个元素的引用，所以它也无法被回收。</li>
+<li>第四种情况是不合理的使用闭包，从而导致某些变量一直被留在内存当中。</li>
+</ul>
+<h2 id="严格模式与非严格模式的主要区别"><a href="#严格模式与非严格模式的主要区别" class="headerlink" title="严格模式与非严格模式的主要区别"></a>严格模式与非严格模式的主要区别</h2><ol>
+<li>变量规范：非严格模式下，变量可以不进行声明，可直接赋值，严格模式中，变量必须声明才能赋值</li>
+<li>函数this指向：非严格模式下，普通函数指向Window，严格模式下，this为undefined</li>
+<li>构造函数调用：非严格模式下，构造函数可以直接调用，严格模式中不行</li>
+<li>删除变量：非严格模式下，可以使用delete删除已经声明的变量，严格模式下回报错</li>
+<li>在定时器函数中，this的指向都为window</li>
+<li>函数中传递的形参不能重复</li>
+</ol>
+<h2 id="浏览器性能监控"><a href="#浏览器性能监控" class="headerlink" title="浏览器性能监控"></a>浏览器性能监控</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29438877/article/details/103998284">https://blog.csdn.net/qq_29438877/article/details/103998284</a></p>
+<p><strong>需要监控的内容：</strong></p>
+<ol>
+<li>页面访问速度：白屏、首屏时间、可交互时间</li>
+<li>页面稳定性：页面出错情况、资源加载错误、JS 执行报错</li>
+<li>外部服务调用：CGI 耗时、CGI 成功率、CDN 资源耗时</li>
+</ol>
+<p><strong>监控的方法：</strong></p>
+<ol>
+<li>合成监控：用 web 浏览器模拟器来加载网页，通过模拟终端用户可能的操作来采集对应的性能指标，最后输出一个网站性能报<strong>Lighthouse</strong>、PageSpeed、WebPageTest。</li>
+<li>真实用户监控：真实用户监控是一种被动监控技术，是一种应用服务，被监控的 web 应用通过 sdk 等方式接入该服务，将真实的用户访问、交互等性能指标数据收集上报、通过数据清洗加工后形成性能分析报表。例如 <strong>FrontJs、oneapm、Datadog</strong> 等。</li>
+</ol>
+<h2 id="前端代码规范"><a href="#前端代码规范" class="headerlink" title="前端代码规范"></a>前端代码规范</h2><h3 id="基本规范"><a href="#基本规范" class="headerlink" title="基本规范"></a>基本规范</h3><ul>
+<li>所有类名、id名、方法名等涉及到名称的，统一使用驼峰命名，命名要具有业务意义，语义化简洁明了</li>
+<li>代码中不得出现警告</li>
+<li>代码中不得出现数字（插件除外）</li>
+<li>结构（html），表现(css)，行为(js)代码需分离</li>
+</ul>
+<h3 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h3><ul>
+<li>代码力求简洁，不要写大量重复的逻辑代码（公共方法需封装，公共样式提取到公共样式中）</li>
+<li>代码要有可读性，函数和元素命名要具有业务意义，关键业务要有详细的注释</li>
+<li>代码要有扩展性，要尽可能适应未来的业务变化，不得生搬硬套现有业务逻辑</li>
+<li>代码要有通用性，一个方法只专注于该方法需要做的事情（对外暴露相应的参数），一个模块只专</li>
+</ul>
+<h3 id="html规范"><a href="#html规范" class="headerlink" title="html规范"></a>html规范</h3><ul>
+<li>Html代码大小写<br>HTML标签名、类名、标签属性和大部分属性值统一用小写<br>推荐：<code>&lt;div class=&quot;demo&quot;&gt;&lt;/div&gt;</code></li>
+<li>元素属性</li>
+</ul>
+<p>属性值使用双引号语法<br>例：<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;&quot; &gt;</code></p>
+<ul>
+<li>特殊字符引用</li>
+</ul>
+<p>不得使用‘&gt;’和‘&lt;’特殊字符，浏览器会将它们作为标签解析，若要正确显示，在 HTML 源代码中使用字符实体</p>
+<ul>
+<li>代码嵌套</li>
+</ul>
+<p>每个块级元素独占一行，内联元素可选</p>
+<ul>
+<li>引用规范</li>
+</ul>
+<p>将所有页面公共样式（如common.css）、插件样式写入head内的底部；<br>将所有页面公共js、插件js放入body内底部；</p>
+<h3 id="css规范"><a href="#css规范" class="headerlink" title="css规范"></a>css规范</h3><ul>
+<li>代码格式化</li>
+</ul>
+<ol>
+<li>样式选择器，属性名，属性值关键字全部使用小写字母书写，属性字符串允许使用大小写</li>
+<li>每个属性声明末尾都要加分号；</li>
+<li>css属性值需要用到引号时，统一使用双引号</li>
+<li>尽量不要用固定的宽高，多使用padding 和 margin</li>
+<li>尽量少用通用选择器*</li>
+<li>不使用ID选择器</li>
+<li>不使用无具体语义定义的标签选择器</li>
+<li>尽量少用！Important</li>
+</ol>
+<ul>
+<li>代码可读性</li>
+</ul>
+<p>左括号与类名之间一个空格，冒号与属性值之间一个空格<br>逗号分隔的取值，逗号之后一个空格<br>推荐：box-shadow: 1px 1px 1px #333, 2px 2px 2px #ccc;</p>
+<ul>
+<li>不要为0指明单位</li>
+</ul>
+<p>推荐：margin：0 10px;<br>不推荐：margin：0px 10px;</p>
+<ul>
+<li>属性书写顺序</li>
+</ul>
+<h3 id="js规范"><a href="#js规范" class="headerlink" title="js规范"></a>js规范</h3><ul>
+<li>文件命名</li>
+</ul>
+<p>文件命名和html中的功能相对应</p>
+<ul>
+<li>语言规范</li>
+</ul>
+<ol>
+<li>尽量不要定义全局变量，否则很容易造成全局变量污染。</li>
+<li>变量先定义再使用，尽量避免使用全局变量分号</li>
+<li>语句结束总是使用分号</li>
+<li>使用严格相等号</li>
+<li>尽量使用===和!==</li>
+<li>条件判断语句必须放入{}中</li>
+<li>在if/else/for/do/while语句中，即使只有一行，也不得省略块{…}</li>
+<li>If嵌套不能超过2层</li>
+<li>一个函数的长度必须限制在50行以内，不然看完有时候会懵逼，可以分割成多个函数，一个函数只做一件事（单一原则）</li>
+<li>函数定义结束不允许添加分号</li>
+<li>common.js文件里面的函数必须保证是项目中大多数地方都会用到，且通用，common.js中的函数名要唯一。</li>
+</ol>
+<ul>
+<li></li>
+</ul>
+<h2 id="前端页面性能测试与测试指标"><a href="#前端页面性能测试与测试指标" class="headerlink" title="前端页面性能测试与测试指标"></a>前端页面性能测试与测试指标</h2><h3 id="基本指标介绍"><a href="#基本指标介绍" class="headerlink" title="基本指标介绍"></a>基本指标介绍</h3><p>首先前端性能指标一般分为以下几种：</p>
+<p>首屏绘制（First Paint，FP）</p>
+<p>首屏内容绘制（First Contentful Paint，FCP）</p>
+<p>可交互时间（Time to Interactive，TTI）</p>
+<p>最大内容绘制（Largest Contentful Paint，LCP)</p>
+<p>首次有效绘制（First Meaning Paint, FMP）</p>
+<p>FP 是时间线上的第一个“时间点”，是指浏览器从响应用户输入网址地址，到浏览器开始显示内容的时间，简而言之就是浏览器第一次发生变化的时间。</p>
+<p>FCP（全称“First Contentful Paint”，翻译为“首次内容绘制”），是指浏览器从响应用户输入网络地址，在页面首次绘制文本，图片（包括背景图）、非白色的 canvas 或者SVG 才算做 FCP，有些文章说 FCP 是首屏渲染事件，这其实是不对的。</p>
+<p>TTI，翻译为“可交互时间”表示网页第一次完全达到可交互状态的时间点。可交互状态指的是页面上的 UI 组件是可以交互的（可以响应按钮的点击或在文本框输入文字等），不仅如此，此时主线程已经达到“流畅”的程度，主线程的任务均不超过50毫秒。在一般的管理系统中，TTI 是一个很重要的指标。</p>
+<p>FMP（全称“First Meaningful Paint”，翻译为“首次有效绘制”表示页面的“主要内容”开始出现在屏幕上的时间点，它以前是我们测量用户加载体验的主要指标。本质上是通过一个算法来猜测某个时间点可能是 FMP，但是最好的情况也只有77%的准确率，在lighthouse6.0 的时候废弃掉了这个指标，取而代之的是 LCP 这个指标。</p>
+<p>LCP（全称“Largest Contentful Paint”）表示可视区“内容”最大的可见元素开始出现在屏幕上的时间点。</p>
+<h2 id="如何使用cdn"><a href="#如何使用cdn" class="headerlink" title="如何使用cdn"></a>如何使用cdn</h2><ol>
+<li>为什么要用cdn加速服务<br>优点：</li>
+</ol>
+<ul>
+<li>JS体积变小，使用CDN的第三方资源的JS代码，将不再打包到本地服务的JS包中。减小本地JS包体积，提高加载速度</li>
+<li>给网页加载提速</li>
+<li>CDN节点解决了跨运营商和跨地域访问的问题，访问延时大大降低</li>
+<li>大部分请求在CDN边缘节点完成，CDN起到了分流作用，减轻了源站的负载。<br>缺点：</li>
+<li>请求变多</li>
+<li>万一CDN资源路径有变动需要更改，建议自行搭建CDN库。</li>
+</ul>
+<ol>
+<li><p>哪些需要使用CDN<br>在项目根目录下运行npm run build –report<br>打包完成后，会打开一个页面，展示各个依赖包的大小，查看哪些第三方依赖包的体积大，就干掉它，从CDN上获取。</p>
+</li>
+<li><p>推荐BootCDN<br><a target="_blank" rel="noopener" href="http://www.bootcdn.cn/">www.bootcdn.cn/</a></p>
+</li>
+<li><p>确认包和版本<br>确认需要使用CDN加载的资源，在package-lock.json文件中，找到对应的版本号。<br>在BootCDN网站找到对应的资源路径。</p>
+</li>
+<li><p>修改index.html文件<br>link添加在头部，script添加在尾部</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;link href=&quot;https://cdn.bootcss.com/element-ui/2.4.4/theme-chalk/index.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- built files will be auto injected --&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/vue/2.5.16/vue.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/three.js/100/three.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/echarts/4.1.0/echarts.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/axios/0.17.1/axios.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/element-ui/2.4.4/index.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/babel-polyfill/6.26.0/polyfill.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改webpack.base.conf.js文件<br>在module.exports下添加externals，将通过cdn引入的包忽略，在webpack打包中则无需打包。</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">externals</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;vue&#x27;</span>: <span class="string">&#x27;Vue&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;vue-router&#x27;</span>: <span class="string">&#x27;VueRouter&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;vuex&#x27;</span>: <span class="string">&#x27;Vuex&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;three&#x27;</span>: <span class="string">&#x27;THREE&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;echarts&#x27;</span>: <span class="string">&#x27;echarts&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;axios&#x27;</span>: <span class="string">&#x27;axios&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;element-ui&#x27;</span>: <span class="string">&#x27;ElementUI&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;babel-polyfill&#x27;</span>: <span class="string">&#x27;_babelPolyfill&#x27;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>属性名称vue表明该模块vue中import Vue from ‘vue’应排除在外。为了替换此模块，该值Vue将用于检索全局Vue变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">externals</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;vue-router&#x27;</span>: <span class="string">&#x27;VueRouter&#x27;</span></span><br><span class="line">&#125;,</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">linkActiveClass</span>: <span class="string">&#x27;on&#x27;</span>,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;history&#x27;</span>,</span><br><span class="line">  <span class="attr">routes</span>: routerArray</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>babel-polyfill的配置全局变量_babelPolyfill，同样是查看源码可得。</p>
+<ol>
+<li>注释掉其他地方包的引入</li>
+<li>使用预获取<br>只需在链接属性上增加 rel=”prefetch”,rel=”dns-prefetch”，或者 rel=”preload” 标记。</li>
+</ol>
+<p>preload：<br>代码会被优先加载，并且会占用http并发数，从而也导致页面加载时间变长，特别是首屏时间会变长。<br>本页面接下来大概率要使用的资源重要资源。</p>
+<p>prefetch：<br>代码被安排在后面加载，这样才达到了优化效果。<br>下个页面很可能会去访问的非重要的资源。<br>然后修改代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/vue/2.5.16/vue.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script rel=&quot;preload&quot; src=&quot;https://cdn.bootcss.com/three.js/100/three.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script rel=&quot;prefetch&quot; src=&quot;https://cdn.bootcss.com/echarts/4.1.0/echarts.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/axios/0.17.1/axios.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/element-ui/2.4.4/index.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>被preload修饰的three会优先加载，而被prefetch修饰的echarts会延后加载。</p>
+<h2 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h2><h3 id="什么是单点登录"><a href="#什么是单点登录" class="headerlink" title="什么是单点登录"></a>什么是单点登录</h3><p>单点登录的英文名叫做：Single Sign On（简称SSO），指在同一帐号平台下的多个应用系统中，用户只需登录一次，即可访问所有相互信任的系统。简而言之，多个系统，统一登陆。</p>
+<p>为什么需要做单点登录系统呢？在一些互联网公司中，公司旗下可能会有多个子系统，每个登陆实现统一管理，多个账户信息统一管理 SSO单点登陆认证授权系统。比如阿里系的淘宝和天猫，显而易见这是两个系统，但是在使用过程中，只要你登录了淘宝，同时也意味着登录了天猫，如果每个子系统都需要登录认证，用户早就疯了，所以我们要解决的问题就是，用户只需要登录一次就可以访问所有相互信任的应用系统。</p>
+<p>sso需要一个独立的认证中心，所有子系统都通过认证中心的登录入口进行登录，登录时带上自己的地址，子系统只接受认证中心的授权，授权通过令牌（token）实现，sso认证中心验证用户的用户名密码正确，创建全局会话和token，token作为参数发送给各个子系统，子系统拿到token，即得到了授权，可以借此创建局部会话，局部会话登录方式与单系统的登录方式相同。</p>
+<p>三、单点登录实现方式<br>单点登录的实现方案，一般就包含：Cookies，Session同步，分布式Session，目前的网站采用比较多的方式是token令牌和分布式Session的方式。</p>
+<ol>
+<li>基于Cookie+Redis的单点登录<br>最简单的单点登录实现方式，用cookie作为媒介存放用户凭证。 用户登录系统之后，会返回一个加密的cookie，当用户访问子应用的时候会带上这个cookie，授权以解密cookie并进行校验，校验通过后即可登录当前用户。</li>
+</ol>
+<p>redis：在key：生成唯一随机值（ip、用户id等等），在value：用户数据<br>cookie：把redis里面生成key值放到cookie里面</p>
+<ol>
+<li>分布式session方式实现单点登录<br>流程运行：</li>
+</ol>
+<ul>
+<li>用户第一次登录时，将会话信息（用户Id和用户信息），比如以用户Id为Key，写入分布式Session；</li>
+<li>用户再次登录时，获取分布式Session，是否有会话信息，如果没有则调到登录页；</li>
+<li>一般采用Cache中间件实现，建议使用Redis，因此它有持久化功能，方便分布式Session宕机后，可以从持久化存储中加载会话信息；</li>
+<li>存入会话时，可以设置会话保持的时间，比如15分钟，超过后自动超时；<br>结合Cache中间件，实现的分布式Session，可以很好的模拟Session会话。</li>
+</ul>
+<ol>
+<li>token验证<br>在项目某个模块进行登录，登录之后，按照jwt规则生成字符串，把登录之后用户包含到生成字符串里面，把字符串返回</li>
+</ol>
+<ul>
+<li>可以把宁符串通过cookie返回</li>
+<li>把字符串通过地址栏返回</li>
+</ul>
+<p>前端收到token之后将token存储在自己的请求头之中或者url后面，这样每次请求都可以带着token请求。</p>
+<p>再去访问项目其他模块，获取地址栏或者请求头里面的token，根据宇符串获职用户信息。</p>
+<p>同时为了设置失效时间，可以将token放在redis中，设置失效时间，判断过期。</p>
+<h2 id="防止localStorage被篡改"><a href="#防止localStorage被篡改" class="headerlink" title="防止localStorage被篡改"></a>防止localStorage被篡改</h2><ol>
+<li>让localStorage值无法修改，不推荐</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;storage&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(e.<span class="property">key</span>, e.<span class="property">oldValue</span>)</span><br><span class="line">  &#125;);</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p>localStorage里面被篡改的部分 和原来数据 会来回进行切换<br>\2. localStorage值被修改的时候清除他并且跳转到登录页，只有localStorage发送变化，包括新增，都会清除，并跳转到登录，不推荐</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;storage&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">localStorage</span>.<span class="title function_">clear</span>()</span><br><span class="line">	<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span> = baseRout + <span class="string">&#x27;/login.html&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>对 localStorage进行加密和解密，推荐</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加密</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;user&#x27;</span>,<span class="variable language_">window</span>.<span class="title function_">btoa</span>(<span class="variable language_">window</span>.<span class="built_in">encodeURIComponent</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(res.<span class="property">data</span>))))、</span><br><span class="line"><span class="comment">//解密，根据key获取值</span></span><br><span class="line"><span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="built_in">decodeURIComponent</span>(<span class="variable language_">window</span>.<span class="title function_">atob</span>(<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;user&#x27;</span>))))</span><br></pre></td></tr></table></figure>
+
+<p>window.btoa(str)<br>用于编码形成 base-64 编码的字符串。</p>
+<p>window.atob(str)<br>用于解码使用 base-64 编码的字符串（base64图片下载时候通常需要先解码，然后将解码内容转化为二进制数据下载）。</p>
+<p>window.encodeURIComponent(str)<br>用于url的组成部分编码，不能用于整个url编码。把字符串作为 URI 组件进行编码。该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ‘ ( ) 。其他字符（比如 ：;/?:@&amp;=+$,# 这些用于分隔 URI 组件的标点符号），都是由一个或多个十六进制的转义序列替换的。假定任何保留字符都代表普通文本，所以必须编码它们。</p>
+<p>window.decodeURIComponent(str)<br>对 encodeURIComponent() 函数编码的 URI 进行解码。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">happy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/">http://example.com/2023/03/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">豆豆想吃骨头</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/31/git/" title="git"><img class="cover" src="/img/%E7%89%8C%E7%89%8Cgit.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">git</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络"><img class="cover" src="/img/dm1.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机网络</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E5%AE%9E%E7%8E%B0seo"><span class="toc-number">1.</span> <span class="toc-text">vue实现seo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B8%B2%E6%9F%93prerender-spa-plugin"><span class="toc-number">1.1.</span> <span class="toc-text">预渲染prerender-spa-plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93ssr"><span class="toc-number">1.2.</span> <span class="toc-text">服务端渲染ssr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nuxt%E9%9D%99%E6%80%81%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2"><span class="toc-number">1.3.</span> <span class="toc-text">nuxt静态应用部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">前后端实时通信方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebSocket"><span class="toc-number">2.1.</span> <span class="toc-text">WebSocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-sent-events-SSE"><span class="toc-number">2.2.</span> <span class="toc-text">server-sent -events SSE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E8%BD%AE%E8%AF%A2"><span class="toc-number">2.3.</span> <span class="toc-text">ajax轮询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E5%B8%A7"><span class="toc-number">2.4.</span> <span class="toc-text">永久帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flash-socket"><span class="toc-number">2.5.</span> <span class="toc-text">flash socket</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%8F%8D%E7%88%AC%E8%99%AB"><span class="toc-number">3.</span> <span class="toc-text">前端反爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%8F%8D%E7%88%AC%E8%99%AB%E7%AD%96%E7%95%A5"><span class="toc-number">3.1.</span> <span class="toc-text">常见的反爬虫策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">前端安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB"><span class="toc-number">4.1.</span> <span class="toc-text">XSS跨站脚本攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text">攻击类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-number">4.1.2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B2%E8%8C%83%E6%8E%AA%E6%96%BD"><span class="toc-number">4.1.3.</span> <span class="toc-text">防范措施</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSRF%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0"><span class="toc-number">4.2.</span> <span class="toc-text">CSRF跨站请求伪造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF%E6%94%BB%E5%87%BB%E6%B5%81%E7%A8%8B"><span class="toc-number">4.2.1.</span> <span class="toc-text">CSRF攻击流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF%E6%94%BB%E5%87%BB%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.2.2.</span> <span class="toc-text">CSRF攻击类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF%E7%89%B9%E7%82%B9"><span class="toc-number">4.2.3.</span> <span class="toc-text">CSRF特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF%E9%98%B2%E8%8C%83%E6%8E%AA%E6%96%BD"><span class="toc-number">4.2.4.</span> <span class="toc-text">CSRF防范措施</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN%E5%8A%AB%E6%8C%81"><span class="toc-number">4.3.</span> <span class="toc-text">CDN劫持</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%8E%AA%E6%96%BD"><span class="toc-number">4.3.1.</span> <span class="toc-text">解决措施</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSP%E5%86%85%E5%AE%B9%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5"><span class="toc-number">4.4.</span> <span class="toc-text">CSP内容安全策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSP%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-number">4.4.1.</span> <span class="toc-text">CSP的意义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSP%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.4.2.</span> <span class="toc-text">CSP的使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Iframe"><span class="toc-number">4.5.</span> <span class="toc-text">Iframe</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99%E4%B8%8D%E8%A2%AB%E5%85%B6%E4%BB%96%E7%BD%91%E7%AB%99%E7%9A%84iframe%E5%BC%95%E7%94%A8%EF%BC%9F"><span class="toc-number">4.5.1.</span> <span class="toc-text">如何让自己的网站不被其他网站的iframe引用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%A6%81%E6%AD%A2%E8%A2%AB%E4%BD%BF%E7%94%A8%E7%9A%84-iframe-%E5%AF%B9%E5%BD%93%E5%89%8D%E7%BD%91%E7%AB%99%E6%9F%90%E4%BA%9B%E6%93%8D%E4%BD%9C%EF%BC%9F"><span class="toc-number">4.5.2.</span> <span class="toc-text">如何禁止被使用的 iframe 对当前网站某些操作？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">5.</span> <span class="toc-text">前端性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E9%98%B6%E6%AE%B5"><span class="toc-number">5.1.</span> <span class="toc-text">编码阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO%E4%BC%98%E5%8C%96"><span class="toc-number">5.2.</span> <span class="toc-text">SEO优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96"><span class="toc-number">5.3.</span> <span class="toc-text">打包优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-number">5.4.</span> <span class="toc-text">用户体验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96CommonJS%E5%8F%8AES6%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text">前端模块化CommonJS及ES6模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CommonJS"><span class="toc-number">6.1.</span> <span class="toc-text">CommonJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD"><span class="toc-number">6.2.</span> <span class="toc-text">AMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMD"><span class="toc-number">6.3.</span> <span class="toc-text">CMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-Module"><span class="toc-number">6.4.</span> <span class="toc-text">ES6 Module</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-%E4%B8%8E-CommonJS-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="toc-number">6.5.</span> <span class="toc-text">ES6 与 CommonJS 模块的差异</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">7.</span> <span class="toc-text">前端单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E3%80%81%E6%A8%A1%E5%9D%97%E5%8C%96%E3%80%81%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">8.</span> <span class="toc-text">前端工程化、模块化、组件化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="toc-number">8.1.</span> <span class="toc-text">工程化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">8.2.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">8.3.</span> <span class="toc-text">组件化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">9.</span> <span class="toc-text">前端常用设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SPA%E5%8D%95%E9%A1%B5%E9%9D%A2"><span class="toc-number">10.</span> <span class="toc-text">SPA单页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-number">11.</span> <span class="toc-text">进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">11.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="toc-number">11.2.</span> <span class="toc-text">浏览器渲染进程的进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B"><span class="toc-number">11.3.</span> <span class="toc-text">浏览器渲染进程的线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8-%E6%9C%89%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B"><span class="toc-number">11.4.</span> <span class="toc-text">浏览器 有哪些进程、线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">11.5.</span> <span class="toc-text">操作系统下进程与线程的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-number">11.6.</span> <span class="toc-text">进程之间的通信方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">11.7.</span> <span class="toc-text">僵尸进程和孤儿进程是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F-%E5%A6%82%E6%9E%9C%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">11.8.</span> <span class="toc-text">死锁产生的原因？ 如果解决死锁的问题？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E9%80%9A%E4%BF%A1%E6%96%B9%E6%B3%95"><span class="toc-number">12.</span> <span class="toc-text">浏览器页面通信方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="toc-number">13.</span> <span class="toc-text">浏览器缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">13.1.</span> <span class="toc-text">对浏览器的缓存机制的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E5%92%8C%E5%BC%BA%E7%BC%93%E5%AD%98%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">13.2.</span> <span class="toc-text">协商缓存和强缓存的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="toc-number">13.2.1.</span> <span class="toc-text">强缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-number">13.2.2.</span> <span class="toc-text">协商缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%EF%BC%9F"><span class="toc-number">13.3.</span> <span class="toc-text">为什么需要浏览器缓存？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E5%88%B7%E6%96%B0%E6%8C%89%E9%92%AE%E6%88%96%E8%80%85%E6%8C%89-F5%E3%80%81%E6%8C%89-Ctrl-F5-%EF%BC%88%E5%BC%BA%E5%88%B6%E5%88%B7%E6%96%B0%EF%BC%89%E3%80%81%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%9B%9E%E8%BD%A6%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">13.4.</span> <span class="toc-text">点击刷新按钮或者按 F5、按 Ctrl+F5 （强制刷新）、地址栏回车有什么区别？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-number">14.</span> <span class="toc-text">浏览器组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">14.1.</span> <span class="toc-text">对浏览器的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">14.2.</span> <span class="toc-text">对浏览器内核的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E6%AF%94%E8%BE%83"><span class="toc-number">14.3.</span> <span class="toc-text">常见的浏览器内核比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%80%E7%94%A8%E5%86%85%E6%A0%B8"><span class="toc-number">14.4.</span> <span class="toc-text">常见浏览器所用内核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">14.5.</span> <span class="toc-text">浏览器的主要组成部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86"><span class="toc-number">15.</span> <span class="toc-text">浏览器渲染原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B"><span class="toc-number">15.1.</span> <span class="toc-text">浏览器的渲染过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96"><span class="toc-number">15.2.</span> <span class="toc-text">浏览器渲染优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0-JS-%E6%96%87%E4%BB%B6%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-number">15.3.</span> <span class="toc-text">渲染过程中遇到 JS 文件如何处理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%96%87%E6%A1%A3%E7%9A%84%E9%A2%84%E8%A7%A3%E6%9E%90%EF%BC%9F"><span class="toc-number">15.4.</span> <span class="toc-text">什么是文档的预解析？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E5%A6%82%E4%BD%95%E9%98%BB%E5%A1%9E%E6%96%87%E6%A1%A3%E8%A7%A3%E6%9E%90%EF%BC%9F"><span class="toc-number">15.5.</span> <span class="toc-text">CSS 如何阻塞文档解析？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84%EF%BC%9F"><span class="toc-number">15.6.</span> <span class="toc-text">如何优化关键渲染路径？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%BC%9A%E9%98%BB%E5%A1%9E%E6%B8%B2%E6%9F%93%EF%BC%9F"><span class="toc-number">15.7.</span> <span class="toc-text">什么情况会阻塞渲染？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="toc-number">16.</span> <span class="toc-text">浏览器本地存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie%E3%80%81session%E3%80%81token%E3%80%81LocalStorage%E3%80%81SessionStorage"><span class="toc-number">16.1.</span> <span class="toc-text">Cookie、session、token、LocalStorage、SessionStorage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cookie"><span class="toc-number">16.1.1.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#session"><span class="toc-number">16.1.2.</span> <span class="toc-text">session</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#token"><span class="toc-number">16.1.3.</span> <span class="toc-text">token</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LocalStorage"><span class="toc-number">16.1.4.</span> <span class="toc-text">LocalStorage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SessionStorage"><span class="toc-number">16.1.5.</span> <span class="toc-text">SessionStorage</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AD%97%E6%AE%B5%EF%BC%8C%E4%BD%9C%E7%94%A8%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">16.2.</span> <span class="toc-text">Cookie有哪些字段，作用分别是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%82%A8%E5%AD%98%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">16.3.</span> <span class="toc-text">前端储存的方式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IndexedDB%E6%9C%89%E5%93%AA%E4%BA%9B%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-number">16.4.</span> <span class="toc-text">IndexedDB有哪些特点？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="toc-number">17.</span> <span class="toc-text">浏览器同源策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E8%B6%8A%E9%97%AE%E9%A2%98"><span class="toc-number">17.1.</span> <span class="toc-text">如何解决跨越问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jsonp"><span class="toc-number">17.1.1.</span> <span class="toc-text">jsonp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cors"><span class="toc-number">17.1.2.</span> <span class="toc-text">cors</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#websocket"><span class="toc-number">17.1.3.</span> <span class="toc-text">websocket</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nginx"><span class="toc-number">17.1.4.</span> <span class="toc-text">nginx</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#postmessage"><span class="toc-number">17.1.5.</span> <span class="toc-text">postmessage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodejs-%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BB%A3%E7%90%86%E8%B7%A8%E5%9F%9F"><span class="toc-number">17.1.6.</span> <span class="toc-text">nodejs 中间件代理跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#document-domain-iframe%E8%B7%A8%E5%9F%9F"><span class="toc-number">17.1.7.</span> <span class="toc-text">document.domain + iframe跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#location-hash-iframe%E8%B7%A8%E5%9F%9F"><span class="toc-number">17.1.8.</span> <span class="toc-text">location.hash + iframe跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#window-name-iframe%E8%B7%A8%E5%9F%9F"><span class="toc-number">17.1.9.</span> <span class="toc-text">window.name + iframe跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WebSocket%E5%8D%8F%E8%AE%AE%E8%B7%A8%E5%9F%9F"><span class="toc-number">17.1.10.</span> <span class="toc-text">WebSocket协议跨域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">17.2.</span> <span class="toc-text">正向代理和反向代理的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">17.3.</span> <span class="toc-text">Nginx的概念及其工作原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">18.</span> <span class="toc-text">浏览器事件机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">18.1.</span> <span class="toc-text">事件是什么？事件模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="toc-number">18.2.</span> <span class="toc-text">如何阻止事件冒泡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">18.3.</span> <span class="toc-text">对事件委托的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">18.3.1.</span> <span class="toc-text">事件委托的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">18.3.2.</span> <span class="toc-text">事件委托的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">18.3.3.</span> <span class="toc-text">局限性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">18.4.</span> <span class="toc-text">事件委托的使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">18.5.</span> <span class="toc-text">同步和异步的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">18.6.</span> <span class="toc-text">对事件循环的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1%E5%88%86%E5%88%AB%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">18.7.</span> <span class="toc-text">宏任务和微任务分别有哪些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%89%A7%E8%A1%8C%E6%A0%88"><span class="toc-number">18.8.</span> <span class="toc-text">什么是执行栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ode-%E4%B8%AD%E7%9A%84-Event-Loop-%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9Fprocess-nextTick-%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%9F"><span class="toc-number">18.9.</span> <span class="toc-text">ode 中的 Event Loop 和浏览器中的有什么区别？process.nextTick 执行顺序？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%9A%84%E8%BF%87%E7%A8%8B%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="toc-number">18.10.</span> <span class="toc-text">事件触发的过程是怎样的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">19.</span> <span class="toc-text">浏览器垃圾回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#V8%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="toc-number">19.1.</span> <span class="toc-text">V8的垃圾回收机制是怎样的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%E4%BC%9A%E9%80%A0%E6%88%90%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%EF%BC%9F"><span class="toc-number">19.2.</span> <span class="toc-text">哪些操作会造成内存泄漏？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E9%9D%9E%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB"><span class="toc-number">20.</span> <span class="toc-text">严格模式与非严格模式的主要区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7"><span class="toc-number">21.</span> <span class="toc-text">浏览器性能监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">22.</span> <span class="toc-text">前端代码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%A7%84%E8%8C%83"><span class="toc-number">22.1.</span> <span class="toc-text">基本规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-number">22.2.</span> <span class="toc-text">基本原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html%E8%A7%84%E8%8C%83"><span class="toc-number">22.3.</span> <span class="toc-text">html规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E8%A7%84%E8%8C%83"><span class="toc-number">22.4.</span> <span class="toc-text">css规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%A7%84%E8%8C%83"><span class="toc-number">22.5.</span> <span class="toc-text">js规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%8C%87%E6%A0%87"><span class="toc-number">23.</span> <span class="toc-text">前端页面性能测试与测试指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%8C%87%E6%A0%87%E4%BB%8B%E7%BB%8D"><span class="toc-number">23.1.</span> <span class="toc-text">基本指标介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8cdn"><span class="toc-number">24.</span> <span class="toc-text">如何使用cdn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95"><span class="toc-number">25.</span> <span class="toc-text">单点登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95"><span class="toc-number">25.1.</span> <span class="toc-text">什么是单点登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2localStorage%E8%A2%AB%E7%AF%A1%E6%94%B9"><span class="toc-number">26.</span> <span class="toc-text">防止localStorage被篡改</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By happy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
