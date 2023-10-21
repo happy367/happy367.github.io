@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>webpack | 豆豆想吃骨头</title><meta name="author" content="happy"><meta name="copyright" content="happy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="webpack和babel前端代码为什么要进行构建和打包？在开发后完成的这个合并的过程就是打包，可以减少了http请求数量，让我们的页面加载和显示更快。 Babel和webpack的区别？babel是一个JS编译器，用来将ES6&#x2F;ES7等语法转换为ES5语法（浏览器不认识的语法编译成浏览器认识的语法），从而能够使代码在大部分浏览器中运行。但是babel转换语法时有一些新的api是不转化的，比如pr">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>webpack | 豆豆想吃骨头</title><meta name="author" content="happy"><meta name="copyright" content="happy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前端代码为什么要进行构建和打包？在开发后完成的这个合并的过程就是打包，可以减少了http请求数量，让我们的页面加载和显示更快。 Babel和webpack的区别babel是一个JS编译器，用来将ES6&#x2F;ES7等语法转换为ES5语法（浏览器不认识的语法编译成浏览器认识的语法），从而能够使代码在大部分浏览器中运行。但是babel转换语法时有一些新的api是不转化的，比如promise、Object.a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack">
 <meta property="og:url" content="http://example.com/2023/03/31/webpack/index.html">
 <meta property="og:site_name" content="豆豆想吃骨头">
-<meta property="og:description" content="webpack和babel前端代码为什么要进行构建和打包？在开发后完成的这个合并的过程就是打包，可以减少了http请求数量，让我们的页面加载和显示更快。 Babel和webpack的区别？babel是一个JS编译器，用来将ES6&#x2F;ES7等语法转换为ES5语法（浏览器不认识的语法编译成浏览器认识的语法），从而能够使代码在大部分浏览器中运行。但是babel转换语法时有一些新的api是不转化的，比如pr">
+<meta property="og:description" content="前端代码为什么要进行构建和打包？在开发后完成的这个合并的过程就是打包，可以减少了http请求数量，让我们的页面加载和显示更快。 Babel和webpack的区别babel是一个JS编译器，用来将ES6&#x2F;ES7等语法转换为ES5语法（浏览器不认识的语法编译成浏览器认识的语法），从而能够使代码在大部分浏览器中运行。但是babel转换语法时有一些新的api是不转化的，比如promise、Object.a">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/%E7%89%8C%E7%89%8Cwebpack.png">
 <meta property="article:published_time" content="2023-03-31T06:44:44.000Z">
-<meta property="article:modified_time" content="2023-10-18T09:06:07.013Z">
+<meta property="article:modified_time" content="2023-10-21T13:11:41.521Z">
 <meta property="article:author" content="happy">
 <meta property="article:tag" content="打包工具">
 <meta property="article:tag" content="webpack">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-10-18 17:06:07'
+  postUpdate: '2023-10-21 21:11:41'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -181,8 +181,8 @@ window.addEventListener('load',()=> { preloader.endLoading() })
 if (false) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
   document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/%E7%89%8C%E7%89%8Cwebpack.png')"><nav id="nav"><span id="blog-info"><a href="/" title="豆豆想吃骨头"><span class="site-name">豆豆想吃骨头</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">webpack</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-31T06:44:44.000Z" title="发表于 2023-03-31 14:44:44">2023-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-18T09:06:07.013Z" title="更新于 2023-10-18 17:06:07">2023-10-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">打包工具</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="webpack和babel"><a href="#webpack和babel" class="headerlink" title="webpack和babel"></a>webpack和babel</h2><h3 id="前端代码为什么要进行构建和打包？"><a href="#前端代码为什么要进行构建和打包？" class="headerlink" title="前端代码为什么要进行构建和打包？"></a>前端代码为什么要进行构建和打包？</h3><p>在开发后完成的这个合并的过程就是<strong>打包</strong>，可以减少了http请求数量，让我们的页面加载和显示更快。</p>
-<h3 id="Babel和webpack的区别？"><a href="#Babel和webpack的区别？" class="headerlink" title="Babel和webpack的区别？"></a>Babel和webpack的区别？</h3><p><a href="https://link.juejin.cn/?target=https://links.jianshu.com/go?to=https://babeljs.io/docs/en/">babel</a>是一个JS编译器，用来将ES6/ES7等语法转换为ES5语法（浏览器不认识的语法编译成浏览器认识的语法），从而能够使代码在大部分浏览器中运行。但是babel转换语法时有一些新的api是不转化的，比如promise、Object.assign等，所以babel还提供了很多插件，如babel-polyfill。</p>
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/%E7%89%8C%E7%89%8Cwebpack.png')"><nav id="nav"><span id="blog-info"><a href="/" title="豆豆想吃骨头"><span class="site-name">豆豆想吃骨头</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">webpack</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-31T06:44:44.000Z" title="发表于 2023-03-31 14:44:44">2023-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-21T13:11:41.521Z" title="更新于 2023-10-21 21:11:41">2023-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">打包工具</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="前端代码为什么要进行构建和打包？"><a href="#前端代码为什么要进行构建和打包？" class="headerlink" title="前端代码为什么要进行构建和打包？"></a>前端代码为什么要进行构建和打包？</h2><p>在开发后完成的这个合并的过程就是<strong>打包</strong>，可以减少了http请求数量，让我们的页面加载和显示更快。</p>
+<h2 id="Babel和webpack的区别"><a href="#Babel和webpack的区别" class="headerlink" title="Babel和webpack的区别"></a>Babel和webpack的区别</h2><p><a href="https://link.juejin.cn/?target=https://links.jianshu.com/go?to=https://babeljs.io/docs/en/">babel</a>是一个JS编译器，用来将ES6/ES7等语法转换为ES5语法（浏览器不认识的语法编译成浏览器认识的语法），从而能够使代码在大部分浏览器中运行。但是babel转换语法时有一些新的api是不转化的，比如promise、Object.assign等，所以babel还提供了很多插件，如babel-polyfill。</p>
 <p><a href="https://link.juejin.cn/?target=https://links.jianshu.com/go?to=https://www.webpackjs.com/concepts/">webpack</a>是一个打包工具，打包js、css、图片、html等，它可以分析整个项目的文件结构，确认文件之间的依赖，将文件合成、压缩、加入hash等，生成最终项目文件。webpack把所有文件当成模块，但是webpack内置默认的加载器是处理js的，如果要处理其他类型的文件则需要引入不同的loader加载器，用来转化其他文件进行编译打包。webpack通过使用babel-loader使用Babel。</p>
 <p>总结：</p>
 <blockquote>
@@ -191,32 +191,27 @@ if (false) {
 <p>webpack是一个打包工具，内置只能处理js，但是它可以加载很多的loader处理css,img,ts,vue等其他文件,最终输出js文件。</p>
 <p>webpack通过使用babel-loader使用Babel</p>
 </blockquote>
-<h3 id="webpack如何实现懒加载？"><a href="#webpack如何实现懒加载？" class="headerlink" title="webpack如何实现懒加载？"></a>webpack如何实现懒加载？</h3><p>使用import()结合异步组件和异步路由</p>
-<h3 id="webpack打包过程"><a href="#webpack打包过程" class="headerlink" title="webpack打包过程"></a>webpack打包过程</h3><ul>
+<h2 id="webpack如何实现懒加载？"><a href="#webpack如何实现懒加载？" class="headerlink" title="webpack如何实现懒加载？"></a>webpack如何实现懒加载？</h2><p>使用import()结合异步组件和异步路由</p>
+<h2 id="webpack打包过程"><a href="#webpack打包过程" class="headerlink" title="webpack打包过程"></a>webpack打包过程</h2><ul>
 <li>解析入口文件，生成AST树，遍历所有依赖项，收集依赖；</li>
 <li>递归解析所有的依赖项，生成依赖关系图；</li>
 <li>使用依赖关系图，生成一个可以在浏览器运行的JS文件；</li>
 <li>输出到指定文件夹下；</li>
 </ul>
-<h3 id="loader和plugin的区别？"><a href="#loader和plugin的区别？" class="headerlink" title="loader和plugin的区别？"></a>loader和plugin的区别？</h3><p>在运行时机上，<code>loader</code> 运行在<strong>打包文件之前</strong>；<code>plugin</code>则是在<strong>整个编译周期</strong>都起作用。</p>
-<p><code>loader</code>是文件加载器，能够加载资源文件，并对这些文件进行一些处理，诸如编译、压缩等，最终一起打包到指定的文件中；</p>
-<p><code>plugin</code>扩展了更多的功能；赋予了<code>webpack</code>各种灵活的功能，例如打包优化、资源管理、环境变量注入等，目的是解决 <code>loader</code>无法实现的其他事。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>首先，认为它是一个工具，帮助我们更好的处理事情的。</p>
-<ul>
-<li>其次，“打包”，如何理解？ 假设我们需要寄快递。我们将许多的物品都放进了一个纸皮箱，然后进行封箱。 这就是打包。 对应到前端开发来说，就是将很多的的 css文件，js文件，图片等“物品”，全都写进一个js文件，而不是在一个html页面通过script,link标签去引入多个静态资源。</li>
-<li>模块化，其实不同的css，不同的js就是一个模块。比如说，一个index.html,通常会有一个index.css, 一个index.js，还有其他的css，js。这些不同的文件都可以看做不同的模块。不同的模块有各自的作用。</li>
-</ul>
-<p>总结来说：用这个工具，帮助我们将不同的资源和文件，进行打包，也就是合并在一个文件里面。 但是不仅仅如此，它还附加了一些更好用的功能。</p>
-<p>附加功能：<br>1.CSS 预处理。将 Less, Sass 编译成css<br>2.ES6 语法 转成 ES5 …（等待学习后补充）</p>
-<p>2.作用<br>将浏览器不认识的语法编译成浏览器认识的语法。比如less编译成css，ES6 语法 转成 ES5等等，同时能够减少io请求。</p>
-<p><strong>为什么说能减少io请求：通常我们在请求后，会返回一个html到浏览器。这时，我们如果打开控制台，就会发现在html页面通过script,link等标签引用的静态资源， 浏览器会再次发出请求去获取这些资源。但是通过webpack的打包，将所有的静态资源都合并好了，减少了io请求。</strong></p>
 <h2 id="为什么使用了VueCli后就用不到WebPack了？"><a href="#为什么使用了VueCli后就用不到WebPack了？" class="headerlink" title="为什么使用了VueCli后就用不到WebPack了？"></a>为什么使用了VueCli后就用不到WebPack了？</h2><p>vuecli会配置好webpack，所以再进行打包等操作时无需再自行配置webpack</p>
-<h2 id="WebPack中loader和plugin的区别？"><a href="#WebPack中loader和plugin的区别？" class="headerlink" title="WebPack中loader和plugin的区别？"></a>WebPack中loader和plugin的区别？</h2><p>loader本质是一个函数，在该函数中对接收到的内容进行转换，返回转换后的结果。 因为 Webpack 只认识JavaScript，<strong>所以 Loader 就成了翻译官，对其他类型的资源进行转译的预处理工作。主要功能是转换器，转换某些模板的语言</strong>，例如es6转化为es5，转换less。<br>loader在 module.rules 中配置，作为模块的解析规则，类型为数组。每一项都是一个 Object，内部包含了 test(类型文件)、loader、options (参数)等属性。</p>
-<p>plugin作用是插件，基于事件流框架 Tapable，插件可以扩展 Webpack 的功能，<strong>在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</strong>对webpack本身功能的拓展，例如压缩js文件、webpack-bundle-analyzer可视化 Webpack 输出文件的体积。Plugin 在 plugins 中单独配置，类型为数组，每一项是一个 Plugin 的实例，参数都通过构造函数传入。</p>
-<h2 id="WebPack构建过程"><a href="#WebPack构建过程" class="headerlink" title="WebPack构建过程"></a>WebPack构建过程</h2><ul>
-<li>初始化：启动构建，从配置文件和 Shell 语句中读取与合并配置参数，并初始化需要使用的插件和配置插件等执行环境所需要的参数，加载 Plugin，实例化 Compiler</li>
-<li>编译：调用Compiler的run来真正启动webpack编译构建过程，从 Entry 出发，针对每个 Module 串行调用对应的 Loader 去翻译文件的内容，再找到该 Module 依赖的 Module，递归地进行编译处理</li>
-<li>输出：将编译后的 Module 组合成 Chunk，将 Chunk 转换成文件，输出到文件系统中</li>
+<h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904186912473096?searchId=20231019093933BF7A13355025B9367CA1">Webpack配置全解析（基础篇） - 掘金 (juejin.cn)</a></p>
+<h3 id="配置类型"><a href="#配置类型" class="headerlink" title="配置类型"></a>配置类型</h3><p>config配置文件通过<code>module.exports</code>导出配置，有以下三种类型：</p>
+<ul>
+<li>导出配置对象</li>
+<li>导出函数：方便对环境变量进行配置，比如对测试环境和生产环境进行区分</li>
+<li>导出Promise：用于异步加载配置</li>
+</ul>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><ul>
+<li>入口：<code>entry</code></li>
+<li>输出：<code>output</code></li>
+<li>模式：<code>mode</code>：表示当前处于什么模式，例如开发模式、生产模式等</li>
+<li>加载器：<code>loader</code>：用于对模块module的源码进行转换，默认webpack只能识别commonjs代码，但是我们在代码中会引入比如vue、ts、less等文件，webpack就处理不过来了；loader拓展了webpack处理多种文件类型的能力，将这些文件转换成浏览器能够渲染的js、css。</li>
+<li>插件：<code>plugin</code></li>
 </ul>
 <h2 id="常见的loader"><a href="#常见的loader" class="headerlink" title="常见的loader"></a>常见的loader</h2><ul>
 <li>raw-loader：加载文件原始内容（utf-8）</li>
@@ -228,6 +223,12 @@ if (false) {
 <li>eslint-loader：通过 ESLint 检查 JavaScript 代码</li>
 <li>vue-loader：加载 Vue.js 单文件组件</li>
 <li>i18n-loader: 国际化</li>
+<li><strong>file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件 (处理图片和字体)</strong></li>
+<li><strong>url-loader：与 file-loader 类似，区别是用户可以设置一个阈值，大于阈值会交给 file-loader 处理，小于阈值时返回文件 base64 形式编码 (处理图片和字体)</strong></li>
+<li>source-map-loader：加载额外的 Source Map 文件，以方便断点调试</li>
+<li>svg-inline-loader：将压缩后的 SVG 内容注入代码中</li>
+<li>json-loader: 加载 JSON 文件（默认包含）</li>
+<li>ts-loader: 将 TypeScript 转换成 JavaScript</li>
 </ul>
 <h2 id="常见的plugin插件"><a href="#常见的plugin插件" class="headerlink" title="常见的plugin插件"></a>常见的plugin插件</h2><ul>
 <li>define-plugin：定义环境变量 (Webpack4 之后指定 mode 会自动配置)</li>
@@ -238,11 +239,35 @@ if (false) {
 <li>serviceworker-webpack-plugin：为网页应用增加离线缓存功能</li>
 <li>clean-webpack-plugin: 目录清理</li>
 <li>size-plugin：监控资源体积变化，尽早发现问题</li>
+<li><code>webpack-dashboard</code>：可以更友好的展示相关打包信息。</li>
+<li><code>webpack-merge</code>：提取公共配置，减少重复配置代码</li>
+<li><code>speed-measure-webpack-plugin</code>：简称 SMP，分析出 Webpack 打包过程中 Loader 和 Plugin 的耗时，有助于找到构建过程中的性能瓶颈。</li>
+<li><code>HotModuleReplacementPlugin</code>：模块热替换</li>
 </ul>
-<h2 id="source-map是什么？生产环境怎么用？"><a href="#source-map是什么？生产环境怎么用？" class="headerlink" title="source map是什么？生产环境怎么用？"></a>source map是什么？生产环境怎么用？</h2><p>线上的代码多是压缩后的，如果线上有报错却只能调试那个代码多半是个噩梦，不具备良好的可读性。因此我们需要有一个桥梁帮助我们搭建起源代码及压缩后代码的联系，source map 就是起了这个作用。</p>
+<h2 id="Loader和Plugin的区别"><a href="#Loader和Plugin的区别" class="headerlink" title="Loader和Plugin的区别"></a>Loader和Plugin的区别</h2><p><code>Loader</code> 本质就是一个函数，在该函数中对接收到的内容进行转换，返回转换后的结果。 因为 Webpack 只认识 JavaScript，所以 Loader 就成了翻译官，对其他类型的资源进行转译的预处理工作。</p>
+<p><code>Plugin</code> 就是插件，基于事件流框架 <code>Tapable</code>，插件可以扩展 Webpack 的功能，在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</p>
+<p><code>Loader</code> 在 module.rules 中配置，作为模块的解析规则，类型为数组。每一项都是一个 Object，内部包含了 test(类型文件)、loader、options (参数)等属性。</p>
+<p><code>Plugin</code> 在 plugins 中单独配置，类型为数组，每一项是一个 Plugin 的实例，参数都通过构造函数传入。</p>
+<h2 id="Webpack构建流程"><a href="#Webpack构建流程" class="headerlink" title="Webpack构建流程"></a>Webpack构建流程</h2><p>Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程：</p>
+<ul>
+<li><code>初始化参数</code>：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数</li>
+<li><code>开始编译</code>：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译</li>
+<li><code>确定入口</code>：根据配置中的 entry 找出所有的入口文件</li>
+<li><code>编译模块</code>：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理</li>
+<li><code>完成模块编译</code>：在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系</li>
+<li><code>输出资源</code>：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会</li>
+<li><code>输出完成</code>：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统</li>
+</ul>
+<p>在以上过程中，<code>Webpack</code> 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果。</p>
+<h2 id="source-map是什么？生产环境怎么用？"><a href="#source-map是什么？生产环境怎么用？" class="headerlink" title="source map是什么？生产环境怎么用？"></a>source map是什么？生产环境怎么用？</h2><p><code>source map</code> 是将编译、打包、压缩后的代码映射回源代码的过程。打包压缩后的代码不具备良好的可读性，想要调试源码就需要 soucre map。</p>
+<p>map文件只要不打开开发者工具，浏览器是不会加载的。</p>
 <p>线上环境一般有三种处理方案：</p>
-<p>hidden-source-map：借助第三方错误监控平台 Sentry 使用<br>nosources-source-map：只会显示具体行数以及查看源代码的错误栈。安全性比 sourcemap 高<br>sourcemap：通过 nginx 设置将 .map 文件只对白名单开放(公司内网)</p>
-<p>注意：避免在生产中使用 inline- 和 eval-，因为它们会增加 bundle 体积大小，并降低整体性能。</p>
+<ul>
+<li><code>hidden-source-map</code>：借助第三方错误监控平台 Sentry 使用</li>
+<li><code>nosources-source-map</code>：只会显示具体行数以及查看源代码的错误栈。安全性比 sourcemap 高</li>
+<li><code>sourcemap</code>：通过 nginx 设置将 .map 文件只对白名单开放(公司内网)</li>
+</ul>
+<p>注意：避免在生产中使用 <code>inline-</code> 和 <code>eval-</code>，因为它们会增加 bundle 体积大小，并降低整体性能</p>
 <h3 id="source-map-是如何对应到源代码的？"><a href="#source-map-是如何对应到源代码的？" class="headerlink" title="source map 是如何对应到源代码的？"></a>source map 是如何对应到源代码的？</h3><p>我们还是以刚才打包的文件为例，来看看产出的 source map 长啥样</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">sources</span>:[<span class="string">&quot;webpack://webpack-source-demo/./src/index.js&quot;</span>],</span><br><span class="line">  <span class="attr">names</span>: [<span class="string">&#x27;console&#x27;</span>, <span class="string">&#x27;log&#x27;</span>],</span><br><span class="line">  <span class="attr">mappings</span>: <span class="string">&#x27;AACAA,QAAQC,IADE&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -263,70 +288,124 @@ if (false) {
 <li>源代码的第一列</li>
 <li>names 数组中的第一个索引，也就是 console</li>
 </ul>
-<h2 id="Webpack-文件监听原理"><a href="#Webpack-文件监听原理" class="headerlink" title="Webpack 文件监听原理"></a>Webpack 文件监听原理</h2><p>在发现源码发生变化时，自动重新构建出新的输出文件。<br>Webpack开启监听模式，有两种方式：</p>
-<ul>
+<h2 id="Webpack文件监听原理"><a href="#Webpack文件监听原理" class="headerlink" title="Webpack文件监听原理"></a>Webpack文件监听原理</h2><p>在发现源码发生变化时，自动重新构建出新的输出文件。</p>
+<p>Webpack开启监听模式，有两种方式：</p>
+<ol>
 <li>启动 webpack 命令时，带上 –watch 参数在</li>
-<li>配置 webpack.config.js 中设置 watch:true<br>缺点：每次需要手动刷新浏览器，可以通过<strong>热更新</strong>解决</li>
-</ul>
+<li>配置 webpack.config.js 中设置 watch:true</li>
+</ol>
+<p>缺点：每次需要手动刷新浏览器，可以通过<strong>热更新</strong>解决</p>
 <p><strong>原理：</strong>轮询判断文件的最后编辑时间是否变化，如果某个文件发生了变化，并不会立刻告诉监听者，而是先缓存起来，等 aggregateTimeout 后再执行</p>
-<h2 id="Webpack-的热更新原理"><a href="#Webpack-的热更新原理" class="headerlink" title="Webpack 的热更新原理"></a>Webpack 的热更新原理</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6eb4ebd032164e6bb14ed2154b5cd76a~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="热更新原理"></p>
-<p><strong>热更新原理</strong></p>
-<p>Webpack 的热更新又称热替换（Hot Module Replacement），缩写为 HMR 。 这个机制可以做到不用刷新浏览器而将新变更的模块替换掉旧的模块。</p>
+<h2 id="Webpack的热更新原理"><a href="#Webpack的热更新原理" class="headerlink" title="Webpack的热更新原理"></a>Webpack的热更新原理</h2><p>Webpack 的热更新又称热替换（Hot Module Replacement），缩写为 HMR 。 这个机制可以做到不用刷新浏览器而将新变更的模块替换掉旧的模块。</p>
+<p>HMR的核心就是客户端从服务端拉去更新后的文件，准确的说是 chunk diff (chunk 需要更新的部分)，实际上 WDS 与浏览器之间维护了一个 <code>Websocket</code>，当本地资源发生变化时，WDS 会向浏览器推送更新，并带上构建时的 hash，让客户端与上一次资源进行对比。客户端对比出差异后会向 WDS 发起 <code>Ajax</code> 请求来获取更改内容(文件列表、hash)，这样客户端就可以再借助这些信息继续向 WDS 发起 <code>jsonp</code> 请求获取该chunk的增量更新。</p>
+<p>后续的部分(拿到增量更新之后如何处理？哪些状态该保留？哪些又需要更新？)由 <code>HotModulePlugin</code> 来完成，提供了相关 API 以供开发者针对自身场景进行处理，像<code>react-hot-loader</code> 和 <code>vue-loader</code> 都是借助这些 API 实现 HMR。</p>
+<h2 id="文件指纹"><a href="#文件指纹" class="headerlink" title="文件指纹"></a>文件指纹</h2><p>文件指纹通常有两个<strong>用途</strong>：</p>
 <ul>
-<li>bundle.js： 构建输出的文件。</li>
-<li>Webapck Compiler： webpack 的编辑器，将 JS 源代码编译为 bundle.js。</li>
-<li>HMR Server： 将热更新的文件传输给 HMT Runtime。</li>
-<li>Bundle Server： 在浏览器中，可以以服务器的形式访问文件</li>
-<li>HMR Runtime： 在打包阶段被注入浏览器的 bundle.js 中，使 bundle.js 和 Server 建起链接（Web Socket），在文件发生变化时，自动更新 bundle.js 中的 Code。</li>
+<li><strong>版本管理：</strong> 在发布版本时，通过文件指纹来区分 修改的文件 和 未修改的文件。</li>
+<li><strong>使用缓存：</strong> 未修改的文件，文件指纹保持不变，浏览器继续使用缓存访问。</li>
 </ul>
-<p>启动阶段：</p>
-<ol>
-<li>在文件系统中进行编译</li>
-<li>通过 Webpack Compiler 进行打包</li>
-<li>将打包好的文件传输给 Bundle Server</li>
-<li>启动服务，使浏览器以 Server 的形式访问 bundle.js</li>
-</ol>
-<p>文件更新阶段：</p>
-<ol>
-<li>文件系统中的内容发生变化</li>
-<li>通过 Webpack Compiler 进行打包，生成新的hash<strong>（文件指纹）</strong></li>
-<li>将打包好的文件传输给 HMR Server，并带上构建时的 hash，让HMR Server与上一次资源进行对比，分析哪些代码发生了改变</li>
-<li>HMR Server（服务端）将改变通知到 HMR Runtime（客户端）</li>
-<li>HMR Runtime 向Bundle Server发起请求，更新 bundle.js 中的代码</li>
-</ol>
-<h2 id="文件指纹是什么？怎么用？"><a href="#文件指纹是什么？怎么用？" class="headerlink" title="文件指纹是什么？怎么用？"></a>文件指纹是什么？怎么用？</h2><p>文件指纹是打包后输出的文件名的后缀<br>文件指纹通常有两个用途：</p>
-<p><strong>版本管理：</strong> 在发布版本时，通过文件指纹来区分 修改的文件 和 未修改的文件。<br><strong>使用缓存：</strong> 未修改的文件，文件指纹保持不变，浏览器继续使用缓存访问。</p>
-<p>Hash：和整个项目的构建相关，只要项目文件有修改，整个项目构建的 hash 值就会更改<br>Chunkhash：和 Webpack 打包的 chunk 有关，不同的 entry 会生出不同的 chunkhash<br>Contenthash：根据文件内容来定义 hash，文件内容不变，则 contenthash 不变</p>
-<p><strong>Compiler 模块是 webpack 的主要引擎，在 webpack 首次启动时会返回一个 Compiler 实例，而 Compiler 通过 Compilation 模块可以创建新的 compilation 实例，这个 compilation 实例能够访问依赖图中所有模块，也就是说项目中的任一文件的变化都会引起 compilation 实例的变化</strong>。</p>
-<p>JS的文件指纹设置<br>设置 output 的 filename，用 chunkhash。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: &#123;</span><br><span class="line">        <span class="attr">app</span>: <span class="string">&#x27;./scr/app.js&#x27;</span>,</span><br><span class="line">        <span class="attr">search</span>: <span class="string">&#x27;./src/search.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;[name][chunkhash:8].js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:__dirname + <span class="string">&#x27;/dist&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>CSS的文件指纹设置<br>设置 MiniCssExtractPlugin 的 filename，使用 contenthash。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: &#123;</span><br><span class="line">        <span class="attr">app</span>: <span class="string">&#x27;./scr/app.js&#x27;</span>,</span><br><span class="line">        <span class="attr">search</span>: <span class="string">&#x27;./src/search.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;[name][chunkhash:8].js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:__dirname + <span class="string">&#x27;/dist&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>:[</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">MiniCssExtractPlugin</span>(&#123;</span><br><span class="line">            <span class="attr">filename</span>: <span class="string">`[name][contenthash:8].css`</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>图片的文件指纹设置<br>设置file-loader的name，使用hash。</p>
+<p><strong>文件指纹是</strong>打包后输出的文件名的后缀</p>
+<ul>
+<li>Hash：和整个项目的构建相关，只要项目文件有修改，整个项目构建的 hash 值就会更改</li>
+<li>Chunkhash：和 Webpack 打包的 chunk 有关，不同的 entry 会生出不同的 chunkhash</li>
+<li>Contenthash：根据文件内容来定义 hash，文件内容不变，则 contenthash 不变</li>
+</ul>
+<p><strong>JS的文件指纹设置</strong></p>
+<p>设置 output 的 filename，用 chunkhash。</p>
+<p><strong>CSS的文件指纹设置</strong></p>
+<p>设置 MiniCssExtractPlugin 的 filename，使用 contenthash。</p>
+<p><strong>图片的文件指纹设置</strong></p>
+<p>设置file-loader的name，使用hash。</p>
 <p>占位符名称及含义</p>
-<p>ext 资源后缀名<br>name 文件名称<br>path 文件的相对路径<br>folder 文件所在的文件夹<br>contenthash 文件的内容hash，默认是md5生成<br>hash 文件内容的hash，默认是md5生成<br>emoji 一个随机的指代文件内容的emoj</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>:&#123;</span><br><span class="line">        <span class="attr">rules</span>:[&#123;</span><br><span class="line">            <span class="attr">test</span>:<span class="regexp">/\.(png|svg|jpg|gif)$/</span>,</span><br><span class="line">            <span class="attr">use</span>:[&#123;</span><br><span class="line">                <span class="attr">loader</span>:<span class="string">&#x27;file-loader&#x27;</span>,</span><br><span class="line">                <span class="attr">options</span>:&#123;</span><br><span class="line">                    <span class="attr">name</span>:<span class="string">&#x27;img/[name][hash:8].[ext]&#x27;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="如何对bundle体积进行监控和分析？"><a href="#如何对bundle体积进行监控和分析？" class="headerlink" title="如何对bundle体积进行监控和分析？"></a>如何对bundle体积进行监控和分析？</h2><p>VSCode 中有一个插件 <strong>Import Cost</strong> 可以帮助我们对引入模块的大小进行实时监测，还可以使用 <strong>webpack-bundle-analyzer</strong> 生成 bundle 的模块组成图，显示所占体积。<br><strong>bundlesize</strong> 工具包可以进行自动化资源体积监控。</p>
+<ul>
+<li><p>ext 资源后缀名</p>
+</li>
+<li><p>name 文件名称</p>
+</li>
+<li><p>path 文件的相对路径</p>
+</li>
+<li><p>folder 文件所在的文件夹</p>
+</li>
+<li><p>contenthash 文件的内容hash，默认是md5生成</p>
+</li>
+<li><p>hash 文件内容的hash，默认是md5生成</p>
+</li>
+<li><p>emoji 一个随机的指代文件内容的emoj</p>
+</li>
+</ul>
+<h2 id="如何对bundle体积进行监控和分析？"><a href="#如何对bundle体积进行监控和分析？" class="headerlink" title="如何对bundle体积进行监控和分析？"></a>如何对bundle体积进行监控和分析？</h2><p>VSCode 中有一个插件 <strong>Import Cost</strong> 可以帮助我们对引入模块的大小进行实时监测，还可以使用 <strong>webpack-bundle-analyzer</strong> 生成 bundle 的模块组成图，显示所占体积。</p>
+<p><strong>bundlesize</strong> 工具包可以进行自动化资源体积监控。</p>
 <h2 id="在实际工程中，配置文件上百行乃是常事，如何保证各个loader按照预想方式工作？"><a href="#在实际工程中，配置文件上百行乃是常事，如何保证各个loader按照预想方式工作？" class="headerlink" title="在实际工程中，配置文件上百行乃是常事，如何保证各个loader按照预想方式工作？"></a>在实际工程中，配置文件上百行乃是常事，如何保证各个loader按照预想方式工作？</h2><p>可以使用 <strong>enforce</strong> 强制执行 loader 的作用顺序，<strong>pre</strong> 代表在所有正常 loader 之前执行，<strong>post</strong> 是所有 loader 之后执行。(inline 官方不推荐使用)</p>
-<h2 id="如何优化-Webpack-的构建速度？"><a href="#如何优化-Webpack-的构建速度？" class="headerlink" title="如何优化 Webpack 的构建速度？"></a>如何优化 Webpack 的构建速度？</h2><p>使用高版本的 Webpack 和 Node.js<br>多进程/多实例构建：thread-loader<br>压缩代码<br>多进程并行压缩<br>webpack-paralle-uglify-pluginuglifyjs-webpack-plugin 开启 parallel 参数 (不支持ES6)terser-webpack-plugin 开启 parallel 参数<br>通过 mini-css-extract-plugin 提取 Chunk 中的 CSS 代码到单独文件，通过 css-loader 的 minimize 选项开启 cssnano 压缩 CSS。<br>图片压缩: 使用基于 Node 库的 imagemin (很多定制选项、可以处理多种图片格式)配置 image-webpack-loader<br>缩小打包作用域：</p>
-<p>exclude/include (确定 loader 规则范围)resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找)resolve.mainFields 只采用 main 字段作为入口文件描述字段 (减少搜索步骤，需要考虑到所有运行时依赖的第三方模块的入口文件描述字段)resolve.extensions 尽可能减少后缀尝试的可能性noParse 对完全不需要解析的库进行忽略 (不去解析但仍会打包到 bundle 中，注意被忽略掉的文件里不应该包含 import、require、define 等模块化语句)IgnorePlugin (完全排除模块)合理使用alias<br>提取页面公共资源：</p>
-<p>基础包分离：</p>
-<p>使用 html-webpack-externals-plugin，将基础包通过 CDN 引入，不打入 bundle 中使用 SplitChunksPlugin 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 CommonsChunkPlugin 插件</p>
-<p>DLL：</p>
-<p>使用 DllPlugin 进行分包，使用 DllReferencePlugin(索引链接) 对 manifest.json 引用，让一些基本不会改动的代码先打包成静态资源，避免反复编译浪费时间。HashedModuleIdsPlugin 可以解决模块数字id问题<br>充分利用缓存提升二次构建速度：</p>
-<p>babel-loader 开启缓存terser-webpack-plugin 开启缓存使用 cache-loader 或者 hard-source-webpack-plugin<br>Tree shaking</p>
-<p>打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码</p>
-<p>purgecss-webpack-plugin 和 mini-css-extract-plugin配合使用(建议)</p>
-<p>Scope hoisting</p>
-<p>构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法<br>动态Polyfill</p>
-<p>建议采用 polyfill-service 只给用户返回需要的polyfill，社区维护。 (部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)</p>
-<h2 id="你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？"><a href="#你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？" class="headerlink" title="你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？"></a>你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？</h2><p>某个模块被多个入口模块引用时，它就会被打包多次（在最终打包出来的某几个文件里，它们都会有一份相同的代码）。当项目业务越来越复杂，打包出来的代码会非常冗余，文件体积会非常庞大。大体积文件会增加编译时间，影响开发效率；如果直接上线，还会拉长请求和加载时长，影响网站体验。作为一个追求极致体验的攻城狮，是不能忍的。所以在多页应用中优化打包尤为必要。那么如何优化webpack打包呢</p>
-<p>代码分割的本质其实就是在源代码直接上线和打包成唯一脚本main.bundle.js这两种极端方案之间的一种更适合实际场景的中间状态。</p>
-<p>「用可接受的服务器性能压力增加来换取更好的用户体验。」<br>源代码直接上线：虽然过程可控，但是http请求多，性能开销大。<br>打包成唯一脚本：一把梭完自己爽，服务器压力小，但是页面空白期长，用户体验不好。</p>
-<h2 id="是否写过Loader？简单描述一下编写loader的思路？"><a href="#是否写过Loader？简单描述一下编写loader的思路？" class="headerlink" title="是否写过Loader？简单描述一下编写loader的思路？"></a>是否写过Loader？简单描述一下编写loader的思路？</h2><p>Loader 支持链式调用，所以开发上需要严格遵循“单一职责”，每个 Loader 只负责自己需要负责的事情。</p>
+<h2 id="如何优化-Webpack-的构建速度？"><a href="#如何优化-Webpack-的构建速度？" class="headerlink" title="如何优化 Webpack 的构建速度？"></a>如何优化 Webpack 的构建速度？</h2><p><strong>1.使用高版本的 Webpack 和 Node.js</strong></p>
+<p><strong>2.多进程/多实例构建：HappyPack(不维护了)、thread-loader</strong></p>
+<p><strong>3.压缩代码</strong></p>
+<ul>
+<li>多进程并行压缩<ul>
+<li>webpack-paralle-uglify-plugin</li>
+<li>uglifyjs-webpack-plugin 开启 parallel 参数 (不支持ES6)</li>
+<li>terser-webpack-plugin 开启 parallel 参数</li>
+</ul>
+</li>
+<li>通过 mini-css-extract-plugin 提取 Chunk 中的 CSS 代码到单独文件，通过 css-loader 的 minimize 选项开启 cssnano 压缩 CSS。</li>
+</ul>
+<p><strong>4.图片压缩</strong></p>
+<ul>
+<li>使用基于 Node 库的 imagemin (很多定制选项、可以处理多种图片格式)</li>
+<li>配置 image-webpack-loader</li>
+</ul>
+<p><strong>5.缩小打包作用域：</strong></p>
+<ul>
+<li>exclude/include (确定 loader 规则范围)</li>
+<li>resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找)</li>
+<li>resolve.mainFields 只采用 main 字段作为入口文件描述字段 (减少搜索步骤，需要考虑到所有运行时依赖的第三方模块的入口文件描述字段)</li>
+<li>resolve.extensions 尽可能减少后缀尝试的可能性</li>
+<li>noParse 对完全不需要解析的库进行忽略 (不去解析但仍会打包到 bundle 中，注意被忽略掉的文件里不应该包含 import、require、define 等模块化语句)</li>
+<li>IgnorePlugin (完全排除模块)</li>
+<li>合理使用alias</li>
+</ul>
+<p><strong>6.提取页面公共资源</strong></p>
+<ul>
+<li>基础包分离：<ul>
+<li>使用 html-webpack-externals-plugin，将基础包通过 CDN 引入，不打入 bundle 中</li>
+<li>使用 SplitChunksPlugin 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 CommonsChunkPlugin 插件</li>
+</ul>
+</li>
+</ul>
+<p><strong>7.DLL</strong></p>
+<ul>
+<li>使用 DllPlugin 进行分包，使用 DllReferencePlugin(索引链接) 对 manifest.json 引用，让一些基本不会改动的代码先打包成静态资源，避免反复编译浪费时间。</li>
+<li>HashedModuleIdsPlugin 可以解决模块数字id问题</li>
+</ul>
+<p><strong>8.充分利用缓存提升二次构建速度</strong></p>
+<ul>
+<li>babel-loader 开启缓存</li>
+<li>terser-webpack-plugin 开启缓存</li>
+<li>使用 cache-loader 或者 hard-source-webpack-plugin</li>
+</ul>
+<p><strong>9.Tree shaking</strong></p>
+<ul>
+<li>打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率</li>
+<li>禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking</li>
+<li>使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码<ul>
+<li>purgecss-webpack-plugin 和 mini-css-extract-plugin配合使用(建议)</li>
+</ul>
+</li>
+</ul>
+<p><strong>10.Scope hoisting</strong></p>
+<ul>
+<li>构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突</li>
+<li>必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法</li>
+</ul>
+<p><strong>11.动态Polyfill</strong></p>
+<ul>
+<li>建议采用 polyfill-service 只给用户返回需要的polyfill，社区维护。 (部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)</li>
+</ul>
+<h2 id="你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？"><a href="#你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？" class="headerlink" title="你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？"></a>你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？</h2><p><strong>场景原因</strong>：某个模块被多个入口模块引用时，它就会被打包多次（在最终打包出来的某几个文件里，它们都会有一份相同的代码）。当项目业务越来越复杂，打包出来的代码会非常冗余，文件体积会非常庞大。大体积文件会增加编译时间，影响开发效率；如果直接上线，还会拉长请求和加载时长，影响网站体验。作为一个追求极致体验的攻城狮，是不能忍的。所以在多页应用中优化打包尤为必要。那么如何优化webpack打包呢</p>
+<p><strong>代码分割的本质</strong>其实就是在源代码直接上线和打包成唯一脚本main.bundle.js这两种极端方案之间的一种更适合实际场景的中间状态。</p>
+<p>「用可接受的服务器性能压力增加来换取更好的用户体验。」</p>
+<p>源代码直接上线：虽然过程可控，但是http请求多，性能开销大。</p>
+<p>打包成唯一脚本：服务器压力小，但是页面空白期长，用户体验不好。</p>
+<h2 id="是否写过Loader？编写loader的思路"><a href="#是否写过Loader？编写loader的思路" class="headerlink" title="是否写过Loader？编写loader的思路"></a>是否写过Loader？编写loader的思路</h2><p>Loader 支持链式调用，所以开发上需要严格遵循“单一职责”，每个 Loader 只负责自己需要负责的事情。</p>
 <ul>
 <li>Loader 运行在 Node.js 中，我们可以调用任意 Node.js 自带的 API 或者安装第三方模块进行调用</li>
 <li>Webpack 传给 Loader 的原内容都是 UTF-8 格式编码的字符串，当某些场景下 Loader 处理二进制文件时，需要通过 exports.raw = true 告诉 Webpack 该 Loader 是否需要二进制数据</li>
@@ -340,7 +419,7 @@ if (false) {
 <li>配置webpack， 在module. rules中设置test（待处理文件），use（处理的方式，即步骤1js文件），可以写多个use，先写的user会被后面执行</li>
 <li>在入口文件导入这个脚本，如果不引用该文件的话，webpack是不会对该文件进行打包处理的，那么你的loader也不会执行</li>
 </ol>
-<h2 id="是否写过Plugin？简单描述一下编写Plugin的思路？"><a href="#是否写过Plugin？简单描述一下编写Plugin的思路？" class="headerlink" title="是否写过Plugin？简单描述一下编写Plugin的思路？"></a>是否写过Plugin？简单描述一下编写Plugin的思路？</h2><p>webpack在运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在特定的阶段钩入想要添加的自定义功能。Webpack 的 Tapable 事件流机制保证了插件的有序性，使得整个系统扩展性良好。</p>
+<h2 id="是否写过Plugin？编写Plugin的思路"><a href="#是否写过Plugin？编写Plugin的思路" class="headerlink" title="是否写过Plugin？编写Plugin的思路"></a>是否写过Plugin？编写Plugin的思路</h2><p>webpack在运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在特定的阶段钩入想要添加的自定义功能。Webpack 的 Tapable 事件流机制保证了插件的有序性，使得整个系统扩展性良好。</p>
 <ul>
 <li>compiler 暴露了和 Webpack 整个生命周期相关的钩子</li>
 <li>compilation 暴露了与模块和依赖有关的粒度更小的事件钩子</li>
@@ -355,16 +434,16 @@ if (false) {
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历compilation.assets模块。对符合要求的文件进行正则替换</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CssPathTransfor</span> &#123;</span><br><span class="line">  apply (compiler) &#123;</span><br><span class="line">    compiler.<span class="title function_">plugin</span>(<span class="string">&#x27;emit&#x27;</span>, <span class="function">(<span class="params">compilation, callback</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--CssPathTransfor emit&#x27;</span>)</span><br><span class="line">      <span class="comment">// 遍历所有资源文件</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> filePathName <span class="keyword">in</span> compilation.<span class="property">assets</span>) &#123;</span><br><span class="line">        <span class="comment">// 查看对应的文件是否符合指定目录下的文件</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/static\/css\/pages/i</span>.<span class="title function_">test</span>(filePathName)) &#123;</span><br><span class="line">          <span class="comment">// 引入路径正则</span></span><br><span class="line">          <span class="keyword">const</span> reg = <span class="regexp">/\/static\/css\/vendor\.wxss/i</span></span><br><span class="line">          <span class="comment">// 需要替换的最终字符串</span></span><br><span class="line">          <span class="keyword">const</span> finalStr = <span class="string">&#x27;/subPages/enjoy_given/static/css/vendor.wxss&#x27;</span></span><br><span class="line">          <span class="comment">// 获取文件内容</span></span><br><span class="line">          <span class="keyword">let</span> content = compilation.<span class="property">assets</span>[filePathName].<span class="title function_">source</span>() || <span class="string">&#x27;&#x27;</span></span><br><span class="line">          </span><br><span class="line">          content = content.<span class="title function_">replace</span>(reg, finalStr)</span><br><span class="line">          <span class="comment">// 重写指定输出模块内容</span></span><br><span class="line">          compilation.<span class="property">assets</span>[filePathName] = &#123;</span><br><span class="line">            source () &#123;</span><br><span class="line">              <span class="keyword">return</span> content;</span><br><span class="line">            &#125;,</span><br><span class="line">            size () &#123;</span><br><span class="line">              <span class="keyword">return</span> content.<span class="property">length</span>;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="title function_">callback</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title class_">CssPathTransfor</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Babel原理吧"><a href="#Babel原理吧" class="headerlink" title="Babel原理吧"></a>Babel原理吧</h2><p>大多数JavaScript Parser遵循 estree 规范，Babel 最初基于 acorn 项目(轻量级现代 JavaScript 解析器)<br>Babel大概分为三大部分：</p>
-<ol>
-<li>解析：将代码转换成 AST抽象语法树</li>
-</ol>
+<h2 id="Babel原理"><a href="#Babel原理" class="headerlink" title="Babel原理"></a>Babel原理</h2><p>大多数JavaScript Parser遵循 estree 规范，Babel 最初基于 acorn 项目(轻量级现代 JavaScript 解析器)</p>
+<p>Babel大概分为三大部分：</p>
+<p>1.解析：将代码转换成 AST抽象语法树</p>
 <ul>
 <li>词法分析：将代码(字符串)分割为token流，即语法单元成的数组</li>
 <li>语法分析：分析token流(上面生成的数组)并生成 AST</li>
 </ul>
-<ol>
-<li>转换：访问 AST 的节点进行变换操作生产新的 AST<br>Taro就是利用 babel 完成的小程序语法转换</li>
-<li>生成：以新的 AST 为基础生成代码</li>
-</ol>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">happy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/31/webpack/">http://example.com/2023/03/31/webpack/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">豆豆想吃骨头</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">打包工具</a><a class="post-meta__tags" href="/tags/webpack/">webpack</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/31/vite/" title="vite"><img class="cover" src="/img/%E7%89%8C%E7%89%8Cvite.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">vite</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/31/react/" title="react"><img class="cover" src="/img/%E7%89%8C%E7%89%8Creact.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">react</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack%E5%92%8Cbabel"><span class="toc-number">1.</span> <span class="toc-text">webpack和babel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA%E5%92%8C%E6%89%93%E5%8C%85%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">前端代码为什么要进行构建和打包？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Babel%E5%92%8Cwebpack%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Babel和webpack的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">webpack如何实现懒加载？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E6%89%93%E5%8C%85%E8%BF%87%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">webpack打包过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loader%E5%92%8Cplugin%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">loader和plugin的区别？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BA%86VueCli%E5%90%8E%E5%B0%B1%E7%94%A8%E4%B8%8D%E5%88%B0WebPack%E4%BA%86%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么使用了VueCli后就用不到WebPack了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebPack%E4%B8%ADloader%E5%92%8Cplugin%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">WebPack中loader和plugin的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebPack%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">WebPack构建过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84loader"><span class="toc-number">6.</span> <span class="toc-text">常见的loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84plugin%E6%8F%92%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">常见的plugin插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#source-map%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">source map是什么？生产环境怎么用？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#source-map-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AF%B9%E5%BA%94%E5%88%B0%E6%BA%90%E4%BB%A3%E7%A0%81%E7%9A%84%EF%BC%9F"><span class="toc-number">8.1.</span> <span class="toc-text">source map 是如何对应到源代码的？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack-%E6%96%87%E4%BB%B6%E7%9B%91%E5%90%AC%E5%8E%9F%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text">Webpack 文件监听原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack-%E7%9A%84%E7%83%AD%E6%9B%B4%E6%96%B0%E5%8E%9F%E7%90%86"><span class="toc-number">10.</span> <span class="toc-text">Webpack 的热更新原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8C%87%E7%BA%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">文件指纹是什么？怎么用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9bundle%E4%BD%93%E7%A7%AF%E8%BF%9B%E8%A1%8C%E7%9B%91%E6%8E%A7%E5%92%8C%E5%88%86%E6%9E%90%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">如何对bundle体积进行监控和分析？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%AE%9E%E9%99%85%E5%B7%A5%E7%A8%8B%E4%B8%AD%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8A%E7%99%BE%E8%A1%8C%E4%B9%83%E6%98%AF%E5%B8%B8%E4%BA%8B%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%90%84%E4%B8%AAloader%E6%8C%89%E7%85%A7%E9%A2%84%E6%83%B3%E6%96%B9%E5%BC%8F%E5%B7%A5%E4%BD%9C%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">在实际工程中，配置文件上百行乃是常事，如何保证各个loader按照预想方式工作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96-Webpack-%E7%9A%84%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">如何优化 Webpack 的构建速度？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E5%88%9A%E6%89%8D%E4%B9%9F%E6%8F%90%E5%88%B0%E4%BA%86%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%EF%BC%8C%E9%82%A3%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E6%84%8F%E4%B9%89%E5%91%A2%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E5%86%99%E8%BF%87Loader%EF%BC%9F%E7%AE%80%E5%8D%95%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E7%BC%96%E5%86%99loader%E7%9A%84%E6%80%9D%E8%B7%AF%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">是否写过Loader？简单描述一下编写loader的思路？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E5%86%99%E8%BF%87Plugin%EF%BC%9F%E7%AE%80%E5%8D%95%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E7%BC%96%E5%86%99Plugin%E7%9A%84%E6%80%9D%E8%B7%AF%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">是否写过Plugin？简单描述一下编写Plugin的思路？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Babel%E5%8E%9F%E7%90%86%E5%90%A7"><span class="toc-number">18.</span> <span class="toc-text">Babel原理吧</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By happy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
+<p>2.转换：访问 AST 的节点进行变换操作生产新的 AST</p>
+<ul>
+<li>Taro就是利用 babel 完成的小程序语法转换</li>
+</ul>
+<p>3.生成：以新的 AST 为基础生成代码</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">happy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/31/webpack/">http://example.com/2023/03/31/webpack/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">豆豆想吃骨头</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">打包工具</a><a class="post-meta__tags" href="/tags/webpack/">webpack</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/31/vite/" title="vite"><img class="cover" src="/img/%E7%89%8C%E7%89%8Cvite.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">vite</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/31/react/" title="react"><img class="cover" src="/img/%E7%89%8C%E7%89%8Creact.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">react</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA%E5%92%8C%E6%89%93%E5%8C%85%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">前端代码为什么要进行构建和打包？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Babel%E5%92%8Cwebpack%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">Babel和webpack的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">webpack如何实现懒加载？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack%E6%89%93%E5%8C%85%E8%BF%87%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">webpack打包过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BA%86VueCli%E5%90%8E%E5%B0%B1%E7%94%A8%E4%B8%8D%E5%88%B0WebPack%E4%BA%86%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">为什么使用了VueCli后就用不到WebPack了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">常用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text">配置类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="toc-number">6.2.</span> <span class="toc-text">配置项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84loader"><span class="toc-number">7.</span> <span class="toc-text">常见的loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84plugin%E6%8F%92%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">常见的plugin插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loader%E5%92%8CPlugin%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">9.</span> <span class="toc-text">Loader和Plugin的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">10.</span> <span class="toc-text">Webpack构建流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#source-map%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">source map是什么？生产环境怎么用？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#source-map-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AF%B9%E5%BA%94%E5%88%B0%E6%BA%90%E4%BB%A3%E7%A0%81%E7%9A%84%EF%BC%9F"><span class="toc-number">11.1.</span> <span class="toc-text">source map 是如何对应到源代码的？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack%E6%96%87%E4%BB%B6%E7%9B%91%E5%90%AC%E5%8E%9F%E7%90%86"><span class="toc-number">12.</span> <span class="toc-text">Webpack文件监听原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack%E7%9A%84%E7%83%AD%E6%9B%B4%E6%96%B0%E5%8E%9F%E7%90%86"><span class="toc-number">13.</span> <span class="toc-text">Webpack的热更新原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8C%87%E7%BA%B9"><span class="toc-number">14.</span> <span class="toc-text">文件指纹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9bundle%E4%BD%93%E7%A7%AF%E8%BF%9B%E8%A1%8C%E7%9B%91%E6%8E%A7%E5%92%8C%E5%88%86%E6%9E%90%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">如何对bundle体积进行监控和分析？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%AE%9E%E9%99%85%E5%B7%A5%E7%A8%8B%E4%B8%AD%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8A%E7%99%BE%E8%A1%8C%E4%B9%83%E6%98%AF%E5%B8%B8%E4%BA%8B%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%90%84%E4%B8%AAloader%E6%8C%89%E7%85%A7%E9%A2%84%E6%83%B3%E6%96%B9%E5%BC%8F%E5%B7%A5%E4%BD%9C%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">在实际工程中，配置文件上百行乃是常事，如何保证各个loader按照预想方式工作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96-Webpack-%E7%9A%84%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">如何优化 Webpack 的构建速度？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E5%88%9A%E6%89%8D%E4%B9%9F%E6%8F%90%E5%88%B0%E4%BA%86%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%EF%BC%8C%E9%82%A3%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E6%84%8F%E4%B9%89%E5%91%A2%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">你刚才也提到了代码分割，那代码分割的本质是什么？有什么意义呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E5%86%99%E8%BF%87Loader%EF%BC%9F%E7%BC%96%E5%86%99loader%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">19.</span> <span class="toc-text">是否写过Loader？编写loader的思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E5%86%99%E8%BF%87Plugin%EF%BC%9F%E7%BC%96%E5%86%99Plugin%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">20.</span> <span class="toc-text">是否写过Plugin？编写Plugin的思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Babel%E5%8E%9F%E7%90%86"><span class="toc-number">21.</span> <span class="toc-text">Babel原理</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By happy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
